@@ -129,12 +129,114 @@ li{margin-bottom:6px}
 .toast.on{opacity:1}
 @media(max-width:600px){.ccap{width:96px;height:96px}.hero{height:150px}.pimg{height:130px}.pimg-x{height:130px}h1{font-size:24px}.sheet{padding:18px}.brand small{display:none}}
 
+/* ═══ v3: aprendiz, glossário, editor, comunidade ═══ */
+.strip{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:linear-gradient(160deg,rgba(217,164,65,.1),rgba(217,164,65,.03));border:1px solid rgba(217,164,65,.35);border-radius:10px;padding:12px 14px;margin:0 0 14px;font-size:13.5px;color:#e6d6b4;max-width:640px}
+.strip b{color:var(--brand2)}
+.strip button{background:var(--brand);color:#191204;font-weight:800;border-radius:8px;padding:8px 14px;font-size:13px;flex-shrink:0}
+.hb2{display:flex;gap:10px;margin-top:14px;max-width:640px}
+.hb2 .btn{margin-top:0}
+.seu-t{font-family:'Special Elite','Courier New',Georgia,serif;color:var(--brand2);font-size:15px;margin:22px 0 10px;letter-spacing:.5px}
+/* glossário */
+.u-glo{text-decoration:underline;text-decoration-style:wavy;text-decoration-color:rgba(217,164,65,.65);text-underline-offset:3px;cursor:help;color:var(--brand2)}
+#glo{position:fixed;top:0;right:0;bottom:0;width:330px;max-width:92vw;background:#171208;border-left:2px solid var(--brand);z-index:65;transform:translateX(102%);transition:transform .25s ease;overflow-y:auto;box-shadow:-18px 0 40px rgba(0,0,0,.55);padding:16px}
+#glo.on{transform:none}
+#glo h3{font-family:'Special Elite','Courier New',Georgia,serif;color:var(--paper);font-size:16px;display:flex;justify-content:space-between;align-items:center;font-weight:400}
+#glo .gclose{background:none;border:0;color:var(--muted);font-size:20px;cursor:pointer;padding:2px 8px}
+#glo .gclose:hover{color:var(--bad)}
+#glo .gsub{font-size:12px;color:var(--muted);margin:4px 0 10px;line-height:1.45}
+#glo input{margin-bottom:10px}
+.gterm{border:1px solid var(--line);border-radius:8px;margin-bottom:8px;background:#1e180d}
+.gterm summary{cursor:pointer;padding:9px 11px;font-size:13.5px;font-weight:700;color:var(--brand2);list-style:none;display:flex;justify-content:space-between;gap:8px}
+.gterm summary::-webkit-details-marker{display:none}
+.gterm summary::after{content:'+';color:var(--muted)}
+.gterm[open] summary::after{content:'–'}
+.gterm .gd{padding:0 11px 10px;font-size:13px;color:#ddd2bc;line-height:1.55}
+.gterm.hit{border-color:var(--brand);box-shadow:0 0 0 1px var(--brand)}
+/* trilha / aprender */
+.xpbar{background:#241c10;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:16px}
+.xpbar .xt{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:8px}
+.xpbar .xt b{color:var(--brand2);font-family:'Special Elite','Courier New',Georgia,serif;font-weight:400}
+.xpr{height:9px;background:#1a140b;border:1px solid var(--line);border-radius:99px;overflow:hidden}
+.xpr i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--brand2));border-radius:99px;transition:width .4s}
+.etapa{background:#151009;border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.etapa summary{cursor:pointer;padding:14px 16px;display:flex;align-items:center;gap:12px;list-style:none}
+.etapa summary::-webkit-details-marker{display:none}
+.etapa summary:hover{background:#1a140b}
+.etp-n{font-family:'Special Elite','Courier New',Georgia,serif;min-width:34px;height:34px;border-radius:8px;background:#241c10;border:1px solid var(--line);color:var(--brand2);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.etapa.done .etp-n{background:var(--ok);color:#101608;border-color:transparent}
+.etp-t{flex:1;min-width:0}
+.etp-t b{display:block;color:var(--paper);font-size:15px}
+.etp-t small{color:var(--muted);font-size:12px}
+.etp-st{font-size:12px;color:var(--muted);flex-shrink:0}
+.etapa.done .etp-st{color:var(--ok)}
+.etp-b{padding:2px 16px 18px;border-top:1px dashed #2e2619}
+.etp-b h4{font-size:13px;color:var(--brand2);margin:14px 0 6px;font-family:'Special Elite','Courier New',Georgia,serif;font-weight:400;letter-spacing:.5px}
+.etp-b .lic{font-size:14px;color:#ddd2bc;line-height:1.65}
+.etp-b .lic b{color:var(--paper)}
+.etp-b .lic ul{margin:6px 0 6px 18px}
+.treino{background:#1c160d;border:1px solid var(--line);border-left:3px solid var(--brand);border-radius:4px 10px 10px 4px;padding:13px 15px;margin-top:8px}
+.treino .tq{font-size:14px;line-height:1.6;color:#e9dfc9;margin-bottom:10px}
+.tops{display:flex;flex-direction:column;gap:7px}
+.top{text-align:left;background:#241d12;border:1px solid var(--line);border-radius:9px;padding:10px 13px;font-size:13.5px;color:#e0d5bd;line-height:1.45;transition:border-color .15s}
+.top:hover{border-color:var(--brand)}
+.top.ok{border-color:var(--ok);background:rgba(123,160,91,.12);color:#cfe3b8}
+.top.no{border-color:var(--bad);background:rgba(178,58,46,.1)}
+.top .exp{display:block;margin-top:6px;font-size:12.5px;font-style:italic;color:var(--muted)}
+.top.ok .exp{color:#b9d19a}
+.top.no .exp{color:#e0a196}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 10px}
+.chip{background:#241d12;border:1px solid var(--line);border-radius:8px;padding:9px 13px;font-size:13px;color:#e0d5bd;font-weight:700}
+.chip:hover{border-color:var(--brand)}
+.chip.sel{background:var(--brand);color:#191204;border-color:var(--brand)}
+.chip.ok{background:var(--ok);color:#101608;border-color:transparent}
+.chip.no{background:var(--bad);color:#f5e9d0;border-color:transparent}
+.tok{margin-top:10px;font-size:13px;font-weight:700;color:var(--ok);display:none}
+.tok.on{display:block}
+.missao{background:#181206;border:1px dashed rgba(217,164,65,.4);border-radius:10px;padding:13px 15px;margin-top:8px}
+.missao .mt2{font-size:13.5px;color:#e6d6b4;line-height:1.55;margin-bottom:8px}
+.missao textarea{min-height:70px}
+.missao .mdone{font-size:13px;font-weight:700;color:var(--ok);margin-top:8px;display:none}
+.missao.done .mdone{display:block}
+.plano{margin-top:8px;background:rgba(123,160,91,.06);border:1px solid rgba(123,160,91,.3);border-radius:10px;padding:11px 15px;font-size:13px;color:#cfe0b5;line-height:1.6}
+.plano b{color:#a9c78a}
+/* editor */
+.fsec{background:#151009;border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
+.fsec h3{font-family:'Special Elite','Courier New',Georgia,serif;color:var(--brand2);font-size:15px;margin-bottom:10px;font-weight:400;display:flex;justify-content:space-between;align-items:center}
+.frow{display:grid;gap:10px;grid-template-columns:1fr}
+@media(min-width:640px){.frow.c2{grid-template-columns:1fr 1fr}.frow.c3{grid-template-columns:1fr 1fr 1fr}}
+.fitem{background:#1c160d;border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:10px}
+.fitem .fdel{float:right;background:none;border:0;color:var(--bad);cursor:pointer;font-size:15px;padding:2px 6px}
+.fitem .fai{float:right;background:none;border:1px dashed rgba(217,164,65,.4);color:var(--brand2);cursor:pointer;font-size:11px;border-radius:99px;padding:3px 9px;margin-right:6px}
+.fitem .fai:hover{border-color:var(--brand)}
+.fitem .fai:disabled{opacity:.5;cursor:wait}
+.mini{font-size:12px;color:var(--muted);margin:2px 0 4px;line-height:1.4}
+.cnt{font-size:11px;color:var(--muted);font-family:Georgia,serif;font-weight:400}
+/* comunidade */
+.ccard2{display:flex;gap:12px;align-items:center;background:#151009;border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:10px}
+.ccard2 .ci{flex:1;min-width:0}
+.ccard2 b{color:var(--paper);font-family:'Special Elite','Courier New',Georgia,serif;font-weight:400}
+.ccard2 small{display:block;color:var(--muted);margin-top:3px;line-height:1.4}
+.ccard2 .cb{display:flex;flex-direction:column;gap:6px;flex-shrink:0}
+.ccard2 .cb .btn{margin:0;padding:8px 12px;font-size:12.5px}
+.cstat{font-size:12.5px;color:var(--muted);background:#1a140b;border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-bottom:12px;line-height:1.5}
+.codebox{font-family:'Courier New',monospace;font-size:11px;background:#120e08;border:1px solid var(--line);border-radius:8px;padding:9px;word-break:break-all;color:#cbbd97;margin-top:8px}
+/* conta modal */
+#conta{position:fixed;inset:0;background:rgba(8,6,3,.8);z-index:80;display:flex;align-items:center;justify-content:center;padding:16px}
+#conta .cbox{background:#171208;border:2px solid var(--brand);border-radius:14px;max-width:430px;width:100%;padding:22px;max-height:92vh;overflow-y:auto}
+#conta h3{font-family:'Special Elite','Courier New',Georgia,serif;color:var(--paper);font-size:18px;margin-bottom:4px;font-weight:400}
+#conta .csub{font-size:12.5px;color:var(--muted);margin-bottom:12px;line-height:1.5}
+.reckey{font-family:'Courier New',monospace;font-size:16px;letter-spacing:2px;background:#241d12;border:1px dashed var(--brand);color:var(--brand2);border-radius:8px;padding:10px;text-align:center;margin:10px 0;font-weight:700}
+.cwarn{font-size:12px;color:#e0a196;line-height:1.5}
+.cok{font-size:13px;color:var(--ok);font-weight:700}
+.dicabtn{position:relative}
+.dicabtn .ndica{background:rgba(0,0,0,.25);border-radius:99px;padding:1px 7px;font-size:11px;margin-left:4px}
+@media(max-width:600px){#glo{width:100%;border-left:0;border-top:2px solid var(--brand);top:auto;height:72vh;border-radius:14px 14px 0 0}}
 </style>
 </head>
 <body>
 <header>
   <div class="brand"><span class="logo">🔍</span> Mentalista <small>· treine seu olho</small></div>
-  <div class="hbtns"><button class="hb" id="b-escola">🎓 Escola</button><button class="hb" id="b-home">🗂️ Casos</button></div>
+  <div class="hbtns"><button class="hb" id="b-aprender">🧭 Aprender</button><button class="hb" id="b-home">🗂️ Casos</button><button class="hb" id="b-escola">🎓 Escola</button></div>
 </header>
 
 <main>
@@ -145,7 +247,11 @@ li{margin-bottom:6px}
       <h1>Todo caso ensina algo.</h1>
       <p class="frase">“As pessoas mostram quem são o tempo todo. Você só precisa observar.”</p>
       <p class="sub">Casos fictícios de investigação: examine a cena, analise pistas, <b>interrogue os personagens</b>, monte sua teoria — e receba um parecer de como você investiga: o que percebeu, o que deixou passar e como investigar melhor. A escola ensina a metodologia real usada por investigadores.</p>
+      <div class="strip">🧭 <span><b>Primeira vez?</b> O <b>Modo Aprendiz</b> ensina passo a passo — treinos, missões de campo e o caminho pra “ler” pessoas de verdade.</span><button id="strip-b">Começar</button></div>
       <div class="casos" id="lista-casos"></div>
+      <div class="seu-t" id="seus-t" hidden>🗂️ Seus casos</div>
+      <div class="casos" id="lista-meus"></div>
+      <div class="hb2"><button class="btn sec" id="b-criar">➕ Criar meu caso</button><button class="btn sec" id="b-comun">🌐 Comunidade</button></div>
     </div>
   </section>
 
@@ -158,6 +264,7 @@ li{margin-bottom:6px}
       <button class="tab" data-t="t-pers">👥 Personagens</button>
       <button class="tab" data-t="t-caderno">📓 Caderno</button>
       <button class="tab" data-t="t-teoria">🧠 Teoria final</button>
+      <button class="tab dicabtn" id="b-dica">🕯️ Dica do mestre <span class="ndica" id="n-dica"></span></button>
     </div>
     <div class="painel" id="t-dossie"></div>
     <div class="painel" id="t-pistas" hidden></div>
@@ -185,8 +292,37 @@ li{margin-bottom:6px}
       <div id="licoes"></div>
     </div>
   </section>
+
+  <!-- APRENDER -->
+  <section id="v-aprender" hidden>
+    <div class="sheet">
+      <span class="badge">MODO APRENDIZ — DO ZERO A MENTALISTA</span>
+      <h2>🧭 O caminho, passo a passo</h2>
+      <p class="sub">Ninguém “nasce detetive”: <b>observar, entrevistar e deduzir são habilidades</b> — e aqui você treina cada uma. 6 etapas: <b>lição curta → treino no jogo → missão de campo na vida real → plano de 5 min</b>. Nada de mágica: no final você vai entender por que “ler mentes” de verdade é MELHOR que telepatia.</p>
+      <div class="xpbar" id="trilha-xp"></div>
+      <div id="trilha-lista"></div>
+      <p class="mini" style="margin-top:12px">Concluiu as 6? Faça o <b>caso 1</b> e envie sua teoria — o parecer reconhece seu progresso. Depois: <b>caso 2</b> sem dicas. E então crie um caso você mesmo (➕ Criar meu caso).</p>
+    </div>
+  </section>
+
+  <!-- EDITOR -->
+  <section id="v-editor" hidden>
+    <div class="sheet" id="ed-box"></div>
+  </section>
+
+  <!-- COMUNIDADE -->
+  <section id="v-comunidade" hidden>
+    <div class="sheet" id="cm-box"></div>
+  </section>
 </main>
 <div class="toast" id="toast"></div>
+<aside id="glo" hidden>
+  <h3>📚 Glossário do investigador <button class="gclose" id="glo-x" title="fechar">✕</button></h3>
+  <div class="gsub">Palavras difíceis aparecem <u class="u-glo">sublinhadas assim</u> no texto — toque nelas pra ver o significado aqui. O vocabulário de um detetive de verdade.</div>
+  <input type="text" id="glo-q" placeholder="buscar termo…">
+  <div id="glo-lista"></div>
+</aside>
+<div id="conta" hidden><div class="cbox" id="conta-box"></div></div>
 
 <script>
 'use strict';
@@ -291,7 +427,7 @@ const CASOS=[
   {id:'duda',img:IMGS.duda,temper:'assustada, evasiva, chora fácil',pac0:3,nome:'Duda Barbosa',papel:'recepcionista contratada há 3 semanas',prompt:`Você é DUDA BARBOSA, 24, recepcionista da Galeria Vértice, contratada há 3 semanas via contrato de apoio operacional indicado pela seguradora Meridiano (assinado por Otto Krauss). Você É a executora do roubo — mas se vê como "apenas uma intermediária desesperada". O QUE VOCÊ FEZ: durante o apagão, pegou o quadro JÁ no estojo de transporte (preparado no arquivo) e desceu pela escada de serviço com o SEU crachá às 19h57; saiu pela emergência, guardou na sua mochila e deixou o prédio "por indicação médica" 5 minutos depois das luzes voltarem. ESTRATÉGIA: negue tudo no começo ("eu saí mal mesmo, era ansiedade; minha mochila é sempre grande e cheia de coisas"). Se mostrarem o LOG do crachá (19h57, escada de serviço), a FOTO da mochila cheia e rígida (19h58) ou a LUVA/o estojo: entra em pânico, chora, e admite que carregou o quadro — mas jura que achava que era procedimento da seguradora: "o senhor Krauss mandou, eu só obedecia crachá e e-mail, eu precisei desse emprego". Você tem NO CELULAR os e-mails de instrução do Otto (conta corporativa da Meridiano): mencione/entregue se confrontada com 2 evidências ou se temerem prendê-la sozinha — detalhes: o e-mail chegou na TERÇA (2 dias antes), dizia "janela de rotina das 20h" e "se as luzes falharem, siga o plano normalmente". Você NUNCA falou com Otto pessoalmente e não sabe o motivo financeiro ("ele nem me conhece... eu acho"). Se pressionarem demais sem prova, você trava e chora sem falar nada. Fale jovem, curto, nervoso, em português; chore quando a pressão aumentar.`},
   {id:'lua',img:IMGS.lua,temper:'emotiva, culpa à flor da pele',pac0:5,nome:'Luana “Lua” Prado',papel:'restauradora responsável pelo quadro',prompt:`Você é LUANA PRADO, 36, restauradora que cuida do quadro há 3 anos. Apaixonada pela obra, emotiva, quebradiça de tanto chorar. VERDADES: você DESARMOU o sensor às 19h37 (código de funcionário seu) porque o quadro ia ser MOVIDO para a sessão de fotos do catálogo às 20h — procedimento normal que você faz todo lançamento. No apagão (19h52-19h56), você estava NO PÚNTO DE LUZ do salão, falando com o jornalista Félix, que confirmará. Você viu uma silhueta passar correndo na direção da escada de serviço com algo “retangular enrolado” e ouviu UMA batida seca (parede?) — mas só fala disso se perguntarem “o que você viu/ouviu no escuro?”. O SEGREDO seu (vergonha, não crime): você vai ser demitida — a diretora Beatriz descobriu na quarta que você deixou uma lâmpada UV queimar a borda do quadro em fevereiro e escondeu. Se perguntarem da desativação, você assume logo (“foi eu, procedimento!”) e explica. Fale emotivo, rápido, português.`},
   {id:'bea',img:IMGS.bea,temper:'controladora, arrogante, despreza a investigação',pac0:6,nome:'Beatriz Andrade',papel:'diretora da galeria',prompt:`Você é BEATRIZ ANDRADE, 52, diretora da galeria. Dona do espaço, controladora, coachada, fala em “narrativa” e “posicionamento”. SEGREDO PESADO: o quadro ia ser VENDIDO por R$ 9,5M na segunda-feira (comprador de SP) — você não contou à equipe pra não gerar “ansiedade”. E Pior: a venda estava pendente de LAUDO TÉCNICO que você pediu à Otto (seguradora) — se o laudo apontasse o dano de UV da borda (que Luana escondeu), o preço CAIRIA ~R$ 1,5M. Você descobriu o dano NA QUARTA (por isso sabe da Luana). No apagão, você estava no escritório com Otto (assinando o pedido de laudo, a recepcionista viu). Se perguntarem da venda: nega no primeiro momento (“rumor de mercado”); se confrontada com o e-mail do comprador ou com calma, ADMITE e minimiza (“venda era sigilosa, normal”). Você viu NADA no escuro. Fale Coach, controlada, português.`},
-  {id:'felix',temper:'vaidoso, adora mostrar que viu tudo',pac0:6,nome:'Félix Nakamura',papel:'jornalista de arte no coquetel',prompt:`Você é FÉLIX NAKAMURA, 38, jornalista de arte. Curioso, tagarela, vaidoso com o olho treinado. Você estava NO ponto de luz com a Luana no apagão. Você TEMPLA tudo: no escuro, você ouviu passos CORRENDO na direção da escada de serviço E, segundos antes do apagão, você viu alguém DESCER do pavimento de cima (arquivo) COM UMA MOCHILA GRANDE — <b>a recepcionista Duda</b>, que tinha acesso ao arquivo e à escada de serviço, e que saiu do coquetel “por indicação médica” 5 min depois, SEM ser percebida. Você fotografou o coquetel TODO no celular: à 19h48, Duda aparece com a mochila no ombro vazia; na 19h58 (segunda foto, na porta) a mochila está CHEIA E RÍGIDA. Você SÓ mostra/fala das fotos se perguntarem “o que você registrou/viu antes e depois do apagão?” — você quer guardar pra sua reportagem, mas não consegue segurar vaidade se elogiarem seu olho. Você sabe também que Duda foi CONTRATADA há 3 semanas “indicação da seguradora” (contrato de apoio operacional via Meridiano — Otto assinou). Fale ágil, irônico, português.`}
+  {id:'felix',img:'data:image/jpeg;base64,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',temper:'vaidoso, adora mostrar que viu tudo',pac0:6,nome:'Félix Nakamura',papel:'jornalista de arte no coquetel',prompt:`Você é FÉLIX NAKAMURA, 38, jornalista de arte. Curioso, tagarela, vaidoso com o olho treinado. Você estava NO ponto de luz com a Luana no apagão. Você TEMPLA tudo: no escuro, você ouviu passos CORRENDO na direção da escada de serviço E, segundos antes do apagão, você viu alguém DESCER do pavimento de cima (arquivo) COM UMA MOCHILA GRANDE — <b>a recepcionista Duda</b>, que tinha acesso ao arquivo e à escada de serviço, e que saiu do coquetel “por indicação médica” 5 min depois, SEM ser percebida. Você fotografou o coquetel TODO no celular: à 19h48, Duda aparece com a mochila no ombro vazia; na 19h58 (segunda foto, na porta) a mochila está CHEIA E RÍGIDA. Você SÓ mostra/fala das fotos se perguntarem “o que você registrou/viu antes e depois do apagão?” — você quer guardar pra sua reportagem, mas não consegue segurar vaidade se elogiarem seu olho. Você sabe também que Duda foi CONTRATADA há 3 semanas “indicação da seguradora” (contrato de apoio operacional via Meridiano — Otto assinou). Fale ágil, irônico, português.`}
  ],
  pistas:[
   {id:'q1',onde:'Parede principal',titulo:'Gancho intacto, sensor desarmado às 19h37',corpo:`O quadro saiu pelo gancho padrão (sem arrombamento). O sensor foi DESARMADO às 19h37 com código de funcionário — procedimento da restauradora para a foto do catálogo das 20h. Quem sabia do procedimento: equipe + diretoria.`,ins:'Desarmar o sensor não é o crime — é rotina. O crime aproveitou a JANELA de 4 min de apagão.'},
@@ -317,32 +453,52 @@ const CASOS=[
 
 /* ═══ ESTADO ═══ */
 let C=null, EXAM=new Set(), NOTAS=[], HIPALT='', INTERLOC=null, INTERHIST=[];
-function ver(id){ ['v-home','v-caso','v-escola'].forEach(v=>$('#'+v).hidden=(v!==id)); $('#b-home').classList.toggle('on',id==='v-home'); $('#b-escola').classList.toggle('on',id==='v-escola'); window.scrollTo({top:0}); }
+function ver(id){ ['v-home','v-caso','v-escola','v-aprender','v-editor','v-comunidade'].forEach(v=>{const el=$('#'+v); if(el) el.hidden=(v!==id)}); $('#b-home').classList.toggle('on',id==='v-home'); $('#b-escola').classList.toggle('on',id==='v-escola'); $('#b-aprender').classList.toggle('on',id==='v-aprender'); window.scrollTo({top:0}); }
 $('#b-home').onclick=()=>{ renderHome(); ver('v-home'); };
 $('#b-escola').onclick=()=>{ renderEscola(); ver('v-escola'); };
 function renderHome(){
-  $('#lista-casos').innerHTML=CASOS.map((c,i)=>`<div class="ccard" data-i="${i}"><img class="ccap" src="${c.cap}" alt=""><div class="cinf"><span class="dif ${c.dif===1?'d1':'d2'}">${c.difTxt}</span><b>${esc(c.titulo)}</b><small>${c.personagens.length} suspeitos · ${c.pistas.length} pistas · interrogatório livre · parecer de raciocínio</small></div></div>`).join('');
-  document.querySelectorAll('.ccard').forEach(el=>el.onclick=()=>abrirCasos(CASOS[+el.dataset.i]));
+  $('#lista-casos').innerHTML=CASOS.map((c,i)=>cardCaso(c,i)).join('');
+  document.querySelectorAll('#lista-casos .ccard').forEach(el=>el.onclick=()=>abrirCasos(CASOS[+el.dataset.i]));
+  const meus=store.getJ('mt_meus')||[];
+  $('#seus-t').hidden=!meus.length;
+  $('#lista-meus').innerHTML=meus.map((c,i)=>`<div class="ccard" data-m="${i}"><div class="ccap ccap-x">🗂️</div><div class="cinf"><span class="dif ${c.dif===1?'d1':'d2'}">${esc(c.difTxt||'DO AUTOR')}${c.pub?' · 🌐 público':''}</span><b>${esc(c.titulo)}</b><small>${c.personagens.length} suspeitos · ${c.pistas.length} pistas${c.autor?' · por '+esc(c.autor):''}</small></div><div class="cb"><button class="btn" data-a="jogar">▶ jogar</button><button class="btn sec" data-a="codigo">📤 código</button><button class="btn sec" data-a="apagar">🗑️</button></div></div>`).join('');
+  document.querySelectorAll('#lista-meus .ccard').forEach(el=>{
+    const i=+el.dataset.m;
+    el.onclick=e=>{
+      const a=e.target.closest('[data-a]');
+      if(!a){abrirCasos(meusCompletos()[i]);return;}
+      const m=store.getJ('mt_meus')||[];
+      if(a.dataset.a==='jogar') abrirCasos(meusCompletos()[i]);
+      else if(a.dataset.a==='codigo'){ mostrarCodigo(m[i]); }
+      else { m.splice(i,1); store.setJ('mt_meus',m); renderHome(); toast('🗑️ caso apagado'); }
+      e.stopPropagation();
+    };
+  });
 }
 function renderEscola(){
-  $('#licoes').innerHTML=LICOES.map(l=>`<div class="lição"><h3>${l.t}</h3>${l.corpo}<p class="aplique">${l.aplique}</p></div>`).join('');
+  $('#licoes').innerHTML=LICOES.map(l=>`<div class="lição"><h3>${l.t}</h3>${l.corpo}<p class="aplique">${l.aplique}</p></div>`).join('');marcarGloss($('#licoes'));
 }
 
 /* ═══ CASO ═══ */
 function abrirCasos(c){
-  C=c; EXAM=new Set(); NOTAS=[]; HIPALT=''; fecharInterrog();
+  C=c; EXAM=new Set(); NOTAS=[]; HIPALT=''; HINTS=0; fecharInterrog();
+  atualizaNDica();
   $('#caso-head').innerHTML=`<span class="ch-n">CASO ${CASOS.indexOf(c)+1}</span><b>${esc(c.titulo)}</b><small>${c.difTxt} · ${c.personagens.length} suspeitos</small>`;
   $('#v-home').hidden=true; $('#v-escola').hidden=true; $('#v-caso').hidden=false;
-  renderDossie(); renderPistas(); renderPers(); renderCaderno(); renderTeoria();
-  document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
+  renderDossie(); renderPistas(); renderPers(); renderCaderno(); renderTeoria(); marcarGloss($('#t-dossie')); marcarGloss($('#t-pistas'));
+  document.querySelectorAll('.tab[data-t]').forEach(t=>t.onclick=()=>{
     document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on')); t.classList.add('on');
     ['t-dossie','t-pistas','t-pers','t-caderno','t-teoria'].forEach(id=>$('#'+id).hidden=(id!==t.dataset.t));
     if(t.dataset.t==='t-caderno') renderCaderno();
   });
   window.scrollTo({top:0});
 }
+function cardCaso(c,i){
+  const cap=c.cap?`<img class="ccap" src="${c.cap}" alt="">`:`<div class="ccap ccap-x">🗂️</div>`;
+  return `<div class="ccard" data-i="${i}">${cap}<div class="cinf"><span class="dif ${c.dif===1?'d1':'d2'}">${c.difTxt}</span><b>${esc(c.titulo)}</b><small>${c.personagens.length} suspeitos · ${c.pistas.length} pistas · interrogatório livre · parecer de raciocínio</small></div></div>`;
+}
 function renderDossie(){
-  $('#t-dossie').innerHTML=`<div class="hero" style="background-image:url('${C.cap}')"></div><span class="badge">${C.difTxt}</span><h2>${esc(C.titulo)}</h2><p>${C.intro}</p><p style="color:var(--muted);font-size:13px">🎓 Antes de interrogar: comece com perguntas ABERTAS (“conte o que você viu”) — só depois confronte com evidências. E mantenha uma hipótese alternativa viva (aba Caderno).</p>`;
+  $('#t-dossie').innerHTML=`${C.cap?`<div class="hero" style="background-image:url('${C.cap}')"></div>`:''}<span class="badge">${C.difTxt}</span><h2>${esc(C.titulo)}</h2><p>${C.intro}</p><p style="color:var(--muted);font-size:13px">🎓 Antes de interrogar: comece com perguntas ABERTAS (“conte o que você viu”) — só depois confronte com evidências. E mantenha uma hipótese alternativa viva (aba Caderno).</p>`;
 }
 function renderPistas(){
   $('#n-pistas').textContent=`(${EXAM.size}/${C.pistas.length})`;
@@ -478,7 +634,7 @@ async function avaliar(){
   const notas=$('#cad-notas')?$('#cad-notas').value:(store.getJ('mt_notas_'+C.id)||'');
   const b=$('#te-enviar'); b.disabled=true; b.textContent='🔎 o investigador-mestre está analisando seu raciocínio…';
   try{
-    const user=`SOLUÇÃO VERDADEIRA:\n${JSON.stringify(C.solucao)}\n\nTEORIA DO APRENDIZ:\n${JSON.stringify(teoria)}\n\nHIPÓTESE ALTERNATIVA que ele manteve: "${hip||'(nenhuma — casou cedo?)'}"\nPISTAS QUE ELE EXAMINOU: ${[...EXAM].join(', ')||'nenhuma'} de ${C.pistas.map(p=>p.id).join(', ')}\nNOTAS DELE: ${notas.slice(0,800)||'—'}\n\nAvalie conforme o system. Nota 100 = raciocínio impecável; culpado certo sem método = nota média; culpado errado por cair em armadilha = baixa, EXPLIQUE a armadilha.`;
+    const user=`SOLUÇÃO VERDADEIRA:\n${JSON.stringify(C.solucao)}\n\nTEORIA DO APRENDIZ:\n${JSON.stringify(teoria)}\n\nHIPÓTESE ALTERNATIVA que ele manteve: "${hip||'(nenhuma — casou cedo?)'}"\nPISTAS QUE ELE EXAMINOU: ${[...EXAM].join(', ')||'nenhuma'} de ${C.pistas.map(p=>p.id).join(', ')}\nNOTAS DELE: ${notas.slice(0,800)||'—'}${progAprendiz()}\n\nAvalie conforme o system. Nota 100 = raciocínio impecável; culpado certo sem método = nota média; culpado errado por cair em armadilha = baixa, EXPLIQUE a armadilha.`;
     const r=await callAI([{role:'system',content:C.avalSistema},{role:'user',content:user}]);
     const o=tentaJSON(r);
     if(!o) throw new Error('resposta ilegível — tente de novo');
@@ -486,6 +642,7 @@ async function avaliar(){
   }catch(e){ toast('⚠️ '+e.message); }
   b.disabled=false; b.textContent='📋 Enviar ao investigador-mestre';
 }
+function progAprendiz(){const t=store.getJ('mt_trilha')||{};const tr=Object.values(t).filter(x=>x&&x.done).length;const mi=Object.values(t).filter(x=>x&&x.m).length;return `\nPROGRESSO NO MODO APRENDIZ: ${tr}/6 treinos concluídos, ${mi}/4 missões de campo.\nDICAS DO MESTRE USADAS NESTE CASO: ${HINTS||0} (menos dicas = investigação mais autônoma — considere no parecer).`;}
 function renderParecer(o){
   const li=a=>(a||[]).map(x=>`<li>${esc(x)}</li>`).join('');
   $('#te-res').innerHTML=`
@@ -496,13 +653,480 @@ function renderParecer(o){
     <div class="res"><h3>🎯 Como investigar melhor</h3><p>${esc(o.melhorar||'')}</p></div>
     <div class="res"><h3>📜 Desfecho do caso</h3><p style="font-style:italic">${esc(o.desfecho||'')}</p></div>
     <p style="color:var(--muted);font-size:13px">Quer afinar? Releia as lições da 🎓 Escola (especialmente as que o parecer citou) e tente de novo — a segunda teoria sempre investiga melhor.</p>`;
-  $('#te-res').scrollIntoView({behavior:'smooth'});
+  marcarGloss($('#te-res')); if($('#te-res').scrollIntoView)$('#te-res').scrollIntoView({behavior:'smooth'});
 }
 
 /* interrog handlers */
 $('#i-send').onclick=interrogar;
 $('#i-in').addEventListener('keydown',e=>{ if(e.key==='Enter') interrogar(); });
 $('#i-fechar').onclick=fecharInterrog;
+
+/* ═══════════ v3 — APRENDIZ · GLOSSÁRIO · DICAS · CONTA · EDITOR · COMUNIDADE ═══════════ */
+
+/* ═══ GLOSSÁRIO — toda palavra difícil do jogo ═══ */
+const GLOSSARIO=[
+ {t:'sommelière',d:'Profissional responsável pelos vinhos de um restaurante: orienta harmonização, cuida da adega e serve à mesa.'},
+ {t:'aquarista',d:'Técnico que cuida de aquários (água, filtros, peixes e medicamentos). Terceirizado, entra e sai do local com facilidade.'},
+ {t:'ciclovisina',d:'Medicamento antiparasitário para peixes de aquário. Ação rápida (5–15 min) e gosto amargo forte — por isso “gosto de sabão”.'},
+ {t:'laudo técnico',d:'Relatório oficial de um perito especialista que atesta o estado de uma obra/bem. Pode valorizar ou desvalorizar o item.'},
+ {t:'coinsurance',d:'No seguro: divisão do risco entre seguradora e corretor/parceiro. Se o contrato muda (ex.: a obra é vendida), a margem pode virar prejuízo.'},
+ {t:'álibi',d:'Alegação de que se estava em outro lugar quando o crime aconteceu. Um álibi VERIFICÁVEL (câmera, log, testemunha) inocenta; um álibi fraco não condena.'},
+ {t:'mandante',d:'Quem planeja/encomenda o crime mas não executa com as próprias mãos. Responsável na mesma medida — mas a prova dele é diferente.'},
+ {t:'executor',d:'Quem põe as mãos na obra — a “mão” do crime. Investigar mandante × executor é separar quem quis de quem fez.'},
+ {t:'modelo PEACE',d:'Método de entrevista usado por polícias de referência: Preparação, Engajamento, Relato (obter a “conta provável”), Encerramento e Avaliação. Sem intimidação, sem tortura — rende mais e evita confissões falsas.'},
+ {t:'TED',d:'Funil de perguntas abertas: Tell / Explain / Describe (“conte”, “explique”, “descreva”). Abre o relato antes das perguntas específicas.'},
+ {t:'relato livre',d:'A versão contada sem interrupções, no ritmo da testemunha. Quanto mais livre, mais informação útil e menos contaminação.'},
+ {t:'viés de confirmação',d:'Tendência de procurar/ver só o que confirma a hipótese que você já tinha. O inimigo nº 1 do investigador.'},
+ {t:'visão-túnel',d:'Fechar o foco numa única linha de investigação e ficar cego para o resto — causa clássica de erros judiciários.'},
+ {t:'ancoragem',d:'Fixar-se no primeiro número/fato que aparece (um horário, um valor) e julgar tudo a partir dele.'},
+ {t:'princípio de Locard',d:'“Todo contato deixa um traço.” O culpado leva algo da cena e deixa algo nela. A pergunta de ouro: o que DEVERIA estar aqui e não está?'},
+ {t:'hipótese rival',d:'Explicação alternativa plausível. Investigador profissional mantém pelo menos DUAS hipóteses vivas até o material eliminar uma.'},
+ {t:'falsificável',d:'Uma boa teoria pode ser testada e derrubada (“se fosse assim, haveria marca X”). Teoria infalível não explica nada.'},
+ {t:'navalha de Occam',d:'Entre explicações que explicam igualmente bem, prefira a que precisa de menos suposições.'},
+ {t:'taxa-base',d:'Frequência real de um evento. Ignorá-la faz você achar que o raro é comum (ex.: “deu sorte na loteria” não é plano de vida).'},
+ {t:'linha de base',d:'O comportamento normal da pessoa. Sem saber como ela age quando está tranquila, você não tem como notar o diferente.'},
+ {t:'carga cognitiva',d:'Mentalmente, mentir é mais caro que contar a verdade (gerenciar a mentira + observar você). Técnicas aumentam essa carga — mas o teste é sempre VERIFICAR o conteúdo.'},
+ {t:'fair-play',d:'Jogo honesto: tudo que é preciso para resolver o caso está no material. O leitor nunca precisa de sorte — só de atenção.'}
+];
+function renderGloss(f){
+ const q=(f||'').toLowerCase();
+ $('#glo-lista').innerHTML=GLOSSARIO.filter(g=>!q||g.t.toLowerCase().includes(q)||g.d.toLowerCase().includes(q))
+  .map(g=>`<details class="gterm" data-t="${g.t}"><summary>${g.t}</summary><div class="gd">${g.d}</div></details>`).join('')||'<p class="mini">nada encontrado</p>';
+}
+function abrirGloss(termo){
+ const g=$('#glo'); g.hidden=false; requestAnimationFrame(()=>g.classList.add('on'));
+ renderGloss($('#glo-q').value||'');
+ if(termo){const el=[...document.querySelectorAll('#glo .gterm')].find(x=>x.dataset.t===termo.toLowerCase()); if(el){$('#glo .gterm.hit')&&$('#glo .gterm.hit').classList.remove('hit'); el.classList.add('hit'); el.open=true; if(el.scrollIntoView)el.scrollIntoView({block:'center',behavior:'smooth'});}}
+}
+function fecharGloss(){const g=$('#glo');g.classList.remove('on');setTimeout(()=>g.hidden=true,260);}
+function marcarGloss(root){
+ if(!root||root.nodeType!==1)return;
+ try{
+  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>(n.nodeValue.length>3&&n.parentElement&&!n.parentElement.closest('.u-glo,#glo,.gterm,script,style'))?1:2});
+  const nos=[];let n;while((n=w.nextNode()))nos.push(n);
+  let feitos=0;
+  for(const g of GLOSSARIO){
+   const rx=new RegExp('\\b'+g.t.replace(/[- ]/g,'[-\\s]')+'\\b','gi');
+   for(const tn of nos){
+    if(feitos>240)break;
+    const txt=tn.nodeValue; rx.lastIndex=0; if(!rx.test(txt))continue; rx.lastIndex=0;
+    const span=document.createElement('span'); let last=0,m;
+    while((m=rx.exec(txt))&&feitos<240){
+     span.appendChild(document.createTextNode(txt.slice(last,m.index)));
+     const u=document.createElement('u');u.className='u-glo';u.textContent=m[0];u.dataset.g=g.t;
+     span.appendChild(u);last=m.index+m[0].length;feitos++;
+    }
+    if(!last)continue;
+    span.appendChild(document.createTextNode(txt.slice(last)));
+    tn.parentNode.replaceChild(span,tn);
+   }
+  }
+ }catch(e){}
+}
+
+/* ═══ DICAS DO MESTRE — progressivas, nunca entregam o culpado ═══ */
+let HINTS=0;
+function dicasDe(c){
+ const d=[];
+ const pk=(c.solucao&&c.solucao.pistas_chave)||[];
+ if(pk.length){const p=(c.pistas||[]).find(x=>x.id===pk[0]); if(p)d.push('Releia a pista “'+p.titulo+'” e pergunte: o que ela INDICA — e o que ela EXCLUI?');}
+ else d.push('Releia cada pista perguntando: o que isso indica? e o que isso EXCLUI?');
+ const cd=(c.solucao&&c.solucao.cadeia)||[];
+ if(cd[0])d.push('Pense na física do caso: '+cd[0]);
+ if(cd[1])d.push('Siga a corrente: '+cd[1]);
+ const ar=(c.solucao&&c.solucao.armadilhas)||[];
+ if(ar[0])d.push('⚠️ Armadilha clássica deste caso: '+ar[0].split('—')[0].trim()+'. Não case cedo com a hipótese óbvia.');
+ d.push('Volte ao caderno: sua hipótese ALTERNATIVA ainda está viva? Um investigador só fecha a teoria quando o material elimina as rivais.');
+ return d;
+}
+function atualizaNDica(){if(!C)return;const n=store.getJ('mt_dica_'+C.id)||0;const tot=dicasDe(C).length;$('#n-dica').textContent=n?'('+n+'/'+tot+')':'';}
+function pedirDica(){
+ if(!C)return;
+ const k='mt_dica_'+C.id;let n=store.getJ(k)||0;
+ const ds=dicasDe(C);
+ if(n>=ds.length){toast('🕯️ As dicas do mestre acabaram — agora é com você, detetive.');return;}
+ store.setJ(k,n+1);HINTS=n+1;atualizaNDica();
+ toast('🕯️ DICA '+(n+1)+'/'+ds.length+': '+ds[n]);
+ clearTimeout($('#toast')._h);$('#toast')._h=setTimeout(()=>$('#toast').classList.remove('on'),8000);
+}
+
+/* ═══ MODO APRENDIZ — o caminho até “ler” pessoas ═══ */
+const TRILHA=[
+ {id:'t1',tit:'Passo 1 — Deixe a pessoa contar (PEACE + relato livre)',res:'A base de toda entrevista: quem pergunta menos, descobre mais.',
+  licao:`Investigadores de referência usam o <b>modelo PEACE</b>: <b>P</b>reparação (leia o que tem antes), <b>E</b>ngajamento (construa confiança — pessoas falam com quem respeitam), <b>A</b>ccount/Relato — pegue a “conta provável” SEM interromper, depois o funil <b>TED</b> (Tell/Explain/Describe: “conte”, “explique”, “descreva”) e só ENTÃO o 5W1H. <b>C</b>losure (feche os pontinhos) e <b>E</b>valuation (o que ficou testado?).<ul><li>Por quê? A <b>memória é frágil</b>: a palavra da sua pergunta muda a resposta (efeito Loftus: a palavra da pergunta muda o que a testemunha “lembra”) o que a testemunha “lembra”).</li><li>Relato livre ANTES de pergunta fechada rende mais informação e menos contaminação.</li><li>Intimidação produz o que você quer ouvir — e confissões falsas (o caso Reid). Rapport vence pressão.</li></ul>`,
+  treino:{tipo:'ordem',enun:'Monte o modelo PEACE na ordem correta:',itens:['Preparação e planejamento','Engajamento e explicação','Relato — a “conta provável”','Encerramento','Avaliação']},
+  missao:{t:'M1 · Entrevistador: peça pra alguém de casa contar “como foi ontem” por 2 minutos SEM você interromper. Depois faça UMA pergunta TED (“conte mais sobre X”). Registre: o que você descobriu que não sabia?',ph:'Descobri que… / o que mudei nas perguntas…'},
+  plano:['Faça a entrevista da missão M1 (2 min bastam)','No caso 1, abra cada interrogatório com “conte o que você viu”','Nunca comece por pergunta de sim/não']},
+ {id:'t2',tit:'Passo 2 — O funil de perguntas (abertas antes das fechadas)',res:'A ordem das perguntas muda a qualidade das respostas.',
+  licao:`Depois do relato livre, desça no funil: <b>TED</b> (aberto) → <b>5W1H</b> (o quê, quem, quando, onde, como, por quê) → <b>detalhe de verificação</b> (horário, lado, cor). Regras de ouro:<ul><li>Pergunta fechada (“onde você estava às 21h07?”) serve pra TESTAR, nunca pra COMEÇAR.</li><li>Nunca pergunte com pressuposição (“por que você fugiu?”) — você está plantando a resposta.</li><li>Silêncio é ferramenta: 3 segundos de pausa fazem a pessoa completar o pensamento.</li></ul>`,
+  treino:{tipo:'mc',pergunta:'Uma testemunha saiu do restaurante às 21h. Qual é a PRIMEIRA pergunta?',
+   ops:[
+    {t:'“Onde exatamente o senhor estava às 21h07?”',ok:0,exp:'Fechada e ancorada num horário: induz a resposta e limita o relato (efeito Loftus).'},
+    {t:'“Conte como foi sua saída do restaurante, do começo ao fim.”',ok:1,exp:'Relato aberto: máximo de informação com a memória intacta. Testar vem DEPOIS.'},
+    {t:'“Por que o senhor fugiu do restaurante?”',ok:0,exp:'Pressupõe culpa (“fugiu”) — pergunta carregada planta a resposta e põe a pessoa na defensiva.'},
+    {t:'“Você estava nervoso?”',ok:0,exp:'Fechada (sim/não): rende 1 bit de informação e ainda sugere o que você espera ouvir.'}]},
+  missao:{t:'M2 · Pratique TED: peça pra alguém DESCREVER a cozinha de casa sem olhar (olhos fechados). Anote 3 detalhes e confira depois: o que ela “lembrou” errado? Todo mundo inventa um pouco — e detectar isso é o treino.',ph:'Os 3 detalhes… / o que estava errado…'},
+  plano:['Repare hoje: quando você pergunta fechada por hábito? Reescreva 1 delas aberta','No jogo: sempre esgote o “conte tudo” antes de confrontar','Observe: silêncio de 3s após responder — o que a pessoa completa?']},
+ {id:'t3',tit:'Passo 3 — Seu cérebro te engana (vieses)',res:'Confirmação e visão-túnel: como NÃO casar cedo com um suspeito.',
+  licao:`O erro que derruba investigações não é falta de astúcia — é o <b>viés de confirmação</b> com <b>visão-túnel</b>: casar cedo com UMA hipótese e só enxergar o que a confirma. Condenações erradas famosas (Caso Central Park, Amanda Knox) têm isso no DNA: um suspeito “óbvio” + pressa + confirmação. Antídotos práticos:<ul><li>Mantenha <b>2 hipóteses rivais</b> vivas por escrito (o caderno do jogo te obriga a isso!).</li><li>Procure ATIVAMENTE o <b>desconfirmante</b>: “o que me provaria que estou errado?” — e vá verificar.</li><li>Cuidado com <b>ancoragem</b>: o primeiro número/horário que você ouviu não é a verdade, é só o primeiro.</li><li>Contexto cega até perito: experimentos mostram especialistas mudando laudo conforme informação prévia (Dror, 2006).</li></ul>`,
+  treino:{tipo:'mc',pergunta:'Cena: caixa registradora aberta, R$ 50 a menos, o vendedor mais novo está nervoso. O gerente trava: “foi ele”. Qual o problema do raciocínio dele?',
+   ops:[
+    {t:'Viés de confirmação alimentando visão-túnel',ok:1,exp:'Casou cedo com UMA hipótese e só enxerga o que confirma. Nervosismo ≠ prova. E quem mais tinha acesso à caixa?'},
+    {t:'Viés de disponibilidade',ok:0,exp:'Seria julgar pelo exemplo mais fácil de lembrar. O erro aqui é outro: não testar hipóteses rivais.'},
+    {t:'Efeito halo',ok:0,exp:'Seria “é simpático = inocente”. Aqui o traço (nervoso) “definiu” a culpa — é confirmação + túnel.'},
+    {t:'Ancoragem',ok:0,exp:'Ancoragem é prender-se num número inicial (“R$ 50”). O erro do gerente é maior: fechou a teoria inteira cedo.'}]},
+  missao:{t:'M3 · Caça ao desconfirmante: pegue uma crença sua (“Fulano não gosta de mim”). Escreva 3 fatos que a DESMENTIRIAM — e verifique um hoje. Isso é músculo antivieses.',ph:'Crença: … / desconfirmantes: 1) 2) 3)'},
+  plano:['Escreva sua teoria do caso 1 + o que a DESMONTARIA','Preencha a hipótese alternativa do caderno (é obrigatória de propósito)','Prenda-se: “suspeito óbvio” merece MAIS teste, não menos']},
+ {id:'t4',tit:'Passo 4 — Toda ação deixa traço (Locard)',res:'Ler cenas: o que deveria estar aqui e não está?',
+  licao:`O <b>princípio de Locard</b>: todo contato deixa traço — o culpado leva algo da cena e deixa algo nela. O olho treinado pergunta duas coisas a cada cena:<ul><li><b>O que isso indica?</b></li><li><b>O que isso EXCLUI?</b> (a pista que elimina hipóteses vale ouro)</li></ul>E a pergunta mais poderosa da investigação: <b>“o que DEVERIA estar aqui e não está?”</b> — a ausência organizada também é evidência. Cuidado só com o inverso: “não achei prova” não prova ausência (ausência ≠ evidência de ausência).`,
+  treino:{tipo:'mc',pergunta:'Relato: “nenhum visitante entrou na sala hoje”. Você examina: 2 copos secando no escorredor, mesa sem poeira em 2 retângulos limpos, cadeira girada para o lado errado. O que isso ensina?',
+   ops:[
+    {t:'“Alguém esteve ali — a cena CONTRADIZ o relato.”',ok:1,exp:'Locard puro: copos, marcas de limpeza e cadeira são “silêncio que fala”. Próximo passo: QUEM tinha acesso?'},
+    {t:'“Nada — copos podem estar ali há dias.”',ok:0,exp:'Até pode; por isso se VERIFICA (dedada, conteúdo, horário). Descartar sem verificar é jogar evidência fora.'},
+    {t:'“O morador mente — é o culpado.”',ok:0,exp:'Inconsistência ≠ culpa (pode ser vergonha, medo). Primeiro estabeleça O QUÊ aconteceu, depois QUEM.'},
+    {t:'“Sem evidência, impossível investigar.”',ok:0,exp:'“Não achei” não é vazio: é convite para perguntar o que DEVERIA estar ali e não está.'}]},
+  missao:{t:'M4 · Observador Locard: saia do cômodo onde você está. Antes de voltar, preveja 3 coisas que “deveriam estar lá”. Volte e confira. Depois ache 1 coisa fora do lugar. Anote o que sua previsão acertou.',ph:'Previ: … / acertei: … / fora do lugar: …'},
+  plano:['No caso 2, pergunte a cada pista: “o que isso EXCLUI?”','Hoje, note 1 traço que alguém deixou em você (pó, cheiro, marca)','Pergunte-se 1× ao dia: “o que deveria estar aqui e não está?”']},
+ {id:'t5',tit:'Passo 5 — “Ler” pessoas (a ciência, sem mistificação)',res:'O que separa ler gente de ler a sorte: linha de base + conteúdo verificável.',
+  licao:`A verdade que os filmes não contam: linguagem corporal “mágica” <b>não existe</b> — a ciência (Bond & DePaulo, 200 estudos) acha que pessoas acertam só ~54% ao julgar engano, e os “experts” não vão muito além. O que REALMENTE funciona:<ul><li><b>Linha de base</b>: como a pessoa age quando está tranquila? Só o DESVIO informa (e desvio ≠ culpa: medo de não acreditar nele também desvia).</li><li><b>Conteúdo verificável</b>: versões verdadeiras têm mais detalhes checáveis (horários, lados, nomes). Anote e CHECK os pontos verificáveis.</li><li><b>Contradição entre versões</b> é o sinal mais forte que existe — por isso se ouve todo mundo antes de fechar.</li><li><b>Carga cognitiva</b>: pedir pra contar ao contrário pesa mais na mentira que na verdade.</li></ul>“Ler mentes”, de verdade, é isso: padrão + contexto + verificação. É treino — não dom.`,
+  treino:{tipo:'mc',pergunta:'Durante um interrogatório, qual observação vale OURO?',
+   ops:[
+    {t:'“Ela evitou contato visual — está mentindo.”',ok:0,exp:'Mito derrubado pela ciência: contato visual não separa mentiroso. Timidez e cultura confundem.'},
+    {t:'“A versão dela tem 2 horários verificáveis — vou checar os dois.”',ok:1,exp:'Isso! Engano se pega em CONTEÚDO verificável, não em sinal corporal mágico.'},
+    {t:'“Mexeu demais os pés — nervosismo de culpada.”',ok:0,exp:'Nervosismo é de inocente também (interrogatório assusta). Sem linha de base, pé mexendo não informa.'},
+    {t:'“Ela é detalhista demais — versão decorada.”',ok:0,exp:'Pode ser! Mas “parece decorado” não é verificação — o teste é checar os detalhes, não estimar a fluência.'}]},
+  missao:{t:'M5 · Calibração: num vídeo mudo, preveja 5× se a pessoa está confortável ou desconfortável. Anote os acertos. Repita em 1 semana. Olho melhora com FEEDBACK — não com dom.',ph:'Acertos: …/5 · o que me enganou…'},
+  plano:['No jogo: anote 1 horário verificável de cada suspeito e cruze com as pistas','Teste a carga cognitiva: peça pra alguém contar o café da manhã DE TRÁS pra frente e observe','Guarde a lição: 54% — desconfie de quem “lê gente” com certeza absoluta']},
+ {id:'t6',tit:'Passo 6 — Fechar a teoria (sem fechar a mente)',res:'Teoria boa explica tudo, é falsificável e sobrevive a Occam.',
+  licao:`Antes de acusar, passe sua teoria por 4 filtros:<ul><li><b>Explica TUDO?</b> (copos, cadeira, poeira, o bilhete — os traços TODOS)</li><li><b>É falsificável?</b> faz previsões testáveis (“se foi assim, haverá X”)</li><li><b>Navalha de Occam</b>: entre versões equivalentes, a de menos suposições vence</li><li><b>Taxa-base</b>: planos mirabolantes são RAROS; costume + oportunidade são comuns — aposte no comum ANTES do exótico</li></ul>Teoria infalível (“ninguém pode provar o contrário”) não é força: é desculpa. O investigador-mestre do jogo avalia exatamente isso na sua teoria final.`,
+  treino:{tipo:'mc',pergunta:'Três teorias para a cena dos copos (Passo 4). Qual é a MELHOR investigativamente?',
+   ops:[
+    {t:'“Foi o carteiro, com certeza — ele sempre entrega nesse horário.”',ok:0,exp:'“Com certeza” sem teste é fé, e acesso à PORTA não é acesso à SALA. Verificou?'},
+    {t:'“Foi quem mora lá, escondido por vergonha — TESTÁVEL: os copos têm a marca da boca dele? A limpeza foi hoje?”',ok:1,exp:'Explica todos os traços, faz previsões verificáveis e usa Occam (acesso fácil). Teoria científica.'},
+    {t:'“Foi um fantasma — ninguém pode provar o contrário.”',ok:0,exp:'Infalível = inútil: teoria que não pode errar não explica nada e não gera pista.'},
+    {t:'“Duas pessoas entraram, limparam, beberam e giraram a cadeira num ritual.”',ok:0,exp:'Multiplica agentes e passos sem necessidade — viola Occam e taxa-base.'}]},
+  missao:{t:'M6 · Sua teoria final do caso 1, em 1 frase, precisa PREVER algo que você ainda não conferiu. Escreva a previsão — depois confira nas pistas. Se acertou: teoria forte. Se errou: você acabou de evitar um erro de verdade.',ph:'Minha teoria prevê que… / confirmei? …'},
+  plano:['Rode os 4 filtros na sua teoria do caso 1','Envie a teoria ao investigador-mestre e leia os vieses apontados','Depois: caso 2 sem dica nenhuma — e crie um caso você mesmo']}
+];
+function trEstado(){return store.getJ('mt_trilha')||{}}
+function xpTotal(){const t=trEstado();let x=0;TRILHA.forEach(e=>{const s=t[e.id]||{};if(s.done)x+=25;if(s.m)x+=35});return x}
+function patente(){const x=xpTotal();return x>=250?'🧠 Mentalista':x>=160?'🕵️ Interrogador':x>=80?'🔍 Observador':'🔈 Ouvidor'}
+function renderTrilha(){
+ const t=trEstado();
+ $('#trilha-xp').innerHTML=`<div class="xt"><span>${patente()} · missões de campo contam dobro</span><b>${xpTotal()} XP</b></div><div class="xpr"><i style="width:${Math.min(100,Math.round(xpTotal()/290*100))}%"></i></div>`;
+ $('#trilha-lista').innerHTML=TRILHA.map((e,i)=>{const s=t[e.id]||{};return `<details class="etapa ${s.done?'done':''}" ${i===0&&!s.done?'open':''}><summary><span class="etp-n">${s.done?'✓':i+1}</span><span class="etp-t"><b>${e.tit}</b><small>${e.res}</small></span><span class="etp-st">${s.done?(s.m?'treino+missão ✓':'treino ✓ · falta a missão'):'pendente'}</span></summary><div class="etp-b"><h4>📖 LIÇÃO</h4><div class="lic">${e.licao}</div><h4>🎯 TREINO</h4><div id="tr-${e.id}"></div><h4>🏕️ MISSÃO DE CAMPO</h4><div class="missao ${s.m?'done':''}"><div class="mt2">${e.missao.t}</div><textarea id="mtx-${e.id}" placeholder="${esc(e.missao.ph)}">${esc(store.getJ('mt_mis_'+e.id)||'')}</textarea><button class="btn sec" data-mis="${e.id}">${s.m?'✏️ revisar missão':'✅ registrar missão'}</button><div class="mdone">✓ missão registrada (+35 XP) — o aprendizado de verdade acontece fora do jogo.</div></div><h4>🗓️ PLANO DE HOJE (5 min)</h4><div class="plano"><b>1.</b> ${e.plano[0]}<br><b>2.</b> ${e.plano[1]}<br><b>3.</b> ${e.plano[2]}</div></div></details>`}).join('');
+ TRILHA.forEach(renderTreino);
+ document.querySelectorAll('[data-mis]').forEach(b=>b.onclick=()=>{
+  const id=b.dataset.mis;store.setJ('mt_mis_'+id,$('#mtx-'+id).value);
+  const t=trEstado();t[id]=Object.assign({done:1},t[id],{m:1});store.setJ('mt_trilha',t);
+  toast('🏕️ missão registrada (+35 XP)');renderTrilha();});
+ marcarGloss($('#trilha-lista'));
+}
+function concluiTreino(id){const t=trEstado();t[id]=Object.assign({m:t[id]?t[id].m:0},t[id],{done:1});store.setJ('mt_trilha',t);toast('🎯 treino concluído (+25 XP)');renderTrilha();}
+function renderTreino(e){
+ const box=$('#tr-'+e.id);if(!box)return;
+ const s=trEstado()[e.id]||{};const T=e.treino;
+ if(s.done){box.innerHTML=`<div class="treino"><div class="tq">${T.tipo==='ordem'?T.enun:T.pergunta}</div><div class="tok on">✓ treino concluído (+25 XP)</div></div>`;return;}
+ if(T.tipo==='ordem'){
+  box.innerHTML=`<div class="treino"><div class="tq">${T.enun}</div><div class="chips" id="ch-${e.id}"></div><div class="mini">Toque na ordem certa.</div><div class="tok">✓ Perfeito! +25 XP</div></div>`;
+  const ch=$('#ch-'+e.id);
+  const alvo=[...T.itens].sort(()=>Math.random()-.5);
+  ch.innerHTML=alvo.map(t=>`<button class="chip" data-t="${esc(t)}">${esc(t)}</button>`).join('');
+  let seq=[];
+  ch.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{
+   if(c.classList.contains('sel'))return;
+   const esperado=T.itens[seq.length];
+   if(c.dataset.t===esperado){c.classList.add('sel');seq.push(c.dataset.t);
+    if(seq.length===T.itens.length){ch.querySelectorAll('.chip.sel').forEach(x=>x.classList.add('ok'));box.querySelector('.tok').classList.add('on');concluiTreino(e.id);}
+   }else{c.classList.add('no');setTimeout(()=>c.classList.remove('no'),700);toast('❌ Não é essa a próxima etapa. Pense: o que vem ANTES de qualquer pergunta?');}
+  });
+ }else{
+  box.innerHTML=`<div class="treino"><div class="tq">${T.pergunta}</div><div class="tops">${T.ops.map((o,i)=>`<button class="top" data-i="${i}">${esc(o.t)}<span class="exp" hidden></span></button>`).join('')}</div><div class="tok">✓ É isso! +25 XP</div></div>`;
+  box.querySelectorAll('.top').forEach(b=>b.onclick=()=>{
+   const o=T.ops[+b.dataset.i],exp=b.querySelector('.exp');
+   if(o.ok){b.classList.add('ok');exp.hidden=false;exp.textContent='✅ '+o.exp;box.querySelectorAll('.top').forEach(x=>x.disabled=true);box.querySelector('.tok').classList.add('on');concluiTreino(e.id);}
+   else{b.classList.add('no');exp.hidden=false;exp.textContent='❌ '+o.exp;setTimeout(()=>{b.classList.remove('no');exp.hidden=true;},7000);}
+  });
+ }
+}
+/* dica embutida de PEACE no interrogatório (já existia) + reforço para iniciantes */
+const _dicaOrig=dicaDeTécnica;
+dicaDeTécnica=function(hist){
+ const n=hist.filter(x=>!x.dica).length;
+ if(n===2&&xpTotal()<80) return 'Novato? Experimente: “conte TUDO o que você fez entre [horário A] e [horário B], sem deixar nada de fora”. Depois chegue mais perto.';
+ return _dicaOrig(hist);
+};
+
+/* ═══ CONTA — apelido + senha, SEM e-mail, com chave de recuperação 1× ═══ */
+async function hStr(x){
+ try{ if(window.crypto&&crypto.subtle){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode('mt~'+x));return [...new Uint8Array(b)].map(y=>y.toString(16).padStart(2,'0')).join('')}}catch(e){}
+ let h=5381;for(const ch of 'mt~'+x)h=((h<<5)+h+ch.charCodeAt(0))>>>0;return 'x'+h.toString(16);
+}
+const conta=()=>store.getJ('mt_conta');
+const sessao=()=>{try{return sessionStorage.getItem('mt_sess')}catch(e){return null}};
+let pendApos=null;
+function abreModal(html){$('#conta').hidden=false;$('#conta-box').innerHTML=html;
+ const x=$('#md-x');if(x)x.onclick=()=>$('#conta').hidden=true;
+ const cp=$('#md-copy');if(cp)cp.onclick=()=>{try{navigator.clipboard.writeText($('#md-code').textContent);toast('📋 código copiado!')}catch(e){toast('selecione e copie manualmente')}};}
+function mostrarCodigo(c){
+ abreModal(`<h3>📤 Código do caso</h3><div class="csub">Quem receber, cola em 🌐 Comunidade → “Importar por código” — e joga o seu caso.</div><div class="codebox" id="md-code">${codDe(c)}</div><button class="btn" id="md-copy">📋 copiar código</button><button class="btn sec" id="md-x">fechar</button>`);
+}
+function abrirConta(mod){$('#conta').hidden=false;renderConta(mod||'in');}
+function renderConta(mod,ex){
+ const box=$('#conta-box'),c=conta(),on=!!sessao();
+ if(mod==='chave'){
+  box.innerHTML=`<h3>🔑 Sua chave de recuperação</h3>
+   <div class="csub">Ela aparece <b>SÓ ESTA VEZ</b>. Perdeu a senha sem essa chave = conta perdida (não existe e-mail pra recuperar). Copie pra um papel ou gerenciador de senhas AGORA.</div>
+   <div class="reckey">${esc((ex&&ex.chave)||'')}</div>
+   <div class="cwarn">Anotei? Guarde junto do apelido <b>${esc((ex&&ex.nick)||'')}</b>.</div>
+   <button class="btn" id="c-okchave">✍️ anotei, fechar</button>`;
+  $('#c-okchave').onclick=()=>{$('#conta').hidden=true;try{sessionStorage.setItem('mt_sess',(ex&&ex.nick)||'')}catch(e){}toast(' conta criada! 🎉 '+((ex&&ex.nick)||''));if(pendApos){const f=pendApos;pendApos=null;f();}};
+  return;
+ }
+ if(mod==='rec'){
+  box.innerHTML=`<h3>🔑 Recuperar conta</h3><div class="csub">Apelido + chave de recuperação → define nova senha.</div>
+   <label>Apelido</label><input type="text" id="r-nick" maxlength="20">
+   <label>Chave de recuperação</label><input type="text" id="r-key" placeholder="MT-XXXXX-XXXX">
+   <label>Nova senha (mín. 6)</label><input type="password" id="r-pass">
+   <button class="btn" id="r-go">Redefinir senha</button><button class="btn sec" id="c-x">voltar</button>`;
+  $('#c-x').onclick=()=>renderConta('in');
+  $('#r-go').onclick=async()=>{
+   const c2=conta();
+   if(!c2||c2.nick!==$('#r-nick').value.trim())return toast('Apelido não encontrado neste navegador');
+   if(await hStr($('#r-key').value.trim())!==c2.rec)return toast('Chave não confere');
+   const np=$('#r-pass').value;if(np.length<6)return toast('Senha muito curta (6+)');
+   c2.hash=await hStr(np);store.setJ('mt_conta',c2);
+   try{sessionStorage.setItem('mt_sess',c2.nick)}catch(e){}
+   toast('✅ senha redefinida! Bem-vindo de volta, '+c2.nick);$('#conta').hidden=true;
+   if(pendApos){const f=pendApos;pendApos=null;f();}
+  };
+  return;
+ }
+ box.innerHTML=`<h3>🕵️ Conta do investigador</h3>
+  <div class="csub">${c?`Conta deste navegador: <b class="cok">${esc(c.nick)}</b>${on?` · conectado`:''}`:'Sem e-mail, sem telefone: só apelido + senha. A conta serve pra <b>ASSINAR e publicar casos</b> na comunidade — jogar não precisa de conta.'}</div>
+  ${!c?`<label>Apelido (3–20 letras/números)</label><input type="text" id="c-nick" maxlength="20">
+  <label>Senha (mín. 6)</label><input type="password" id="c-pass">
+  <button class="btn" id="c-criar">Criar conta</button>
+  <div class="cwarn">A senha não sai do seu navegador (guardamos só o hash). Vai aparecer uma CHAVE DE RECUPERAÇÃO única — anote!</div>`:''}
+  ${c&&!on?`<label>Senha</label><input type="password" id="c-pass"><button class="btn" id="c-entrar">Entrar como ${esc(c.nick)}</button>
+  <p class="mini">Esqueceu? <a href="#" id="c-lrec" style="color:var(--brand2)">usar chave de recuperação</a></p>`:''}
+  ${c&&on?`<div class="cok">✓ conectado como ${esc(sessao())}</div><button class="btn" id="c-sair">Sair da sessão</button>`:''}
+  <button class="btn sec" id="c-x" style="margin-top:8px">fechar</button>`;
+ $('#c-x').onclick=()=>$('#conta').hidden=true;
+ const mk=$('#c-criar');
+ if(mk)mk.onclick=async()=>{
+  const nick=$('#c-nick').value.trim(),pass=$('#c-pass').value;
+  if(nick.length<3)return toast('Apelido muito curto (3+ caracteres)');
+  if(pass.length<6)return toast('Senha muito curta (6+ caracteres)');
+  if(conta())return toast('Já existe conta neste navegador');
+  const cs='ABCDEFGHJKMNPQRSTUVWXYZ23456789';let k='MT-';
+  for(let i=0;i<9;i++){k+=cs[Math.floor(Math.random()*cs.length)];if(i===4)k+='-';}
+  const conta2={nick,hash:await hStr(pass),rec:await hStr(k)};
+  store.setJ('mt_conta',conta2);
+  renderConta('chave',{chave:k,nick:nick});
+ };
+ const en=$('#c-entrar');
+ if(en)en.onclick=async()=>{
+  const c2=conta();
+  if(await hStr($('#c-pass').value)!==c2.hash)return toast('Senha incorreta');
+  try{sessionStorage.setItem('mt_sess',c2.nick)}catch(e){}
+  toast('👋 bem-vindo, '+c2.nick+'!');$('#conta').hidden=true;
+  if(pendApos){const f=pendApos;pendApos=null;f();}
+ };
+ const lr=$('#c-lrec');if(lr)lr.onclick=e=>{e.preventDefault();renderConta('rec');};
+ const sa=$('#c-sair');if(sa)sa.onclick=()=>{try{sessionStorage.removeItem('mt_sess')}catch(e){}$('#conta').hidden=true;toast('sessão encerrada');};
+}
+function exigirConta(apos){
+ if(conta()&&sessao()){apos();return;}
+ pendApos=apos;abrirConta('in');
+ toast(conta()?'Entre com sua senha pra continuar':'Crie sua conta (apelido + senha) pra continuar');
+}
+
+/* ═══ EDITOR DE CASOS ═══ */
+const AVAL_PADRAO=`Você é um INVESTIGADOR-MESTRE (metodologia PEACE, antivieses, princípio de Locard). Recebe a SOLUÇÃO VERDADEIRA do caso e a TEORIA do aprendiz e avalia o RACIOCÍNIO, não a sorte: culpado certo? método coerente com a física da cena? janela de tempo fecha? pistas-chave usadas? caiu em armadilha clássica? manteve hipótese rival? Quando houver, considere também o PROGRESSO no Modo Aprendiz e as DICAS usadas (menos dicas = mais autonomia). Responda SOMENTE JSON: {"nota":0-100,"acertos":["..."],"falhas":["..."],"vieses":["..."],"melhorar":"como investigar melhor (concreto, cite a técnica)","desfecho":"3-4 frases estilo dossiê fechando o caso, pt-BR"}.`;
+
+function fitemP(p,i){return `<div class="fitem" data-i="${i}"><button class="fdel" data-i="${i}" title="remover">✕</button><button class="fai" data-i="${i}" title="IA enriquece a ficha">✨ IA</button><div class="frow c2"><div><label>Nome</label><input class="f-n" value="${esc(p.nome)}"></div><div><label>Papel</label><input class="f-p" value="${esc(p.papel)}" placeholder="garçom, irmã, sócio…"></div></div><div class="frow c2"><div><label>Temperamento</label><input class="f-t" value="${esc(p.temper)}" placeholder="ansioso, defensivo, controlado…"></div><div><label>Paciência (1–10)</label><input class="f-pc" type="number" min="1" max="10" value="${p.pac0||5}"></div></div><label>Ficha íntima / segredo <span class="cnt">(o que esconde + quando revela)</span></label><textarea class="f-s" placeholder="VERDADES: … SEGREDO: … SÓ confessa se confrontado com…">${esc(p.segredo)}</textarea></div>`;}
+function fitemI(p,i){return `<div class="fitem" data-i="${i}"><button class="fdel" data-i="${i}" title="remover">✕</button><div class="frow c2"><div><label>Título da pista</label><input class="f-ti" value="${esc(p.titulo)}"></div><div><label>Onde</label><input class="f-on" value="${esc(p.onde)}" placeholder="mesa, adega, celular…"></div></div><label>Corpo (o que a cena conta)</label><textarea class="f-c">${esc(p.corpo)}</textarea><label>💡 Insight (o que indica / o que EXCLUI)</label><input class="f-in" value="${esc(p.ins)}"></div>`;}
+let ED=null;
+function novoED(){return{titulo:'',dif:1,intro:'',pers:[{nome:'',papel:'',temper:'',pac0:5,segredo:''}],pistas:[{titulo:'',onde:'',corpo:'',ins:''}],sol:{culpado:'',metodo:'',motivo:'',cadeia:'',armadilhas:''},pub:false}}
+function abrirEditor(){
+ ver('v-editor');ED=store.getJ('mt_draft')||novoED();renderEditor();
+}
+function renderEditor(){
+ $('#v-editor').innerHTML=`<h2>➕ Crie seu caso</h2>
+  <p class="mini">Regra de ouro do <u class="u-glo" data-g="fair-play">fair-play</u>: a solução precisa ser DEDUTÍVEL pelas pistas — nada de trunfo fora do material. O caso fica salvo neste navegador e você pode jogar, exportar por código e publicar.</p>
+  <div class="fsec"><h3>🕵️ O caso</h3>
+   <label>Título</label><input id="e-tit" maxlength="80" placeholder="O Mistério do…">
+   <div class="frow c2"><div><label>Dificuldade</label><select id="e-dif"><option value="1">1 · Iniciante</option><option value="2">2 · Exigente</option></select></div>
+   <div><label>&nbsp;</label><label style="display:flex;gap:8px;align-items:center;font-size:13px"><input type="checkbox" id="e-pub" style="width:auto"> 🌐 publicar na comunidade</label></div></div>
+   <label>Introdução (a cena, a vítima, horários — o que é público)</label>
+   <textarea id="e-intro" placeholder="Sexta, 22h. Durante a festa de… o anfitrião aparece morto… 4 pessoas estavam presentes…"></textarea></div>
+  <div class="fsec"><h3>👥 Suspeitos <span class="cnt">(mín. 2)</span><button class="btn sec" id="e-addp" style="margin:0;float:right;padding:6px 12px;font-size:12px">+ adicionar</button></h3><div id="e-pers"></div></div>
+  <div class="fsec"><h3>🔍 Pistas <span class="cnt">(mín. 3 — cada uma deve indicar E excluir algo)</span><button class="btn sec" id="e-addi" style="margin:0;float:right;padding:6px 12px;font-size:12px">+ adicionar</button></h3><div id="e-pistas"></div></div>
+  <div class="fsec"><h3>🧠 Solução <span class="cnt">(só o investigador-mestre lê — os suspeitos nunca veem)</span></h3>
+   <label>Culpado</label><select id="e-culpado"></select>
+   <label>Como (método, passo a passo, janela de tempo)</label><textarea id="e-met" placeholder="Às 21h20, quando…"></textarea>
+   <label>Por quê (motivo)</label><textarea id="e-mot"></textarea>
+   <label>Cadeia da dedução — 1 passagem por linha <span class="cnt">(o jogador deveria chegar aqui passo a passo)</span></label><textarea id="e-cad" placeholder="O vinho da garrafa estava limpo (pista 2)…&#10;Quem mexeu na taça nessa janela…&#10;Portanto…"></textarea>
+   <label>Armadilhas — 1 por linha <span class="cnt">(os chutes óbvios e ERRADOS)</span></label><textarea id="e-arm" placeholder="Culpar o que tem motivo ruidoso…&#10;Achar que…"></textarea></div>
+  <div class="hb2"><button class="btn" id="e-salvar">💾 Salvar caso</button><button class="btn sec" id="e-testar">🧪 Testar agora</button><button class="btn sec" id="e-voltar">↩ voltar</button></div>
+  <div class="mini" id="e-msg" style="margin-top:8px"></div>`;
+ $('#e-tit').value=ED.titulo;$('#e-dif').value=String(ED.dif||1);$('#e-intro').value=ED.intro;$('#e-met').value=ED.sol.metodo;$('#e-mot').value=ED.sol.motivo;$('#e-cad').value=ED.sol.cadeia;$('#e-arm').value=ED.sol.armadilhas;$('#e-pub').checked=!!ED.pub;
+ const rp=()=>{$('#e-pers').innerHTML=ED.pers.map((p,i)=>fitemP(p,i)).join('');bindPers();culpOpts();};
+ const ri=()=>{$('#e-pistas').innerHTML=ED.pistas.map((p,i)=>fitemI(p,i)).join('');bindPistas();};
+ function bindPers(){$('#e-pers').querySelectorAll('.f-n').forEach(inp=>inp.oninput=()=>{coleta();culpOpts();});
+  $('#e-pers').querySelectorAll('.fdel').forEach(b=>b.onclick=()=>{if(ED.pers.length<=1)return toast('mínimo 1 suspeito');ED.pers.splice(+b.dataset.i,1);coleta();rp();});
+  $('#e-pers').querySelectorAll('.fai').forEach(b=>b.onclick=async()=>{
+   const i=+b.dataset.i;coleta();const p=ED.pers[i];
+   if(!p.nome||!p.segredo||p.segredo.length<15)return toast('Preencha nome + segredo primeiro, depois a IA enriquece');
+   b.disabled=true;b.textContent='✨ escrevendo…';
+   try{
+    const r=await callAI([{role:'system',content:'Você é roteirista de jogos de investigação fair-play. Melhore a FICHA SECRETA de um personagem: mantenha TODOS os fatos dados, organize como VERDADES/SEGREDO/QUANDO REVELAR/COMO REAGE A CONFRONTO, texto corrido, máx 110 palavras, português. Nunca mencione a solução do caso.'},{role:'user',content:'Nome: '+p.nome+'\nPapel: '+p.papel+'\nTemperamento: '+p.temper+'\nFicha atual: '+p.segredo}]);
+    ED.pers[i].segredo=r.trim();$('#e-pers .fitem[data-i="'+i+'"] .f-s').value=ED.pers[i].segredo;store.setJ('mt_draft',ED);toast('✨ ficha enriquecida pela IA');
+   }catch(e){toast('⚠️ '+e.message);}
+   b.disabled=false;b.textContent='✨ IA';
+  });}
+ function bindPistas(){$('#e-pistas').querySelectorAll('.fdel').forEach(b=>b.onclick=()=>{if(ED.pistas.length<=1)return toast('mínimo 1 pista');ED.pistas.splice(+b.dataset.i,1);coleta();ri();});}
+ $('#e-addp').onclick=()=>{coleta();ED.pers.push({nome:'',papel:'',temper:'',pac0:5,segredo:''});rp();};
+ $('#e-addi').onclick=()=>{coleta();ED.pistas.push({titulo:'',onde:'',corpo:'',ins:''});ri();};
+ $('#e-tit').oninput=e=>{ED.titulo=e.target.value;store.setJ('mt_draft',ED);};
+ $('#e-dif').onchange=e=>{ED.dif=+e.target.value;store.setJ('mt_draft',ED);};
+ $('#e-intro').oninput=e=>{ED.intro=e.target.value;store.setJ('mt_draft',ED);};
+ $('#e-met').oninput=e=>{ED.sol.metodo=e.target.value;store.setJ('mt_draft',ED);};
+ $('#e-mot').oninput=e=>{ED.sol.motivo=e.target.value;store.setJ('mt_draft',ED);};
+ $('#e-cad').oninput=e=>{ED.sol.cadeia=e.target.value;store.setJ('mt_draft',ED);};
+ $('#e-arm').oninput=e=>{ED.sol.armadilhas=e.target.value;store.setJ('mt_draft',ED);};
+ $('#e-pub').onchange=e=>{ED.pub=e.target.checked;store.setJ('mt_draft',ED);};
+ function culpOpts(){const sel=$('#e-culpado');const atual=ED.sol.culpado;sel.innerHTML='<option value="">— escolha —</option>'+ED.pers.filter(p=>p.nome).map(p=>`<option>${esc(p.nome)}</option>`).join('')+'<option>Outro (descreve no método)</option>';if(atual)[...sel.options].forEach(o=>{if(o.text===atual)sel.value=o.value||o.text;});}
+ function coleta(){
+  ED.titulo=$('#e-tit').value;ED.dif=+$('#e-dif').value||1;ED.intro=$('#e-intro').value;
+  ED.sol.metodo=$('#e-met').value;ED.sol.motivo=$('#e-mot').value;ED.sol.cadeia=$('#e-cad').value;ED.sol.armadilhas=$('#e-arm').value;ED.pub=$('#e-pub').checked;
+  ED.sol.culpado=$('#e-culpado').value||ED.sol.culpado;
+  $('#e-pers').querySelectorAll('.fitem').forEach(el=>{const i=+el.dataset.i;if(!ED.pers[i])return;ED.pers[i]={nome:el.querySelector('.f-n').value,papel:el.querySelector('.f-p').value,temper:el.querySelector('.f-t').value,pac0:Math.max(1,Math.min(10,+el.querySelector('.f-pc').value||5)),segredo:el.querySelector('.f-s').value};});
+  $('#e-pistas').querySelectorAll('.fitem').forEach(el=>{const i=+el.dataset.i;if(!ED.pistas[i])return;ED.pistas[i]={titulo:el.querySelector('.f-ti').value,onde:el.querySelector('.f-on').value,corpo:el.querySelector('.f-c').value,ins:el.querySelector('.f-in').value};});
+ }
+ $('#e-pers')&&rp();$('#e-pistas')&&ri();
+ $('#e-voltar').onclick=()=>{coleta();store.setJ('mt_draft',ED);renderHome();ver('v-home');};
+ $('#e-testar').onclick=()=>{coleta();store.setJ('mt_draft',ED);const c=valida();if(c){abrirCasos(c);toast('🧪 modo teste — nada foi salvo ainda');}else $('#e-msg').innerHTML=erros;}
+ $('#e-salvar').onclick=async()=>{
+  coleta();const c=valida();
+  if(!c){$('#e-msg').innerHTML=erros;return toast('⚠️ quase lá — olhe os avisos');}
+  if(ED.pub)exigirConta(async()=>{
+   const m=store.getJ('mt_meus')||[];c.pub=true;c.autor=sessao();m.push(c);store.setJ('mt_meus',m);store.setJ('mt_draft',null);ED=novoED();
+   let srv='';
+   try{const r=await fetch('https://caixa-agente-default-rtdb.firebaseio.com/mt_comun/'+c.id+'.json',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({titulo:c.titulo,autor:c.autor,cod:codDe(c),ts:Date.now()}),signal:AbortSignal.timeout(8000)});if(!r.ok)throw 0;srv=' (e sincronizado no servidor 🎉)';}catch(e){srv=' — servidor da comunidade indisponível, mas o CÓDIGO funciona 100%';}
+   toast('🌐 caso publicado na comunidade'+srv);renderHome();ver('v-home');
+  });
+  else{const m=store.getJ('mt_meus')||[];m.push(c);store.setJ('mt_meus',m);store.setJ('mt_draft',null);ED=novoED();toast('💾 caso salvo! jogue em “Seus casos”');renderHome();ver('v-home');}
+ };
+ let erros='';
+ function valida(){
+  erros='';const p=[];
+  if(!ED.titulo||ED.titulo.trim().length<4)p.push('título do caso');
+  if(!ED.intro||ED.intro.trim().length<40)p.push('introdução (mín. 40 letras — contexto!)');
+  const persOk=ED.pers.filter(x=>x.nome.trim()&&x.segredo.trim().length>=15);
+  if(persOk.length<2)p.push('2+ suspeitos com nome + segredo (15+ letras)');
+  const pistOk=ED.pistas.filter(x=>x.titulo.trim()&&x.corpo.trim().length>=20);
+  if(pistOk.length<3)p.push('3+ pistas com título + corpo (20+ letras)');
+  if(!ED.sol.culpado)p.push('culpado');
+  if(!ED.sol.metodo||ED.sol.metodo.trim().length<20)p.push('como (método, 20+ letras)');
+  if(p.length){erros='<b>Falta preencher:</b> '+p.join(' · ');return null;}
+  return paraCaso();
+ }
+ function paraCaso(){
+  const slug=x=>String(x).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'').slice(0,10)||'x';
+  return {id:'meu_'+Date.now().toString(36),titulo:esc(ED.titulo.trim()),dif:ED.dif||1,difTxt:ED.dif===1?'INICIANTE':'EXIGENTE',cap:null,
+   intro:esc(ED.intro.trim()).replace(/\n/g,'<br>'),
+   personagens:ED.pers.filter(p=>p.nome.trim()).map((p,i)=>({id:slug(p.nome)+i,nome:esc(p.nome.trim()),papel:esc(p.papel.trim()||'suspeito'),temper:p.temper.trim()||'reservado',pac0:Math.max(1,Math.min(10,+p.pac0||5)),
+    prompt:'Você é '+p.nome.trim()+', '+(p.papel.trim()||'suspeito')+'. TEMPERAMENTO: '+(p.temper.trim()||'reservado')+'. FICHA ÍNTIMA (seu segredo — nunca revele de uma vez, só sob a pergunta/confronto certo): '+p.segredo.trim()+' Fale em português, 2-5 frases, no seu temperamento. NUNCA invente fatos fora da sua ficha; se não souber algo, diga que não sabe/viu.'})),
+   pistas:ED.pistas.filter(x=>x.titulo.trim()).map((x,i)=>({id:'x'+(i+1),onde:esc(x.onde.trim()||'cena'),titulo:esc(x.titulo.trim()),corpo:esc(x.corpo.trim()).replace(/\n/g,'<br>')+(x.ins.trim()?'<span class="tagins">💡 '+esc(x.ins.trim())+'</span>':''),ins:x.ins.trim()})),
+   solucao:{culpado:ED.sol.culpado,metodo:esc(ED.sol.metodo.trim()),motivo:esc((ED.sol.motivo||'').trim()),cadeia:ED.sol.cadeia.split('\n').map(x=>esc(x.trim())).filter(Boolean),armadilhas:ED.sol.armadilhas.split('\n').map(x=>esc(x.trim())).filter(Boolean),pistas_chave:[]},
+   avalSistema:AVAL_PADRAO};
+ }
+}
+
+/* ═══ CÓDIGOS (exportar/importar casos) ═══ */
+function codDe(c){
+ const j=JSON.stringify({v:1,t:c.titulo,d:c.dif,i:c.intro,p:(c.personagens||[]).map(p=>({n:p.nome,r:p.papel,te:p.temper,pc:p.pac0,pr:p.prompt})),pi:(c.pistas||[]).map(p=>({w:p.onde,t:p.titulo,c:p.corpo,i:p.ins})),s:c.solucao,a:c.autor?c.autor.replace(/^por /,''):''});
+ return 'MT1.'+btoa(unescape(encodeURIComponent(j))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+}
+function casoDeCod(code){
+ code=String(code||'');const i0=code.indexOf('MT1.');if(i0<0)throw new Error('código inválido — começa com MT1.');
+ const tok=code.slice(i0+4).match(/[A-Za-z0-9_-]+/);
+ if(!tok)throw new Error('código vazio');
+ const b=tok[0].replace(/-/g,'+').replace(/_/g,'/');const j=decodeURIComponent(escape(atob(b+'==='.slice((b.length+3)%4))));const o=JSON.parse(j);
+ if(!o.t||!o.p||!o.pi||!o.s)throw new Error('código incompleto');
+ return {id:'imp_'+Date.now().toString(36),titulo:String(o.t).slice(0,80),dif:+o.d===1?1:2,difTxt:'DA COMUNIDADE',cap:null,
+  intro:esc(String(o.i||'')).replace(/\n/g,'<br>'),
+  personagens:(o.p||[]).slice(0,8).map((p,i)=>({id:'c'+i,nome:esc(String(p.n||'Suspeito '+i)).slice(0,60),papel:esc(String(p.r||'')).slice(0,80),temper:String(p.te||'reservado').slice(0,60),pac0:Math.max(1,Math.min(10,+p.pc||5)),prompt:String(p.pr||'Você é um suspeito. Responda em português, 2-5 frases.').slice(0,1500)})),
+  pistas:(o.pi||[]).slice(0,12).map((p,i)=>({id:'x'+(i+1),onde:esc(String(p.w||'')).slice(0,80),titulo:esc(String(p.t||'Pista')).slice(0,90),corpo:esc(String(p.c||'')).replace(/\n/g,'<br>').slice(0,900)+(p.i?'<span class="tagins">💡 '+esc(String(p.i)).slice(0,200)+'</span>':''),ins:String(p.i||'').slice(0,200)})),
+  solucao:{culpado:String(o.s.culpado||'?').slice(0,80),metodo:esc(String(o.s.metodo||'')).slice(0,800),motivo:esc(String(o.s.motivo||'')).slice(0,500),cadeia:(o.s.cadeia||[]).slice(0,8).map(x=>esc(String(x)).slice(0,300)),armadilhas:(o.s.armadilhas||[]).slice(0,8).map(x=>esc(String(x)).slice(0,300)),pistas_chave:(o.s.pistas_chave||[]).slice(0,8).map(String)},
+  avalSistema:AVAL_PADRAO,autor:o.a?'por '+String(o.a).slice(0,30):''};
+}
+const meusCompletos=()=>store.getJ('mt_meus')||[];
+function importarCaso(c,aviso){const m=meusCompletos();if(m.some(x=>x.titulo===c.titulo))return toast('esse caso já está nos seus 😉');m.push(c);store.setJ('mt_meus',m);renderHome();toast(aviso||('📥 “'+c.titulo+'” adicionado aos Seus casos!'));}
+
+/* ═══ COMUNIDADE ═══ */
+let SERV_OK=null;
+async function testaServ(){try{const r=await fetch('https://caixa-agente-default-rtdb.firebaseio.com/mt_comun.json?x='+Date.now(),{signal:AbortSignal.timeout(7000)});SERV_OK=r.ok;}catch(e){SERV_OK=false;}const st=$('#cm-st');if(st)st.innerHTML=servTxt();}
+function servTxt(){return 'Servidor online: <b>'+(SERV_OK===null?'verificando…':SERV_OK?'✅ no ar':'✗ indisponível — modo CÓDIGOS ativo (funciona 100%)')+'</b><br>Compartilhe casos por <b>código</b>: exporte o seu, cole o de outra pessoa. Nada sai do seu navegador sem você mandar.';}
+function renderComunidade(){
+ ver('v-comunidade');
+ const pub=meusCompletos().filter(c=>c.pub);
+ const c=conta(),on=!!sessao();
+ $('#v-comunidade').innerHTML=`<h2>🌐 Comunidade</h2>
+  <div class="cstat" id="cm-st">${servTxt()}</div>
+  <div class="fsec"><h3>⭐ Da casa (exemplo da comunidade)</h3>
+   <div class="ccard2"><div class="ci"><b>${esc(CASO_COM.titulo)}</b><small>${CASO_COM.personagens.length} suspeitos · ${CASO_COM.pistas.length} pistas · por ${esc(CASO_COM.autor)}</small></div><div class="cb"><button class="btn" id="cm-destaque">📥 importar</button></div></div></div>
+  <div class="fsec"><h3>📥 Importar por código</h3>
+   <textarea id="cm-code" placeholder="cole aqui o código MT1.…" style="min-height:70px;font-family:'Courier New',monospace;font-size:12px"></textarea>
+   <button class="btn" id="cm-import">📥 Importar caso</button></div>
+  <div class="fsec"><h3>📤 Meus casos públicos</h3>
+   ${pub.length?pub.map((x,i)=>`<div class="ccard2"><div class="ci"><b>${x.titulo}</b><small>${x.personagens.length} suspeitos${x.autor?' · assinado: '+esc(x.autor):''}</small></div><div class="cb"><button class="btn" data-exp="${i}">📤 código</button></div></div>`).join(''):'<p class="mini">Nenhum ainda — crie um caso (➕) e marque 🌐 publicar.</p>'}</div>
+  <div class="fsec"><h3>👤 Conta pra publicar</h3>
+   <div class="mini">${c?(on?`Conectado como <b class="cok">${esc(sessao())}</b> — pode publicar!`:`Conta existe (${esc(c.nick)}). Entre pra publicar.`):'Publicar na comunidade pede conta — <b>sem e-mail, sem telefone</b>: apelido + senha + chave de recuperação. Jogar NÃO precisa de conta.'}</div>
+   <div class="hb2"><button class="btn sec" id="cm-conta">${c?(on?'Sair da sessão':'Entrar'):'Criar conta'}</button><button class="btn sec" id="cm-criar">➕ Criar caso</button></div></div>`;
+ $('#cm-destaque').onclick=()=>importarCaso(JSON.parse(JSON.stringify(CASO_COM)),'📥 caso da comunidade adicionado! Jogue em “Seus casos”.');
+ $('#cm-import').onclick=()=>{try{const c2=casoDeCod($('#cm-code').value);importarCaso(c2,'📥 “'+c2.titulo+'” importado! Jogue em “Seus casos”.');}catch(e){toast('⚠️ '+(e.message||'código inválido'));}};
+ document.querySelectorAll('[data-exp]').forEach(b=>b.onclick=()=>mostrarCodigo(pub[+b.dataset.exp]));
+ $('#cm-conta').onclick=()=>{if(c&&on){try{sessionStorage.removeItem('mt_sess')}catch(e){}toast('sessão encerrada');renderComunidade();}else abrirConta('in');};
+ $('#cm-criar').onclick=()=>abrirEditor();
+}
+
+/* ═══ CASO DE EXEMPLO DA COMUNIDADE (da casa) ═══ */
+const CASO_COM={id:'com_bilhete',titulo:'O Bilhete 4471',dif:2,difTxt:'DA COMUNIDADE',cap:null,autor:'devgg',
+intro:`Sexta, 21h47. <b>Seu Nélio</b>, 71, dono do “Bar do Nélio”, é encontrado no chão do estoque: tombo forte, porta <b>trancada por dentro</b> — e o bilhete do bolão do bar, <b>premiado em R$ 2,3 milhões</b>, sumiu do talo do livro de contas atrás do balcão. Nélio escondia os bilhetes do bolão ali “pra não dar azar”, e os 4 amigos do bolão sabiam do costume. O bar fechou às 21h00; quem ficou, ficou CONVIDADO por ele (a porta só abre por dentro). A vizinhança ouviu o barulho do tombo por volta das 21h20. Ninguém arrombou nada: o bilhete saiu pela porta — carregado por alguém que Nélio deixou entrar.`,
+personagens:[
+ {id:'rafa',nome:'Rafa Nélio',papel:'filho do dono, 38, endividado',temper:'agressivo, defensivo, bebe',pac0:4,prompt:`Você é RAFA NÉLIO, 38, filho do dono do bar. Deve R$ 12 mil a um agiota e veio ao bar às 21h05 PEDIR DINHEIRO ao pai — que recusou e te chamou de vagabundo na frente da Cleo. Você deu meia-volta e saiu PELA PORTA DA FRENTE gritando. Temperamentoso, responde grosso. VERDADE: você NÃO pegou o bilhete — foi embora, e quando soube do tombo VOLTOU correndo (21h50); por isso está suado e desalinhado. TEME que as dívidas te incriminem. Se citarem o grito/dívidas, explode e depois chora: “eu pedi DINHEIRO, não bilhete!”. Entre 21h20-21h50 você estava andando na rua, SEM testemunha. Fale grosso, curto, defensivo, português.`},
+ {id:'cleo',nome:'Cleo Ramos',papel:'caixa do bar há 12 anos',temper:'direta, leal, orgulhosa',pac0:6,prompt:`Você é CLEO, 45, caixa do bar há 12 anos, a pessoa de confiança. Fechou o caixa às 20h55 e foi embora às 21h02 (o portão eletrônico registrou sua saída). Bebe só água com gás (úlcera). Sabe que o patrão escondia os bilhetes do bolão no livro de contas. SEGREDO (vergonha, não crime): o patrão te ADIANTOU o aluguel na quarta — você esconde isso achando que “parece interesse no dinheiro”; se confrontada com o adiantamento, admite envergonhada. NÃO estava lá; não pegou nada. Detalhe que você sabe e conta se perguntarem da cozinha: o freezer apita quando a porta fica entreaberta, e o Nélio SEMPRE corre pra desligar — rotina que os de casa conhecem. Fale direta, leal, protegendo a memória do patrão, português.`},
+ {id:'tiao',nome:'Tião Barbosa',papel:'vizinho e parceiro de bolão há 20 anos',temper:'amistoso demais, piadista, suando frio',pac0:3,prompt:`Você é TIÃO, 52, vizinho e parceiro de bolão há 20 anos do Seu Nélio. VOCÊ É O CULPADO. Às 21h10 bateu no portão “pra comemorar o prêmio”; Nélio, contente, abriu e serviu cerveja e batata frita (o copo pela metade e o prato no balcão são seus). Pediu: “deixa eu ver o bilhete de pertinho”. Quando o freezer apitou, Nélio correu pra cozinha — você abriu o livro de contas, pegou o bilhete 4471; ele te SURPREENDEU no estoque, vocês se empurraram, ele caiu de costas no tanquinho e você FUGIU — o bilhete RASGOU no fecho da porta e uma metade caiu (foi parar debaixo do tapete, com a sua marca de sola e barro vermelho do seu quintal — você veio pela rua lateral de barro). RESISTA: negue tudo com piadas. SÓ CONFESSE se confrontarem com DUAS destas: (1) sua mensagem às 20h47 no grupo “hoje eu quero ver meu bilhete de pertinho 😂”, (2) a metade do bilhete com sola nº42 + barro vermelho, (3) o Waldir te viu entrar 21h10 e sair às 21h19 “mexendo no casaco”. Confessando: “eu só queria garantir meu pedaço — ele ia me dar NADA!”. Fale amistoso demais, piadista, suando, português.`},
+ {id:'waldir',nome:'Waldir Pires',papel:'vizinho da janela de cima, 66, viúvo e acordado',temper:'prolixo, orgulhoso da própria observação',pac0:6,prompt:`Você é WALDIR, 66, vizinho da janela de cima, viúvo, insone — vê a rua a noite toda. Você VIU: 21h05 um homem jovem e bravo saiu batendo a porta da frente (o Rafa, você o conhece); 21h10 um homem “de casaco largo, meio gordo” ENTROU; 21h19 o mesmo saiu APRESSADO, mexendo no casaco como quem esconde coisa, indo pra rua lateral de barro. Tombo às ~21h20 — você gritou e chamou ajuda. Não viu rostos (janela alta), mas descreve roupas e HORÁRIOS com orgulho: se duvidarem, você prova (“meu remédio das 21h15 termina junto com a novela — tenho certeza”). Não sabe quem era o homem do casaco; se perguntarem “era gordo ou usava casaco largo?”, você pensa e admite: “o casaco enganava…”. Fale prolixo, orgulhoso da própria observação, português.`}],
+pistas:[
+ {id:'l1',onde:'Atrás do balcão',titulo:'O livro de contas (o esconderijo)',corpo:`O talo onde ficavam os bilhetes está com o vinco FRESCO e cheiro de cerveja. O bilhete 4471 não está. Alguém folheou às pressas, com a mão molhada — e sabia EXATAMENTE onde procurar: o livro fica fora da vista de quem não conhece o bar.`,ins:'Quem procurou sabia do costume do livro — círculo do bolão/frequentador antigo, não ladrão de fora.'},
+ {id:'l2',onde:'Balcão',titulo:'Copo pela metade + prato de batata frita',corpo:`Copo de cerveja pela metade, batata mordida, guardanapo sobre pano recém-limpo — servido DEPOIS do fechamento (a Cleo fechou o caixa 20h55 e o serviço de mesa é de ~21h15, pela posição do guardanapo sobre o pano seco). Nélio serviu um convidado com carinho.`,ins:'Houve um convidado amigável ~21h10. A briga com o Rafa (21h05, na porta) não teve serviço de mesa.'},
+ {id:'l3',onde:'Cozinha',titulo:'Freezer desconectado',corpo:`O freezer da cozinha está DESLIGADO na tomada, porta entreaberta. Ele APITA quando a porta mal fecha — e Nélio sempre corria pra desligar. Alguém se aproveitou dessa manobra conhecida pra deixar o dono longe do balcão por ~40 segundos.`,ins:'A distração foi PROVOCADA por quem conhecia a rotina do freezer — de casa antigo.'},
+ {id:'l4',onde:'Grupo do bolão (WhatsApp)',titulo:'Mensagens da sexta',corpo:`20h47 — TIAO: “hoje eu quero ver meu bilhete de pertinho 😂” · 20h52 — RAFA: “o velho vai dormir com o dinheiro embaixo do travesseiro” · 21h02 — CLEO: “caixa fechado, boa noite a todos”.`,ins:'Tião anunciou intenção de VER o bilhete naquela noite. Rafa mostra ressentimento (motivo ruidoso — cuidado).'},
+ {id:'l5',onde:'Debaixo do tapete da porta',titulo:'Metade rasgada do bilhete + sola + barro vermelho',corpo:`Metade do bilhete 4471, com barro vermelho grudado e a impressão parcial de uma sola de tênis nº 42. O rasgo é limpo: papel preso no fecho da porta de quem saiu CORRENDO. Barro vermelho existe no canteiro da rua lateral — onde só o quintal de TIÃO encosta.`,ins:'O culpado fugiu às pressas, rasgou o bilhete no fecho e veio do lado do barro vermelho.'},
+ {id:'l6',onde:'Corpo do Nélio (laudo)',titulo:'Tombo de frente: empurrão de luta curta',corpo:`Hematoma nas costelas do lado de trás + palma da mão direita com lascas do tanquinho: caiu de COSTAS num empurrão vindo da FRENTE, durante luta corporal curta. Sem corte, sem arma, porta trancada por dentro.`,ins:'Conflito corpo-a-corpo com um conhecido que ele não esperava ser agressivo — não houve assalto de fora.'}],
+solucao:{culpado:'Tião Barbosa (parceiro de bolão)',
+ metodo:'Às 21h10 entrou “pra comemorar”; pediu ver o bilhete; quando o freezer apitou (ele conhecia a manobra), pegou o 4471 no livro de contas. Nélio surpreendeu, empurrão, tombo. Tião fugiu correndo — o bilhete rasgou no fecho da porta e metade caiu debaixo do tapete com sua marca de sola e o barro vermelho do seu caminho.',
+ motivo:'Garantir “seu pedaço” do prêmio de R$ 2,3M, que via só na mão do Nélio — medo de ficar de fora da divisão.',
+ cadeia:['A cena mostra CONVIDADO servido com carinho depois do fechamento (l2) e conflito físico com conhecido (l6) — não foi assalto de fora nem a briga da porta com o Rafa.','Quem procurou o livro sabia do costume (l1) e provocou a distração do freezer (l3) — frequentador antigo e amigável.','Tião anunciou às 20h47 que ia “ver o bilhete de pertinho” (l4) — intenção + horário bate com a visita do convidado (21h10).','A física fecha: metade do bilhete + sola nº42 + barro vermelho da rua lateral debaixo do tapete (l5).','Rafa tem motivo ruidoso (dívidas, grito, sem álibi 21h20-50), mas a mesa servida mostra outro convidado e ele só voltou 21h50; Cleo saiu 21h02 (portão) e o adiantamento TIRA o motivo imediato.'],
+ pistas_chave:['l2','l3','l4','l5','l6'],
+ armadilhas:['Prender o Rafa — dívidas + grito + sem álibi 21h20-50: motivo ruidoso, mas a mesa servida (l2) mostra outro convidado e o retrato do Waldir é de homem “gordo de casaco largo”.','Suspeitar da Cleo — confiança/chave/adiantamento: o adiantamento TIRA o motivo imediato e o portão registra a saída 21h02.','Achar que foi assalto de fora — porta trancada por dentro, sem arrombamento, convidado servido com carinho (l2/l6).','Desconfiar do Waldir por “ver demais” — os horários dele são precisos e verificáveis (novela/remédio); prolixo ≠ mentiroso.']},
+avalSistema:AVAL_PADRAO};
+
+/* ═══ LIGAÇÕES ═══ */
+$('#b-aprender').onclick=()=>{renderTrilha();ver('v-aprender');};
+$('#strip-b').onclick=()=>{renderTrilha();ver('v-aprender');};
+$('#b-criar').onclick=()=>abrirEditor();
+$('#b-comun').onclick=()=>{renderComunidade();testaServ();};
+$('#b-dica').onclick=pedirDica;
+$('#glo-x').onclick=fecharGloss;
+$('#glo-q').oninput=e=>renderGloss(e.target.value);
+document.addEventListener('click',e=>{const u=e.target.closest&&e.target.closest('.u-glo');if(u)abrirGloss(u.dataset.g);});
+renderTrilha();
+testaServ();
 
 /* boot */
 renderHome();
