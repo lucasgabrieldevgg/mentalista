@@ -231,6 +231,44 @@ li{margin-bottom:6px}
 .dicabtn{position:relative}
 .dicabtn .ndica{background:rgba(0,0,0,.25);border-radius:99px;padding:1px 7px;font-size:11px;margin-left:4px}
 @media(max-width:600px){#glo{width:100%;border-left:0;border-top:2px solid var(--brand);top:auto;height:72vh;border-radius:14px 14px 0 0}}
+/* ═══ v4: termos destacados, roadmap do caso, tour 1ª vez, wizard de criação ═══ */
+.glo-t{background:rgba(217,164,65,.16);border:1px solid rgba(217,164,65,.5);border-bottom-width:2px;border-radius:5px;padding:0 6px;color:var(--brand2);cursor:help;font-style:normal;font-weight:700;white-space:nowrap;transition:background .15s}
+.glo-t:hover{background:rgba(217,164,65,.34)}
+#glo .gsub{border-bottom:1px solid var(--line);padding-bottom:8px}
+.gterm{border:1px solid var(--line);border-radius:8px;margin-bottom:8px;background:#1e180d;overflow:hidden}
+.gterm summary{cursor:pointer;padding:10px 12px;font-size:13.5px;font-weight:700;color:var(--brand2);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:8px;background:#241d12}
+.gterm[open] summary{border-bottom:1px solid var(--line)}
+.gterm .gd{padding:10px 12px;font-size:13px;color:#ddd2bc;line-height:1.6}
+#road{display:flex;gap:7px;overflow-x:auto;padding:2px 0 10px;margin-bottom:8px;scrollbar-width:thin}
+.rst{flex-shrink:0;display:flex;align-items:center;gap:6px;background:#1c160d;border:1px solid var(--line);border-radius:99px;padding:7px 12px;font-size:12px;color:var(--muted);cursor:pointer;font-weight:700}
+.rst:hover{border-color:var(--brand)}
+.rst.cur{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#191204;border-color:transparent}
+.rst.done{border-color:rgba(123,160,91,.55);color:#a9c78a}
+.rst .rn{background:rgba(0,0,0,.25);border-radius:99px;min-width:17px;height:17px;display:inline-flex;align-items:center;justify-content:center;font-size:10.5px;padding:0 4px}
+.rst.done .rn{background:var(--ok);color:#101608}
+.rst.cur .rn{background:rgba(25,18,4,.25);color:#191204}
+#tour{position:fixed;inset:0;background:rgba(8,6,3,.88);z-index:85;display:flex;align-items:center;justify-content:center;padding:16px}
+#tour .tbox{background:#171208;border:2px solid var(--brand);border-radius:14px;max-width:470px;width:100%;padding:22px;max-height:92vh;overflow-y:auto}
+#tour h3{font-family:'Special Elite','Courier New',Georgia,serif;color:var(--paper);font-weight:400;margin-bottom:4px}
+#tour .tsub{font-size:12.5px;color:var(--muted);margin-bottom:10px;line-height:1.5}
+#tour .tstep{display:flex;gap:11px;margin:11px 0;font-size:13.5px;line-height:1.5;color:#e0d5bd;align-items:flex-start}
+#tour .tstep .tn{font-family:'Special Elite','Courier New',Georgia,serif;background:var(--brand);color:#191204;min-width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0}
+.wsteps{display:flex;gap:6px;overflow-x:auto;margin-bottom:14px}
+.wst{flex:1;min-width:78px;background:#1c160d;border:1px solid var(--line);border-radius:9px;padding:8px 10px;font-size:11.5px;font-weight:700;color:var(--muted);cursor:pointer;text-align:left;white-space:nowrap}
+.wst .wn{display:inline-flex;min-width:17px;height:17px;border-radius:99px;background:#241d12;border:1px solid var(--line);align-items:center;justify-content:center;font-size:10px;margin-right:5px;padding:0 3px}
+.wst.cur{border-color:var(--brand);color:var(--brand2)}
+.wst.done .wn{background:var(--ok);color:#101608;border-color:transparent}
+.wnav{display:flex;gap:10px;margin-top:14px;align-items:center}
+.wnav .btn{margin-top:0}
+.wnav .spacer{flex:1}
+.dbox{background:rgba(123,160,91,.07);border:1px dashed rgba(123,160,91,.35);border-radius:10px;padding:10px 13px;font-size:12.5px;color:#c9d8ae;line-height:1.55;margin:10px 0}
+.dbox b{color:#a9c78a}
+.idea{background:#181206;border:1px solid rgba(217,164,65,.35);border-radius:12px;padding:13px;margin-bottom:16px}
+.idea h4{font-size:13.5px;color:var(--brand2);margin-bottom:6px}
+.warnbox{background:rgba(217,164,65,.07);border:1px dashed rgba(217,164,65,.4);border-radius:10px;padding:10px 13px;font-size:13px;color:#e6d6b4;line-height:1.6;margin:10px 0}
+.warnbox b{color:var(--brand2)}
+.revline{font-size:13.5px;color:#ddd2bc;margin:5px 0}
+.revline b{color:var(--paper)}
 </style>
 </head>
 <body>
@@ -258,6 +296,7 @@ li{margin-bottom:6px}
   <!-- CASO -->
   <section id="v-caso" hidden>
     <div class="chead" id="caso-head"></div>
+    <div id="road"></div>
     <div class="tabs">
       <button class="tab on" data-t="t-dossie">📁 Dossiê</button>
       <button class="tab" data-t="t-pistas">🔍 Pistas <span id="n-pistas"></span></button>
@@ -317,12 +356,23 @@ li{margin-bottom:6px}
 </main>
 <div class="toast" id="toast"></div>
 <aside id="glo" hidden>
-  <h3>📚 Glossário do investigador <button class="gclose" id="glo-x" title="fechar">✕</button></h3>
-  <div class="gsub">Palavras difíceis aparecem <u class="u-glo">sublinhadas assim</u> no texto — toque nelas pra ver o significado aqui. O vocabulário de um detetive de verdade.</div>
+  <h3>📚 Tabela de termos <button class="gclose" id="glo-x" title="fechar">✕</button></h3>
+  <div class="gsub">Palavras difíceis aparecem <mark class="glo-t">destacadas assim</mark> no texto — toque nelas pra ver o significado aqui — a tabela completa de termos do ofício.</div>
   <input type="text" id="glo-q" placeholder="buscar termo…">
   <div id="glo-lista"></div>
 </aside>
 <div id="conta" hidden><div class="cbox" id="conta-box"></div></div>
+<div id="tour" hidden><div class="tbox">
+  <h3>🕵️ Como investigar um caso</h3>
+  <div class="tsub">O caminho que todo bom investigador segue — e o site te guia por ele (a trilha <b>1→5</b> fica no topo do caso).</div>
+  <div class="tstep"><span class="tn">1</span><span><b>Leia o dossiê</b> — a cena, a vítima e os horários. É o mapa do caso.</span></div>
+  <div class="tstep"><span class="tn">2</span><span><b>Examine TODAS as pistas</b> — pergunte a cada uma: o que INDICA? o que EXCLUI?</span></div>
+  <div class="tstep"><span class="tn">3</span><span><b>Interrogue os suspeitos</b> — comece aberto (“conte o que você viu”), confronte com pistas depois. Cada um esconde algo.</span></div>
+  <div class="tstep"><span class="tn">4</span><span><b>Anote no caderno</b> — contradições entre versões valem ouro. Mantenha uma hipótese alternativa viva.</span></div>
+  <div class="tstep"><span class="tn">5</span><span><b>Monte a teoria final</b> — o investigador-mestre avalia seu raciocínio: o que você viu, o que passou, como melhorar.</span></div>
+  <div class="tstep"><span class="tn">🕯️</span><span>Travou? <b>Dica do Mestre</b> ensina o próximo passo sem entregar o culpado.</span></div>
+  <button class="btn" id="tour-ok">Entendi, vamos investigar 🔍</button>
+</div></div>
 
 <script>
 'use strict';
@@ -481,15 +531,23 @@ function renderEscola(){
 
 /* ═══ CASO ═══ */
 function abrirCasos(c){
-  C=c; EXAM=new Set(); NOTAS=[]; HIPALT=''; HINTS=0; fecharInterrog();
+  C=c; const prog=store.getJ('mt_prog_'+c.id)||{ex:[]};
+  EXAM=new Set(prog.ex||[]);
+  NOTAS=C.pistas.filter(p=>EXAM.has(p.id)).map(p=>'Pista: '+p.titulo+' — '+p.ins);
+  HIPALT=''; HINTS=store.getJ('mt_dica_'+c.id)||0; fecharInterrog();
   atualizaNDica();
+  document.querySelectorAll('.tab[data-t]').forEach(x=>x.classList.toggle('on',x.dataset.t==='t-dossie'));
+  ['t-dossie','t-pistas','t-pers','t-caderno','t-teoria'].forEach(id=>$('#'+id).hidden=(id!=='t-dossie'));
   $('#caso-head').innerHTML=`<span class="ch-n">CASO ${CASOS.indexOf(c)+1}</span><b>${esc(c.titulo)}</b><small>${c.difTxt} · ${c.personagens.length} suspeitos</small>`;
   $('#v-home').hidden=true; $('#v-escola').hidden=true; $('#v-caso').hidden=false;
   renderDossie(); renderPistas(); renderPers(); renderCaderno(); renderTeoria(); marcarGloss($('#t-dossie')); marcarGloss($('#t-pistas'));
+  renderRoad();
+  mostrarTour();
   document.querySelectorAll('.tab[data-t]').forEach(t=>t.onclick=()=>{
     document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on')); t.classList.add('on');
     ['t-dossie','t-pistas','t-pers','t-caderno','t-teoria'].forEach(id=>$('#'+id).hidden=(id!==t.dataset.t));
     if(t.dataset.t==='t-caderno') renderCaderno();
+    renderRoad();
   });
   window.scrollTo({top:0});
 }
@@ -507,7 +565,7 @@ function renderPistas(){
   document.querySelectorAll('.pista').forEach(el=>el.onclick=()=>{
     el.classList.toggle('aberta');
     if(el.classList.contains('aberta')&&!EXAM.has(el.dataset.p)){
-      EXAM.add(el.dataset.p); renderPistas();
+      EXAM.add(el.dataset.p); store.setJ('mt_prog_'+C.id,{ex:[...EXAM]}); renderPistas(); renderRoad();
       const p=C.pistas.find(x=>x.id===el.dataset.p);
       NOTAS.push('Pista: '+p.titulo+' — '+p.ins);
       toast('🔍 pista registrada no caderno');
@@ -519,6 +577,24 @@ function renderPers(){
   $('#grid-pers').innerHTML=C.personagens.map(p=>`<div class="pcard" data-id="${p.id}">${retrato(p)}<b>${esc(p.nome)}</b><small>${esc(p.papel)}</small><span class="temper">${esc(p.temper)}</span></div>`).join('');
   document.querySelectorAll('.pcard').forEach(el=>el.onclick=()=>abrirInterrog(C.personagens.find(x=>x.id===el.dataset.id)));
 }
+/* ═══ trilha do caso (roadmap) + progresso persistente ═══ */
+function interrogados(){try{const k='mt_hist_'+C.id+'_';return Object.keys(localStorage).filter(x=>x.indexOf(k)===0).filter(x=>(store.getJ(x)||[]).length>1).length}catch(e){return 0}}
+function renderRoad(){
+ if(!C||!$('#road'))return;
+ const ab=document.querySelector('.tab.on')?document.querySelector('.tab.on').dataset.t:null;
+ const nota=$('#cad-notas')?$('#cad-notas').value:(store.getJ('mt_notas_'+C.id)||'');
+ const hip=$('#cad-hip')?$('#cad-hip').value:(store.getJ('mt_hip_'+C.id)||'');
+ const inq=interrogados();
+ const st=[
+  {t:'t-dossie',n:'Dossiê',s:'',done:EXAM.size>0||inq>0},
+  {t:'t-pistas',n:'Pistas',s:EXAM.size+'/'+C.pistas.length,done:C.pistas.length>0&&EXAM.size>=C.pistas.length},
+  {t:'t-pers',n:'Suspeitos',s:inq+'/'+C.personagens.length,done:inq>=C.personagens.length&&C.personagens.length>0},
+  {t:'t-caderno',n:'Caderno',s:'',done:!!((nota.trim())||(hip.trim()))},
+  {t:'t-teoria',n:'Teoria',s:'',done:false}];
+ $('#road').innerHTML=st.map((x,i)=>`<button class="rst ${ab===x.t?'cur':''} ${x.done?'done':''}" data-tab="${x.t}"><span class="rn">${x.done?'✓':i+1}</span>${x.n}${x.s?'&nbsp;<b>'+x.s+'</b>':''}</button>`).join('');
+ document.querySelectorAll('#road .rst').forEach(b=>b.onclick=()=>{const tb=document.querySelector('.tab[data-t="'+b.dataset.tab+'"]');if(tb)tb.click();});
+}
+function mostrarTour(){if(!store.getJ('mt_tour_v1'))$('#tour').hidden=false;}
 /* interrogatório — cada personagem tem PACIÊNCIA própria (pac0): repetir pergunta esgota; pergunta nova e bem formulada segura */
 let PAC=5;
 const normaliza=x=>x.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9 ]/g,'').replace(/\s+/g,' ').trim();
@@ -544,6 +620,7 @@ function abrirInterrog(p){
 }
 function fecharInterrog(){
   $('#interrog').hidden=true; $('#grid-pers').hidden=false;
+  if(C&&$('#road'))renderRoad();
   if(C) store.setJ('mt_hist_'+C.id+'_'+(INTERLOC?INTERLOC.id:'x'),INTERHIST.slice(-30));
 }
 function pintarInterrog(){
@@ -608,6 +685,7 @@ function renderCaderno(){
     store.setJ('mt_hip_'+C.id,$('#cad-hip').value);
     HIPALT=$('#cad-hip').value;
     toast('💾 caderno salvo');
+    renderRoad();
   };
 }
 /* teoria final */
@@ -623,9 +701,16 @@ function renderTeoria(){
     <textarea id="te-motivo" placeholder="o que levou ao crime…"></textarea>
     <label>Evidências que sustentam sua teoria</label>
     <textarea id="te-ev" placeholder="cite as pistas/fatos…"></textarea>
+    <button class="btn sec" id="te-colar" style="margin-top:8px">📋 Colar minhas anotações do caderno</button>
     <button class="btn" id="te-enviar">📋 Enviar ao investigador-mestre</button>
     <div id="te-res"></div>`;
   $('#te-enviar').onclick=avaliar;
+  $('#te-colar').onclick=()=>{
+    const hip=$('#cad-hip')?$('#cad-hip').value:(store.getJ('mt_hip_'+C.id)||'');
+    const txt=NOTAS.map(n=>'• '+n).join('\n')+(hip?'\nHipótese alternativa: '+hip:'');
+    $('#te-ev').value=txt;
+    toast(txt?'📋 anotações coladas — revise antes de enviar':'caderno vazio — examine pistas e anote primeiro 🙂');
+  };
 }
 async function avaliar(){
   const teoria={culpado:$('#te-culpado').value,como:$('#te-como').value.trim(),motivo:$('#te-motivo').value.trim(),evidencias:$('#te-ev').value.trim()};
@@ -713,7 +798,7 @@ function marcarGloss(root){
     const span=document.createElement('span'); let last=0,m;
     while((m=rx.exec(txt))&&feitos<240){
      span.appendChild(document.createTextNode(txt.slice(last,m.index)));
-     const u=document.createElement('u');u.className='u-glo';u.textContent=m[0];u.dataset.g=g.t;
+     const u=document.createElement('mark');u.className='glo-t';u.textContent=m[0];u.dataset.g=g.t;
      span.appendChild(u);last=m.index+m[0].length;feitos++;
     }
     if(!last)continue;
@@ -950,101 +1035,190 @@ function fitemI(p,i){return `<div class="fitem" data-i="${i}"><button class="fde
 let ED=null;
 function novoED(){return{titulo:'',dif:1,intro:'',pers:[{nome:'',papel:'',temper:'',pac0:5,segredo:''}],pistas:[{titulo:'',onde:'',corpo:'',ins:''}],sol:{culpado:'',metodo:'',motivo:'',cadeia:'',armadilhas:''},pub:false}}
 function abrirEditor(){
- ver('v-editor');ED=store.getJ('mt_draft')||novoED();renderEditor();
+ ver('v-editor');ED=store.getJ('mt_draft')||novoED();if(!ED._p)ED._p=1;renderEditor();
 }
+const SYS_GERA='Você cria casos de investigação FAIR-PLAY em português, nível escritor de jogos de detetive. Dada uma IDEIA, responda SOMENTE um JSON válido (nada fora dele): {"titulo":"até 60 chars","dif":1 ou 2,"intro":"3-5 frases: lugar, dia/hora, o que aconteceu, quem estava presente, horários-chave concretos","suspeitos":[{"nome","papel","temper":"ex.: defensivo, arrogante, assustado","pac0":1-10,"segredo":"4-7 frases: VERDADES que sabe, o SEGREDO que esconde e SOB O QUÊ confessa (2 evidências)"}] com 4 itens,"pistas":[{"titulo","onde","corpo":"2-3 frases concretas com horários/medidas/posições","ins":"o que INDICA e o que EXCLUI"}] com 5 itens,"culpado":"nome EXATO de um dos suspeitos","metodo":"passo a passo com janela de tempo","motivo":"...","cadeia":["3-5 passos: como o jogador DEDUZ a solução usando as pistas"],"armadilhas":["2-3 chutes óbvios e ERRADOS, com a razão do erro"]}. REGRAS: solução dedutível SOMENTE pelas pistas; o culpado é um dos suspeitos; inocentes também escondem vergonhas; pelo menos 1 armadilha é o suspeito com motivo mais ruidoso.';
 function renderEditor(){
- $('#v-editor').innerHTML=`<h2>➕ Crie seu caso</h2>
-  <p class="mini">Regra de ouro do <u class="u-glo" data-g="fair-play">fair-play</u>: a solução precisa ser DEDUTÍVEL pelas pistas — nada de trunfo fora do material. O caso fica salvo neste navegador e você pode jogar, exportar por código e publicar.</p>
-  <div class="fsec"><h3>🕵️ O caso</h3>
-   <label>Título</label><input id="e-tit" maxlength="80" placeholder="O Mistério do…">
-   <div class="frow c2"><div><label>Dificuldade</label><select id="e-dif"><option value="1">1 · Iniciante</option><option value="2">2 · Exigente</option></select></div>
-   <div><label>&nbsp;</label><label style="display:flex;gap:8px;align-items:center;font-size:13px"><input type="checkbox" id="e-pub" style="width:auto"> 🌐 publicar na comunidade</label></div></div>
-   <label>Introdução (a cena, a vítima, horários — o que é público)</label>
-   <textarea id="e-intro" placeholder="Sexta, 22h. Durante a festa de… o anfitrião aparece morto… 4 pessoas estavam presentes…"></textarea></div>
-  <div class="fsec"><h3>👥 Suspeitos <span class="cnt">(mín. 2)</span><button class="btn sec" id="e-addp" style="margin:0;float:right;padding:6px 12px;font-size:12px">+ adicionar</button></h3><div id="e-pers"></div></div>
-  <div class="fsec"><h3>🔍 Pistas <span class="cnt">(mín. 3 — cada uma deve indicar E excluir algo)</span><button class="btn sec" id="e-addi" style="margin:0;float:right;padding:6px 12px;font-size:12px">+ adicionar</button></h3><div id="e-pistas"></div></div>
-  <div class="fsec"><h3>🧠 Solução <span class="cnt">(só o investigador-mestre lê — os suspeitos nunca veem)</span></h3>
-   <label>Culpado</label><select id="e-culpado"></select>
-   <label>Como (método, passo a passo, janela de tempo)</label><textarea id="e-met" placeholder="Às 21h20, quando…"></textarea>
-   <label>Por quê (motivo)</label><textarea id="e-mot"></textarea>
-   <label>Cadeia da dedução — 1 passagem por linha <span class="cnt">(o jogador deveria chegar aqui passo a passo)</span></label><textarea id="e-cad" placeholder="O vinho da garrafa estava limpo (pista 2)…&#10;Quem mexeu na taça nessa janela…&#10;Portanto…"></textarea>
-   <label>Armadilhas — 1 por linha <span class="cnt">(os chutes óbvios e ERRADOS)</span></label><textarea id="e-arm" placeholder="Culpar o que tem motivo ruidoso…&#10;Achar que…"></textarea></div>
-  <div class="hb2"><button class="btn" id="e-salvar">💾 Salvar caso</button><button class="btn sec" id="e-testar">🧪 Testar agora</button><button class="btn sec" id="e-voltar">↩ voltar</button></div>
-  <div class="mini" id="e-msg" style="margin-top:8px"></div>`;
- $('#e-tit').value=ED.titulo;$('#e-dif').value=String(ED.dif||1);$('#e-intro').value=ED.intro;$('#e-met').value=ED.sol.metodo;$('#e-mot').value=ED.sol.motivo;$('#e-cad').value=ED.sol.cadeia;$('#e-arm').value=ED.sol.armadilhas;$('#e-pub').checked=!!ED.pub;
- const rp=()=>{$('#e-pers').innerHTML=ED.pers.map((p,i)=>fitemP(p,i)).join('');bindPers();culpOpts();};
- const ri=()=>{$('#e-pistas').innerHTML=ED.pistas.map((p,i)=>fitemI(p,i)).join('');bindPistas();};
- function bindPers(){$('#e-pers').querySelectorAll('.f-n').forEach(inp=>inp.oninput=()=>{coleta();culpOpts();});
-  $('#e-pers').querySelectorAll('.fdel').forEach(b=>b.onclick=()=>{if(ED.pers.length<=1)return toast('mínimo 1 suspeito');ED.pers.splice(+b.dataset.i,1);coleta();rp();});
-  $('#e-pers').querySelectorAll('.fai').forEach(b=>b.onclick=async()=>{
-   const i=+b.dataset.i;coleta();const p=ED.pers[i];
-   if(!p.nome||!p.segredo||p.segredo.length<15)return toast('Preencha nome + segredo primeiro, depois a IA enriquece');
-   b.disabled=true;b.textContent='✨ escrevendo…';
-   try{
-    const r=await callAI([{role:'system',content:'Você é roteirista de jogos de investigação fair-play. Melhore a FICHA SECRETA de um personagem: mantenha TODOS os fatos dados, organize como VERDADES/SEGREDO/QUANDO REVELAR/COMO REAGE A CONFRONTO, texto corrido, máx 110 palavras, português. Nunca mencione a solução do caso.'},{role:'user',content:'Nome: '+p.nome+'\nPapel: '+p.papel+'\nTemperamento: '+p.temper+'\nFicha atual: '+p.segredo}]);
-    ED.pers[i].segredo=r.trim();$('#e-pers .fitem[data-i="'+i+'"] .f-s').value=ED.pers[i].segredo;store.setJ('mt_draft',ED);toast('✨ ficha enriquecida pela IA');
-   }catch(e){toast('⚠️ '+e.message);}
-   b.disabled=false;b.textContent='✨ IA';
-  });}
- function bindPistas(){$('#e-pistas').querySelectorAll('.fdel').forEach(b=>b.onclick=()=>{if(ED.pistas.length<=1)return toast('mínimo 1 pista');ED.pistas.splice(+b.dataset.i,1);coleta();ri();});}
- $('#e-addp').onclick=()=>{coleta();ED.pers.push({nome:'',papel:'',temper:'',pac0:5,segredo:''});rp();};
- $('#e-addi').onclick=()=>{coleta();ED.pistas.push({titulo:'',onde:'',corpo:'',ins:''});ri();};
- $('#e-tit').oninput=e=>{ED.titulo=e.target.value;store.setJ('mt_draft',ED);};
- $('#e-dif').onchange=e=>{ED.dif=+e.target.value;store.setJ('mt_draft',ED);};
- $('#e-intro').oninput=e=>{ED.intro=e.target.value;store.setJ('mt_draft',ED);};
- $('#e-met').oninput=e=>{ED.sol.metodo=e.target.value;store.setJ('mt_draft',ED);};
- $('#e-mot').oninput=e=>{ED.sol.motivo=e.target.value;store.setJ('mt_draft',ED);};
- $('#e-cad').oninput=e=>{ED.sol.cadeia=e.target.value;store.setJ('mt_draft',ED);};
- $('#e-arm').oninput=e=>{ED.sol.armadilhas=e.target.value;store.setJ('mt_draft',ED);};
- $('#e-pub').onchange=e=>{ED.pub=e.target.checked;store.setJ('mt_draft',ED);};
- function culpOpts(){const sel=$('#e-culpado');const atual=ED.sol.culpado;sel.innerHTML='<option value="">— escolha —</option>'+ED.pers.filter(p=>p.nome).map(p=>`<option>${esc(p.nome)}</option>`).join('')+'<option>Outro (descreve no método)</option>';if(atual)[...sel.options].forEach(o=>{if(o.text===atual)sel.value=o.value||o.text;});}
- function coleta(){
-  ED.titulo=$('#e-tit').value;ED.dif=+$('#e-dif').value||1;ED.intro=$('#e-intro').value;
-  ED.sol.metodo=$('#e-met').value;ED.sol.motivo=$('#e-mot').value;ED.sol.cadeia=$('#e-cad').value;ED.sol.armadilhas=$('#e-arm').value;ED.pub=$('#e-pub').checked;
-  ED.sol.culpado=$('#e-culpado').value||ED.sol.culpado;
-  $('#e-pers').querySelectorAll('.fitem').forEach(el=>{const i=+el.dataset.i;if(!ED.pers[i])return;ED.pers[i]={nome:el.querySelector('.f-n').value,papel:el.querySelector('.f-p').value,temper:el.querySelector('.f-t').value,pac0:Math.max(1,Math.min(10,+el.querySelector('.f-pc').value||5)),segredo:el.querySelector('.f-s').value};});
-  $('#e-pistas').querySelectorAll('.fitem').forEach(el=>{const i=+el.dataset.i;if(!ED.pistas[i])return;ED.pistas[i]={titulo:el.querySelector('.f-ti').value,onde:el.querySelector('.f-on').value,corpo:el.querySelector('.f-c').value,ins:el.querySelector('.f-in').value};});
+ const wn=['A ideia','Suspeitos','Pistas','Solução','Revisar'];
+ const p=Math.max(1,Math.min(5,ED._p||1));
+ let body='';
+ if(p===1)body=`<div class="idea"><h4>✨ Atalho: deixe a IA rascunhar pra você</h4>
+   <textarea id="w-ideia" placeholder="Descreva sua ideia em 1-2 frases: “um roubo durante a festa junina de uma escola do interior” ou “o chef envenenado no jantar de premiação”…" style="min-height:64px"></textarea>
+   <button class="btn" id="w-ia" style="margin-top:8px">✨ Criar rascunho com IA</button>
+   <div class="mini" style="margin-top:6px">A IA monta tudo — você REVISA e ajusta no que quiser. Depois dá pra enriquecer cada ficha com ✨.</div></div>
+  <label>Título do caso</label><input id="e-tit" maxlength="80" placeholder="O Mistério do…">
+  <div class="frow c2"><div><label>Dificuldade</label><select id="e-dif"><option value="1">1 · Iniciante</option><option value="2">2 · Exigente</option></select></div>
+  <div><label>&nbsp;</label><label style="display:flex;gap:8px;align-items:center;font-size:13px"><input type="checkbox" id="e-pub" style="width:auto"> 🌐 publicar na comunidade</label></div></div>
+  <label>Introdução (a cena, a vítima, horários — o que é público)</label>
+  <textarea id="e-intro" placeholder="Sexta, 22h. Durante a festa de… o anfitrião aparece morto… 4 pessoas estavam presentes…"></textarea>
+  <div class="dbox"><b>Boa introdução tem:</b> dia e hora • o que aconteceu • quem estava presente • 1 regra do jogo (ex.: “a porta só abre por dentro”). É o mapa que o jogador vai usar.</div>`;
+ if(p===2)body=`<div id="e-pers"></div><button class="btn sec" id="e-addp" style="margin-top:8px">+ adicionar suspeito</button>
+  <div class="dbox"><b>Ficha íntima boa:</b> o que a pessoa SABE • o SEGREDO que esconde (até inocentes escondem vergonha!) • SOB O QUÊ confessa (2 evidências concretas). Paciência 1-3 = nervoso, 8-10 = controlado.</div>`;
+ if(p===3)body=`<div id="e-pistas"></div><button class="btn sec" id="e-addi" style="margin-top:8px">+ adicionar pista</button>
+  <div class="dbox"><b>Boa pista:</b> concreta (horário, medida, posição) • INDICA algo e/ou EXCLUI algo • nunca entrega a solução sozinha. 4-6 pistas é o ponto ideal.</div>`;
+ if(p===4)body=`<label>Culpado</label><select id="e-culpado"></select>
+  <label>Como (método, passo a passo, janela de tempo)</label><textarea id="e-met" placeholder="Às 21h20, quando…"></textarea>
+  <label>Por quê (motivo)</label><textarea id="e-mot"></textarea>
+  <label>Cadeia da dedução — 1 passagem por linha <span class="cnt">(como o jogador DEVERIA chegar lá)</span></label><textarea id="e-cad" placeholder="O vinho da garrafa estava limpo (pista 2)…&#10;Quem mexeu na taça nessa janela…&#10;Portanto…"></textarea>
+  <label>Armadilhas — 1 por linha <span class="cnt">(os chutes óbvios e ERRADOS)</span></label><textarea id="e-arm" placeholder="Culpar o que tem motivo ruidoso…&#10;Achar que…"></textarea>
+  <div class="dbox"><b>Cadeia</b> = a escada de dedução (cada degrau nasce de uma pista). <b>Armadilhas</b> = o caminho errado tentador — é delas que vem o ensino.</div>`;
+ if(p===5)body=revHTML();
+ const nav=p<5
+  ?`<div class="wnav">${p>1?'<button class="btn sec" id="w-prev">↩ voltar</button>':'<button class="btn sec" id="w-sair">sair (rascunho fica salvo)</button>'}<span class="spacer"></span><button class="btn" id="w-next">próximo: ${wn[p]} →</button></div>`
+  :`<div class="wnav"><button class="btn sec" id="w-prev">↩ voltar</button><span class="spacer"></span><button class="btn sec" id="w-testar">🧪 testar</button><button class="btn" id="w-salvar">💾 salvar</button></div>`;
+ $('#v-editor').innerHTML=`<h2>➕ Criar meu caso</h2>
+  <div class="wsteps">${wn.map((n,i)=>`<button class="wst ${i+1===p?'cur':''}" data-w="${i+1}"><span class="wn">${i+1}</span>${n}</button>`).join('')}</div>
+  <div class="fsec">${body}</div>${nav}<div class="mini" id="w-msg" style="margin-top:10px"></div>`;
+ // binds comuns
+ document.querySelectorAll('#v-editor .wst').forEach(b=>b.onclick=()=>{coleta();ED._p=+b.dataset.w;store.setJ('mt_draft',ED);renderEditor();});
+ const pv=$('#w-prev');if(pv)pv.onclick=()=>{coleta();ED._p=Math.max(1,p-1);store.setJ('mt_draft',ED);renderEditor();};
+ const sx=$('#w-sair');if(sx)sx.onclick=()=>{coleta();store.setJ('mt_draft',ED);renderHome();ver('v-home');};
+ const nx=$('#w-next');if(nx)nx.onclick=()=>{coleta();const av=avisoPasso(p);ED._p=p+1;store.setJ('mt_draft',ED);renderEditor();if(av)toast('💡 '+av);};
+ if(p===1){
+  $('#e-tit').value=ED.titulo;$('#e-dif').value=String(ED.dif||1);$('#e-intro').value=ED.intro;$('#e-pub').checked=!!ED.pub;
+  $('#e-tit').oninput=e=>{ED.titulo=e.target.value;store.setJ('mt_draft',ED);};
+  $('#e-dif').onchange=e=>{ED.dif=+e.target.value;store.setJ('mt_draft',ED);};
+  $('#e-intro').oninput=e=>{ED.intro=e.target.value;store.setJ('mt_draft',ED);};
+  $('#e-pub').onchange=e=>{ED.pub=e.target.checked;store.setJ('mt_draft',ED);};
+  $('#w-ia').onclick=iaCriar;
  }
- $('#e-pers')&&rp();$('#e-pistas')&&ri();
- $('#e-voltar').onclick=()=>{coleta();store.setJ('mt_draft',ED);renderHome();ver('v-home');};
- $('#e-testar').onclick=()=>{coleta();store.setJ('mt_draft',ED);const c=valida();if(c){abrirCasos(c);toast('🧪 modo teste — nada foi salvo ainda');}else $('#e-msg').innerHTML=erros;}
- $('#e-salvar').onclick=async()=>{
-  coleta();const c=valida();
-  if(!c){$('#e-msg').innerHTML=erros;return toast('⚠️ quase lá — olhe os avisos');}
-  if(ED.pub)exigirConta(async()=>{
-   const m=store.getJ('mt_meus')||[];c.pub=true;c.autor=sessao();m.push(c);store.setJ('mt_meus',m);store.setJ('mt_draft',null);ED=novoED();
-   let srv='';
-   try{const r=await fetch('https://caixa-agente-default-rtdb.firebaseio.com/mt_comun/'+c.id+'.json',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({titulo:c.titulo,autor:c.autor,cod:codDe(c),ts:Date.now()}),signal:AbortSignal.timeout(8000)});if(!r.ok)throw 0;srv=' (e sincronizado no servidor 🎉)';}catch(e){srv=' — servidor da comunidade indisponível, mas o CÓDIGO funciona 100%';}
-   toast('🌐 caso publicado na comunidade'+srv);renderHome();ver('v-home');
-  });
-  else{const m=store.getJ('mt_meus')||[];m.push(c);store.setJ('mt_meus',m);store.setJ('mt_draft',null);ED=novoED();toast('💾 caso salvo! jogue em “Seus casos”');renderHome();ver('v-home');}
- };
- let erros='';
- function valida(){
-  erros='';const p=[];
-  if(!ED.titulo||ED.titulo.trim().length<4)p.push('título do caso');
-  if(!ED.intro||ED.intro.trim().length<40)p.push('introdução (mín. 40 letras — contexto!)');
-  const persOk=ED.pers.filter(x=>x.nome.trim()&&x.segredo.trim().length>=15);
-  if(persOk.length<2)p.push('2+ suspeitos com nome + segredo (15+ letras)');
-  const pistOk=ED.pistas.filter(x=>x.titulo.trim()&&x.corpo.trim().length>=20);
-  if(pistOk.length<3)p.push('3+ pistas com título + corpo (20+ letras)');
-  if(!ED.sol.culpado)p.push('culpado');
-  if(!ED.sol.metodo||ED.sol.metodo.trim().length<20)p.push('como (método, 20+ letras)');
-  if(p.length){erros='<b>Falta preencher:</b> '+p.join(' · ');return null;}
-  return paraCaso();
+ if(p===2){
+  const rp=()=>{$('#e-pers').innerHTML=ED.pers.map((x,i)=>fitemP(x,i)).join('');bindP();};
+  function bindP(){
+   $('#e-pers').querySelectorAll('.fdel').forEach(b=>b.onclick=()=>{if(ED.pers.length<=1)return toast('mínimo 1 suspeito');coleta();ED.pers.splice(+b.dataset.i,1);store.setJ('mt_draft',ED);rp();});
+   $('#e-pers').querySelectorAll('.fai').forEach(b=>b.onclick=async()=>{
+    const i=+b.dataset.i;coleta();const x=ED.pers[i];
+    if(!x.nome||!x.segredo||x.segredo.length<15)return toast('Preencha nome + segredo primeiro, depois a IA enriquece');
+    b.disabled=true;b.textContent='✨ escrevendo…';
+    try{
+     const r=await callAI([{role:'system',content:'Você é roteirista de jogos de investigação fair-play. Melhore a FICHA SECRETA de um personagem: mantenha TODOS os fatos dados, organize como VERDADES/SEGREDO/QUANDO REVELAR/COMO REAGE A CONFRONTO, texto corrido, máx 110 palavras, português. Nunca mencione a solução do caso.'},{role:'user',content:'Nome: '+x.nome+'\nPapel: '+x.papel+'\nTemperamento: '+x.temper+'\nFicha atual: '+x.segredo}]);
+     ED.pers[i].segredo=r.trim();store.setJ('mt_draft',ED);$('#e-pers .fitem[data-i="'+i+'"] .f-s').value=ED.pers[i].segredo;toast('✨ ficha enriquecida');
+    }catch(e){toast('⚠️ '+e.message);}
+    b.disabled=false;b.textContent='✨ IA';
+   });
+  }
+  $('#e-addp').onclick=()=>{coleta();ED.pers.push({nome:'',papel:'',temper:'',pac0:5,segredo:''});store.setJ('mt_draft',ED);rp();};
+  rp();
  }
- function paraCaso(){
-  const slug=x=>String(x).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'').slice(0,10)||'x';
-  return {id:'meu_'+Date.now().toString(36),titulo:esc(ED.titulo.trim()),dif:ED.dif||1,difTxt:ED.dif===1?'INICIANTE':'EXIGENTE',cap:null,
-   intro:esc(ED.intro.trim()).replace(/\n/g,'<br>'),
-   personagens:ED.pers.filter(p=>p.nome.trim()).map((p,i)=>({id:slug(p.nome)+i,nome:esc(p.nome.trim()),papel:esc(p.papel.trim()||'suspeito'),temper:p.temper.trim()||'reservado',pac0:Math.max(1,Math.min(10,+p.pac0||5)),
-    prompt:'Você é '+p.nome.trim()+', '+(p.papel.trim()||'suspeito')+'. TEMPERAMENTO: '+(p.temper.trim()||'reservado')+'. FICHA ÍNTIMA (seu segredo — nunca revele de uma vez, só sob a pergunta/confronto certo): '+p.segredo.trim()+' Fale em português, 2-5 frases, no seu temperamento. NUNCA invente fatos fora da sua ficha; se não souber algo, diga que não sabe/viu.'})),
-   pistas:ED.pistas.filter(x=>x.titulo.trim()).map((x,i)=>({id:'x'+(i+1),onde:esc(x.onde.trim()||'cena'),titulo:esc(x.titulo.trim()),corpo:esc(x.corpo.trim()).replace(/\n/g,'<br>')+(x.ins.trim()?'<span class="tagins">💡 '+esc(x.ins.trim())+'</span>':''),ins:x.ins.trim()})),
-   solucao:{culpado:ED.sol.culpado,metodo:esc(ED.sol.metodo.trim()),motivo:esc((ED.sol.motivo||'').trim()),cadeia:ED.sol.cadeia.split('\n').map(x=>esc(x.trim())).filter(Boolean),armadilhas:ED.sol.armadilhas.split('\n').map(x=>esc(x.trim())).filter(Boolean),pistas_chave:[]},
-   avalSistema:AVAL_PADRAO};
+ if(p===3){
+  const ri=()=>{$('#e-pistas').innerHTML=ED.pistas.map((x,i)=>fitemI(x,i)).join('');bindI();};
+  function bindI(){$('#e-pistas').querySelectorAll('.fdel').forEach(b=>b.onclick=()=>{if(ED.pistas.length<=1)return toast('mínimo 1 pista');coleta();ED.pistas.splice(+b.dataset.i,1);store.setJ('mt_draft',ED);ri();});}
+  $('#e-addi').onclick=()=>{coleta();ED.pistas.push({titulo:'',onde:'',corpo:'',ins:''});store.setJ('mt_draft',ED);ri();};
+  ri();
  }
+ if(p===4){
+  culOpts();
+  $('#e-met').value=ED.sol.metodo;$('#e-mot').value=ED.sol.motivo;$('#e-cad').value=ED.sol.cadeia;$('#e-arm').value=ED.sol.armadilhas;
+  $('#e-met').oninput=e=>{ED.sol.metodo=e.target.value;store.setJ('mt_draft',ED);};
+  $('#e-mot').oninput=e=>{ED.sol.motivo=e.target.value;store.setJ('mt_draft',ED);};
+  $('#e-cad').oninput=e=>{ED.sol.cadeia=e.target.value;store.setJ('mt_draft',ED);};
+  $('#e-arm').oninput=e=>{ED.sol.armadilhas=e.target.value;store.setJ('mt_draft',ED);};
+ }
+ if(p===5)bindRev();
 }
-
+function avisoPasso(p){
+ if(p===1&&!(ED.titulo&&ED.intro))return 'um caso sem introdução deixa o jogador perdido — preencha antes de salvar';
+ if(p===2&&ED.pers.filter(x=>x.nome.trim()).length<2)return '2+ suspeitos com nome fazem o caso ter mistério de verdade';
+ if(p===3&&ED.pistas.filter(x=>x.titulo.trim()).length<3)return '3+ pistas dão o mínimo pra deduzir algo';
+ if(p===4&&ED.sol.cadeia.split('\n').filter(x=>x.trim()).length<2)return 'sem a cadeia de dedução, o caso vira chute — escreva o caminho';
+ return '';
+}
+function revHTML(){
+ const nomes=ED.pers.filter(x=>x.nome.trim()).map(x=>x.nome.trim());
+ const w=[];const av=[];
+ if(!(ED.titulo||'').trim())w.push('título do caso');
+ if(!(ED.intro||'').trim())w.push('introdução');
+ if(nomes.length<2)w.push('2+ suspeitos com nome');
+ if(ED.pistas.filter(x=>x.titulo.trim()&&x.corpo.trim().length>=20).length<3)w.push('3+ pistas com título + corpo (20+ letras)');
+ if(!ED.sol.culpado)w.push('culpado');
+ if(!(ED.sol.metodo||'').trim()||ED.sol.metodo.trim().length<20)w.push('como (método, 20+ letras)');
+ if(nomes.length&&ED.sol.culpado&&!nomes.includes(ED.sol.culpado))w.push('culpado precisa ser um dos suspeitos');
+ if(ED.sol.cadeia.split('\n').filter(x=>x.trim()).length<2)av.push('cadeia de dedução com menos de 2 passos — o jogador vai precisar de sorte, não de raciocínio');
+ if(!ED.sol.armadilhas.split('\n').filter(x=>x.trim()).length)av.push('sem armadilhas o caso não ensina nada (e fica sem graça)');
+ const semIns=ED.pistas.filter(x=>x.titulo.trim()&&!x.ins.trim()).length;
+ if(semIns)av.push(semIns+' pista(s) sem 💡 insight — diga o que cada uma indica/exclui');
+ const semT=ED.pers.filter(x=>x.nome.trim()&&!x.temper.trim()).length;
+ if(semT)av.push(semT+' suspeito(s) sem temperamento — a paciência deles fica genérica');
+ return `<h3 style="font-family:'Special Elite','Courier New',Georgia,serif;color:var(--brand2);font-weight:400">🧾 Revisão final</h3>
+  <div class="revline"><b>“${esc(ED.titulo||'(sem título)')}”</b> · dificuldade ${ED.dif===2?'2 (exigente)':'1 (iniciante)'}${ED.pub?' · 🌐 público':''}</div>
+  <div class="revline"><b>${nomes.length}</b> suspeitos: ${esc(nomes.join(', ')||'—')}</div>
+  <div class="revline"><b>${ED.pistas.filter(x=>x.titulo.trim()).length}</b> pistas · culpado: <b>${esc(ED.sol.culpado||'—')}</b></div>
+  ${w.length?`<div class="warnbox"><b>⚠️ Falta preencher:</b> ${esc(w.join(' · '))}</div>`:''}
+  ${av.length?`<div class="warnbox"><b>💡 Pra ficar melhor:</b><ul style="margin:6px 0 0 18px">${av.map(x=>'<li>'+esc(x)+'</li>').join('')}</ul></div>`:'<div class="dbox"><b>Está redondo!</b> Salve e teste jogando — o melhor teste é um amigo investigar.</div>'}`;
+}
+function bindRev(){
+ const sv=$('#w-salvar');if(sv)sv.onclick=async()=>{
+  coleta();const ok1=valida();
+  if(!ok1){$('#w-msg').innerHTML=erros;return toast('⚠️ quase lá — olhe os avisos');}
+  const finalizar=async()=>{
+   const m=store.getJ('mt_meus')||[];ok1.pub=!!ED.pub;if(ok1.pub){ok1.autor=sessao()||'anônimo';}
+   m.push(ok1);store.setJ('mt_meus',m);store.setJ('mt_draft',null);ED=novoED();
+   let srv='';
+   if(ok1.pub){try{const r=await fetch('https://caixa-agente-default-rtdb.firebaseio.com/mt_comun/'+ok1.id+'.json',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({titulo:ok1.titulo,autor:ok1.autor,cod:codDe(ok1),ts:Date.now()}),signal:AbortSignal.timeout(8000)});if(!r.ok)throw 0;srv=' (e sincronizado no servidor 🎉)';}catch(e){srv=' — servidor indisponível, mas o CÓDIGO funciona 100%';}}
+   toast(ok1.pub?'🌐 publicado na comunidade'+srv:'💾 caso salvo! jogue em “Seus casos”');
+   renderHome();ver('v-home');
+  };
+  if(ED.pub)exigirConta(finalizar);else finalizar();
+ };
+ const ts=$('#w-testar');if(ts)ts.onclick=()=>{coleta();const c=valida();if(c){abrirCasos(c);toast('🧪 modo teste — nada foi salvo ainda');}else $('#w-msg').innerHTML=erros;};
+}
+async function iaCriar(){
+ const ideia=$('#w-ideia').value.trim();
+ if(ideia.length<10)return toast('Descreva sua ideia com um pouco mais de detalhe 🙂');
+ const b=$('#w-ia');b.disabled=true;b.textContent='✨ escrevendo o caso…';
+ try{
+  const r=await callAI([{role:'system',content:SYS_GERA},{role:'user',content:'IDEIA: '+ideia}]);
+  const o=tentaJSON(r);
+  if(!o||!o.titulo||!Array.isArray(o.suspeitos)||o.suspeitos.length<2||!Array.isArray(o.pistas)||o.pistas.length<3)throw new Error('o modelo devolveu um caso incompleto — tente de novo (ou preencha à mão)');
+  const nomes=o.suspeitos.map(x=>String(x.nome||''));
+  if(!nomes.includes(o.culpado))o.culpado=nomes[0];
+  ED.titulo=String(o.titulo).slice(0,80);ED.dif=+o.dif===2?2:1;ED.intro=String(o.intro||'').slice(0,1200);
+  ED.pers=o.suspeitos.slice(0,6).map(x=>({nome:String(x.nome||'').slice(0,60),papel:String(x.papel||'').slice(0,80),temper:String(x.temper||'reservado').slice(0,60),pac0:Math.max(1,Math.min(10,+x.pac0||5)),segredo:String(x.segredo||'').slice(0,900)}));
+  ED.pistas=o.pistas.slice(0,10).map(x=>({titulo:String(x.titulo||'').slice(0,90),onde:String(x.onde||'').slice(0,80),corpo:String(x.corpo||'').slice(0,900),ins:String(x.ins||'').slice(0,250)}));
+  ED.sol={culpado:o.culpado,metodo:String(o.metodo||'').slice(0,800),motivo:String(o.motivo||'').slice(0,500),cadeia:(Array.isArray(o.cadeia)?o.cadeia:[]).map(x=>String(x).slice(0,300)).join('\n'),armadilhas:(Array.isArray(o.armadilhas)?o.armadilhas:[]).map(x=>String(x).slice(0,300)).join('\n')};
+  ED._p=2;store.setJ('mt_draft',ED);renderEditor();
+  toast('✨ rascunho criado! Revise cada passo — é o SEU caso');
+ }catch(e){toast('⚠️ '+e.message);}
+ b.disabled=false;b.textContent='✨ Criar rascunho com IA';
+}
+function coleta(){
+ if($('#e-tit')){ED.titulo=$('#e-tit').value;ED.dif=+$('#e-dif').value||1;ED.intro=$('#e-intro').value;ED.pub=$('#e-pub').checked;}
+ if($('#e-pers'))$('#e-pers').querySelectorAll('.fitem').forEach(el=>{const i=+el.dataset.i;if(!ED.pers[i])return;ED.pers[i]={nome:el.querySelector('.f-n').value,papel:el.querySelector('.f-p').value,temper:el.querySelector('.f-t').value,pac0:Math.max(1,Math.min(10,+el.querySelector('.f-pc').value||5)),segredo:el.querySelector('.f-s').value};});
+ if($('#e-pistas'))$('#e-pistas').querySelectorAll('.fitem').forEach(el=>{const i=+el.dataset.i;if(!ED.pistas[i])return;ED.pistas[i]={titulo:el.querySelector('.f-ti').value,onde:el.querySelector('.f-on').value,corpo:el.querySelector('.f-c').value,ins:el.querySelector('.f-in').value};});
+ if($('#e-culpado')){ED.sol.culpado=$('#e-culpado').value||ED.sol.culpado;ED.sol.metodo=$('#e-met').value;ED.sol.motivo=$('#e-mot').value;ED.sol.cadeia=$('#e-cad').value;ED.sol.armadilhas=$('#e-arm').value;}
+}
+function culOpts(){
+ const sel=$('#e-culpado');if(!sel)return;
+ const atual=ED.sol.culpado;
+ sel.innerHTML='<option value="">— escolha —</option>'+ED.pers.filter(x=>x.nome.trim()).map(x=>`<option>${esc(x.nome.trim())}</option>`).join('')+'<option>Outro (descreve no método)</option>';
+ if(atual)[...sel.options].forEach(o=>{if(o.text===atual)sel.value=o.value||o.text;});
+}
+let erros='';
+function valida(){
+ erros='';const p=[];
+ if(!ED.titulo||ED.titulo.trim().length<4)p.push('título do caso');
+ if(!ED.intro||ED.intro.trim().length<40)p.push('introdução (mín. 40 letras — contexto!)');
+ const persOk=ED.pers.filter(x=>x.nome.trim()&&x.segredo.trim().length>=15);
+ if(persOk.length<2)p.push('2+ suspeitos com nome + segredo (15+ letras)');
+ const pistOk=ED.pistas.filter(x=>x.titulo.trim()&&x.corpo.trim().length>=20);
+ if(pistOk.length<3)p.push('3+ pistas com título + corpo (20+ letras)');
+ if(!ED.sol.culpado)p.push('culpado');
+ if(!ED.sol.metodo||ED.sol.metodo.trim().length<20)p.push('como (método, 20+ letras)');
+ const nomes=ED.pers.map(x=>x.nome.trim());
+ if(ED.sol.culpado&&nomes.length&&!nomes.includes(ED.sol.culpado))p.push('culpado deve ser um dos suspeitos');
+ if(p.length){erros='<b>Falta preencher:</b> '+p.join(' · ');return null;}
+ return paraCaso();
+}
+function paraCaso(){
+ const slug=x=>String(x).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'').slice(0,10)||'x';
+ return {id:'meu_'+Date.now().toString(36),titulo:esc(ED.titulo.trim()),dif:ED.dif||1,difTxt:ED.dif===1?'INICIANTE':'EXIGENTE',cap:null,
+  intro:esc(ED.intro.trim()).replace(/\n/g,'<br>'),
+  personagens:ED.pers.filter(p=>p.nome.trim()).map((p,i)=>({id:slug(p.nome)+i,nome:esc(p.nome.trim()),papel:esc(p.papel.trim()||'suspeito'),temper:p.temper.trim()||'reservado',pac0:Math.max(1,Math.min(10,+p.pac0||5)),
+   prompt:'Você é '+p.nome.trim()+', '+(p.papel.trim()||'suspeito')+'. TEMPERAMENTO: '+(p.temper.trim()||'reservado')+'. FICHA ÍNTIMA (seu segredo — nunca revele de uma vez, só sob a pergunta/confronto certo): '+p.segredo.trim()+' Fale em português, 2-5 frases, no seu temperamento. NUNCA invente fatos fora da sua ficha; se não souber algo, diga que não sabe/viu.'})),
+  pistas:ED.pistas.filter(x=>x.titulo.trim()).map((x,i)=>({id:'x'+(i+1),onde:esc(x.onde.trim()||'cena'),titulo:esc(x.titulo.trim()),corpo:esc(x.corpo.trim()).replace(/\n/g,'<br>')+(x.ins.trim()?'<span class="tagins">💡 '+esc(x.ins.trim())+'</span>':''),ins:x.ins.trim()})),
+  solucao:{culpado:ED.sol.culpado,metodo:esc(ED.sol.metodo.trim()),motivo:esc((ED.sol.motivo||'').trim()),cadeia:ED.sol.cadeia.split('\n').map(x=>esc(x.trim())).filter(Boolean),armadilhas:ED.sol.armadilhas.split('\n').map(x=>esc(x.trim())).filter(Boolean),pistas_chave:[]},
+  avalSistema:AVAL_PADRAO};
+}
 /* ═══ CÓDIGOS (exportar/importar casos) ═══ */
 function codDe(c){
  const j=JSON.stringify({v:1,t:c.titulo,d:c.dif,i:c.intro,p:(c.personagens||[]).map(p=>({n:p.nome,r:p.papel,te:p.temper,pc:p.pac0,pr:p.prompt})),pi:(c.pistas||[]).map(p=>({w:p.onde,t:p.titulo,c:p.corpo,i:p.ins})),s:c.solucao,a:c.autor?c.autor.replace(/^por /,''):''});
@@ -1123,8 +1297,9 @@ $('#b-criar').onclick=()=>abrirEditor();
 $('#b-comun').onclick=()=>{renderComunidade();testaServ();};
 $('#b-dica').onclick=pedirDica;
 $('#glo-x').onclick=fecharGloss;
+$('#tour-ok').onclick=()=>{store.setJ('mt_tour_v1',1);$('#tour').hidden=true;};
 $('#glo-q').oninput=e=>renderGloss(e.target.value);
-document.addEventListener('click',e=>{const u=e.target.closest&&e.target.closest('.u-glo');if(u)abrirGloss(u.dataset.g);});
+document.addEventListener('click',e=>{const u=e.target.closest&&e.target.closest('.glo-t');if(u)abrirGloss(u.dataset.g);});
 renderTrilha();
 testaServ();
 
