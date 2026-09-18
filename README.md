@@ -5,10 +5,13 @@
 > *“As pessoas mostram quem são o tempo todo. Você só precisa observar.”*
 
 - 📁 Dossiê do caso + 🔍 pistas para examinar (o que indica? o que EXCLUI?)
-- 👥 **Interrogue os personagens** (IA em personagem — cada um esconde o próprio segredo; a solução nunca está no prompt deles)
+- 👥 **Interrogue os personagens** (IA em personagem — cada um esconde o próprio segredo; a solução nunca está no prompt deles) — com retrato, temperamento e **paciência própria**: repita perguntas e o suspeito fecha
 - 📓 Caderno com notas automáticas + campo obrigatório de **hipótese alternativa** (anti viés de confirmação)
 - 🧠 Teoria final → **parecer do investigador-mestre**: o que você percebeu, o que deixou passar, vieses detectados e como investigar melhor
 - 🎓 **Escola de Detetive** com metodologia REAL: modelo PEACE de entrevista, efeito Loftus, viés de confirmação/visão-túnel, princípio de Locard, a ciência da detecção de engano (Bond & DePaulo) e avaliação de teorias
+
+## Visual
+Tema **noir arquivo de caso** (fonte de máquina de escrever, papel envelhecido, marcadores de evidência) com capas e retratos ilustrados — tudo embutido no arquivo único.
 
 ## Casos
 1. **A Última Ceia do Chef Duarte** (iniciante) — envenenamento num jantar de comemoração
