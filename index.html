@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0a10">
+<title>Mentalista — treine seu olho de investigador</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
+<style>
+:root{--bg:#0b0a10;--bg2:#141220;--bg3:#1d1930;--tx:#ece9f6;--muted:#9b93b8;--brand:#c9a227;--brand2:#e8c85a;--roxo:#8b5cf6;--ok:#34d399;--bad:#f87171;--line:rgba(255,255,255,.1)}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+body{background:radial-gradient(1000px 550px at 85% -10%,#231a3e 0%,transparent 55%),var(--bg);color:var(--tx);font-family:Georgia,'Times New Roman',serif;min-height:100vh}
+button{font:inherit;cursor:pointer;border:0;color:inherit}
+input,textarea,select{font:inherit}
+header{display:flex;align-items:center;justify-content:space-between;padding:13px 18px;position:sticky;top:0;z-index:6;background:rgba(11,10,16,.8);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:18px;letter-spacing:.4px}
+.brand .logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand2));display:flex;align-items:center;justify-content:center;font-size:17px}
+.brand small{color:var(--muted);font-weight:400;font-size:12px;font-style:italic}
+.hb{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:10px;padding:7px 12px;font-size:13px;font-weight:700}
+main{max-width:880px;margin:0 auto;padding:26px 16px 110px}
+.sheet{background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(255,255,255,.012));border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 18px 50px rgba(0,0,0,.45)}
+.frase{font-style:italic;color:#d9cfae;font-size:17px;line-height:1.5;border-left:3px solid var(--brand);padding-left:14px;margin:10px 0 18px}
+h1{font-size:28px;line-height:1.15;margin-bottom:6px}
+h2{font-size:20px;margin-bottom:8px}
+.sub{color:var(--muted);font-size:14.5px;line-height:1.6;margin-bottom:14px}
+.casos{display:grid;gap:12px;grid-template-columns:1fr;max-width:560px}
+.ccard{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:16px;cursor:pointer;transition:border .15s,transform .12s}
+.ccard:hover{border-color:var(--brand);transform:translateY(-2px)}
+.ccard b{font-size:16.5px}
+.ccard small{display:block;color:var(--muted);margin-top:5px;line-height:1.45}
+.dif{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.6px;border-radius:999px;padding:3px 9px;margin-bottom:8px}
+.d1{background:rgba(52,211,153,.15);color:#7ce8bd}
+.d2{background:rgba(251,191,36,.15);color:#f5d67b}
+.tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px}
+.tab{padding:9px 14px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid var(--line);font-size:13px;font-weight:700;color:var(--muted)}
+.tab.on{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#1a1405}
+.tab:not(.on):hover{color:var(--tx)}
+.painel{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:18px;line-height:1.65;font-size:15px}
+.painel p{margin-bottom:10px}
+.pista{background:var(--bg3);border:1px solid var(--line);border-radius:14px;padding:13px 15px;margin-bottom:10px;cursor:pointer;transition:border .15s}
+.pista:hover{border-color:var(--brand)}
+.pista b{font-size:14.5px}
+.pista .onde{display:block;color:var(--muted);font-size:12px;font-style:italic;margin-top:2px}
+.pista .corpo{display:none;margin-top:10px;font-size:14px;color:#ded9ef;line-height:1.6}
+.pista.aberta .corpo{display:block}
+.pista.examinada{border-color:rgba(201,162,39,.45)}
+.pista .tagins{display:inline-block;margin-top:8px;font-size:12px;color:var(--brand2);font-style:italic}
+.pers{display:grid;gap:10px;grid-template-columns:1fr}
+@media(min-width:560px){.pers{grid-template-columns:1fr 1fr}}
+.pcard{background:var(--bg3);border:1px solid var(--line);border-radius:14px;padding:13px;cursor:pointer;transition:border .15s}
+.pcard:hover{border-color:var(--roxo)}
+.pcard b{font-size:15px}
+.pcard small{display:block;color:var(--muted);font-size:12.5px;margin-top:3px;line-height:1.4}
+.chatbox{background:var(--bg3);border:1px solid var(--line);border-radius:16px;padding:14px;height:380px;overflow:auto;display:flex;flex-direction:column;gap:9px;margin-bottom:10px}
+.m{max-width:88%;padding:9px 12px;border-radius:14px;font-size:14px;line-height:1.5;white-space:pre-wrap}
+.m.eu{align-self:flex-end;background:linear-gradient(135deg,var(--roxo),#a78bfa);color:#fff;border-bottom-right-radius:5px}
+.m.pers{align-self:flex-start;background:var(--bg2);border:1px solid var(--line);border-bottom-left-radius:5px}
+.m .q{display:block;font-size:11px;color:var(--muted);margin-bottom:2px}
+.dica{align-self:center;font-size:12.5px;color:#d9cfae;font-style:italic;background:rgba(201,162,39,.08);border:1px dashed rgba(201,162,39,.35);border-radius:12px;padding:7px 12px;max-width:92%;text-align:center}
+.cform{display:flex;gap:8px}
+.cform input{flex:1;background:var(--bg3);border:1px solid var(--line);border-radius:12px;color:var(--tx);padding:11px 13px;outline:none}
+.cform button{background:linear-gradient(135deg,var(--roxo),#a78bfa);color:#fff;border-radius:12px;padding:0 18px;font-weight:700}
+label{display:block;font-size:13px;font-weight:700;margin:12px 0 5px;color:#cfc8e8}
+input[type=text],textarea,select{width:100%;background:var(--bg3);border:1px solid var(--line);border-radius:12px;color:var(--tx);padding:11px 13px;outline:none}
+textarea{min-height:90px;resize:vertical;line-height:1.5}
+.btn{padding:13px 18px;border-radius:14px;font-weight:700;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#1a1405;border:0;width:100%;margin-top:14px}
+.btn.sec{background:var(--bg3);border:1px solid var(--line);color:var(--tx)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.res{border-left:3px solid var(--brand);padding-left:14px;margin:12px 0}
+.res h3{font-size:15px;color:var(--brand2);margin-bottom:6px}
+.res ul{margin-left:18px;line-height:1.6}
+.nota{font-size:40px;font-weight:700;text-align:center;margin:8px 0}
+li{margin-bottom:6px}
+.lição{border-bottom:1px solid var(--line);padding:16px 0}
+.lição:last-child{border-bottom:0}
+.lição h3{color:var(--brand2);font-size:16px;margin-bottom:7px}
+.lição p,.lição li{font-size:14.5px;line-height:1.65;color:#ded9ef}
+.lição .aplique{margin-top:8px;font-size:13px;color:#d9cfae;font-style:italic}
+.badge{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.5px;background:rgba(139,92,246,.16);border:1px solid rgba(139,92,246,.35);color:#c4b5fd;border-radius:999px;padding:4px 10px;margin-bottom:10px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--bg3);border:1px solid var(--line);padding:11px 17px;border-radius:14px;font-size:13.5px;opacity:0;pointer-events:none;transition:opacity .25s;z-index:30;max-width:90vw;text-align:center}
+.toast.on{opacity:1}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><span class="logo">🔍</span> Mentalista <small>· treine seu olho</small></div>
+  <div><button class="hb" id="b-escola">🎓 Escola</button> <button class="hb" id="b-home">Casos</button></div>
+</header>
+
+<main>
+  <!-- HOME -->
+  <section id="v-home">
+    <div class="sheet">
+      <span class="badge">TREINADOR DE MENTALISTA / INVESTIGADOR</span>
+      <h1>Todo caso ensina algo.</h1>
+      <p class="frase">“As pessoas mostram quem são o tempo todo. Você só precisa observar.”</p>
+      <p class="sub">Casos fictícios de investigação: examine a cena, analise pistas, <b>interrogue os personagens</b>, monte sua teoria — e receba um parecer de como você investiga: o que percebeu, o que deixou passar e como investigar melhor. A escola ensina a metodologia real usada por investigadores.</p>
+      <div class="casos" id="lista-casos"></div>
+    </div>
+  </section>
+
+  <!-- CASO -->
+  <section id="v-caso" hidden>
+    <div class="tabs">
+      <button class="tab on" data-t="t-dossie">📁 Dossiê</button>
+      <button class="tab" data-t="t-pistas">🔍 Pistas <span id="n-pistas"></span></button>
+      <button class="tab" data-t="t-pers">👥 Personagens</button>
+      <button class="tab" data-t="t-caderno">📓 Caderno</button>
+      <button class="tab" data-t="t-teoria">🧠 Teoria final</button>
+    </div>
+    <div class="painel" id="t-dossie"></div>
+    <div class="painel" id="t-pistas" hidden></div>
+    <div class="painel" id="t-pers" hidden><div class="pers" id="grid-pers"></div><div id="interrog" hidden>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin:14px 0 8px">
+        <b id="i-nome" style="font-size:16px"></b>
+        <button class="hb" id="i-fechar">✕ fechar</button>
+      </div>
+      <div class="chatbox" id="i-chat"></div>
+      <div class="cform"><input type="text" id="i-in" maxlength="400" placeholder="pergunte… (dica: comece aberto — “conte o que você viu”)"><button id="i-send">➤</button></div>
+    </div></div>
+    <div class="painel" id="t-caderno" hidden></div>
+    <div class="painel" id="t-teoria" hidden></div>
+  </section>
+
+  <!-- ESCOLA -->
+  <section id="v-escola" hidden>
+    <div class="sheet">
+      <h2>🎓 Escola de Detetive</h2>
+      <p class="sub">Metodologia real de investigação — base das lições e do parecer da IA. Leitura de ~6 min que muda como você joga (e observa).</p>
+      <div id="licoes"></div>
+    </div>
+  </section>
+</main>
+<div class="toast" id="toast"></div>
+
+<script>
+'use strict';
+/* ═════ MENTALISTA — treinador de investigação.
+   Casos fair-play (tudo que precisa está no dossiê/pistas/personagens).
+   A IA faz 2 coisas: dar vida aos personagens (cada um só conhece o PRÓPRIO segredo)
+   e avaliar a teoria final contra a SOLUÇÃO (que nunca vai pro prompt dos personagens).
+   Metodologia real no feedback: PEACE, vieses de confirmação/visão-túnel, Locard,
+   ciência da detecção de engano, hipóteses rivais. ═════ */
+const $=s=>document.querySelector(s);
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},
+             set(k,v){try{localStorage.setItem(k,v)}catch(e){}},
+             getJ(k){try{return JSON.parse(localStorage.getItem(k)||'null')}catch(e){return null}},
+             setJ(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('on'),3200);}
+
+/* ═══ IA — fila de provedores grátis (proxy do criador → sem chave no HTML) ═══ */
+const PROXY='https://soulchat-proxy.vercel.app/api/proxy';
+const POLL='https://text.pollinations.ai/openai';
+const FILA_OR=['google/gemma-4-26b-a4b-it:free','inclusionai/ling-3.0-flash-vl:free','nex-agi/nex-n2.5-mini:free','nvidia/nemotron-3-super-120b-a12b:free'];
+const FILA_NV=['openai/gpt-oss-20b','nvidia/nemotron-3-super-120b-a12b'];
+let FAV={or:'',nv:''};
+function filas(){const or=[],nv=[];if(FAV.or)or.push(FAV.or);FILA_OR.forEach(m=>or.push(m));if(FAV.nv)nv.push(FAV.nv);FILA_NV.forEach(m=>nv.push(m));return{or,nv};}
+/* 🚦 limite local do jogador (o proxy também protege do lado dele) */
+const LIM_JOGO=120;
+function contaUso(){const hoje=new Date().toISOString().slice(0,10);const d=store.getJ('mt_uso')||{};if(d.dia!==hoje)return 0;return d.n||0;}
+function usaUso(){const hoje=new Date().toISOString().slice(0,10);const d=store.getJ('mt_uso')||{};const n=d.dia===hoje?(d.n||0)+1:1;store.setJ('mt_uso',{dia:hoje,n});}
+async function callAI(msgs){
+  if(contaUso()>=LIM_JOGO) throw new Error('Limite diário de IA atingido ('+LIM_JOGO+' interações/dia) — amanhã tem mais! 💙');
+  const erros=[];const{or,nv}=filas();
+  const tent=[...or.map(m=>({nome:'proxy·openrouter',url:PROXY,provider:'openrouter',model:m})),
+              ...nv.map(m=>({nome:'proxy·nvidia',url:PROXY,provider:'nvidia',model:m})),
+              {nome:'pollinations',url:POLL,body:{model:undefined,messages:msgs}}];
+  for(const t of tent){
+    try{
+      const body=t.provider?{provider:t.provider,model:t.model,messages:msgs}:{model:t.model||undefined,messages:msgs};
+      const r=await fetch(t.url,{method:'POST',headers:{'Content-Type':'application/json','Origin':location.origin},body:JSON.stringify(body),signal:AbortSignal.timeout(90000)});
+      if(!r.ok){erros.push(t.nome+' '+r.status);continue;}
+      const d=await r.json();
+      const txt=d.choices&&d.choices[0]&&d.choices[0].message&&d.choices[0].message.content;
+      if(txt&&/reached its budget|rate.?limit|quota exceeded|insufficient/i.test(txt)&&txt.length<500){erros.push(t.nome+' limite');continue;}
+      if(txt){if(/openrouter/.test(t.nome))FAV.or=t.model;else if(/nvidia/.test(t.nome))FAV.nv=t.model;usaUso();return txt;}
+      erros.push(t.nome+' vazia');
+    }catch(e){erros.push(t.nome+' falhou');}
+  }
+  throw new Error('IA lotada agora ('+erros.join(' · ')+') — espera 1 min e tenta de novo');
+}
+function tentaJSON(t){let s=(t||'').replace(/```[a-zA-Z]*\s*/g,'').replace(/```/g,'').trim();const i=s.indexOf('{'),j=s.lastIndexOf('}');if(i<0||j<=i)return null;try{return JSON.parse(s.slice(i,j+1))}catch(e){return null}}
+
+/* ═══ ESCOLA — metodologia real (PEACE, vieses, Locard, detecção de engano) ═══ */
+const LICOES=[
+ {t:'1. Pergunte como quem quer MEMÓRIA, não confirmação',corpo:`<p>O modelo <b>PEACE</b> (usado por polícias do Reino Unido, Austrália, Canadá e NZ) organiza a entrevista: <b>P</b>reparação, <b>E</b>ngajar, obter o <b>A</b>ccount (relato), <b>C</b>hance final, <b>E</b>valuar. O núcleo: <b>perguntas abertas primeiro</b> — “Conte o que você viu.” (TED: Tell/Explain/Describe), depois os 5WH (quem, o que, onde, quando, como) só pra esclarecer.</p><p><b>Efeito Loftus:</b> a PALAVRA da pergunta altera a memória do depoente (“batiram-se <i>um contra o outro</i>” vs “<i>rasparam-se</i>” muda a velocidade estimada). Pergunta indutiva contamina o relato — e depois você nem sabe se o que ouviu é memória ou sugestão.</p>`,aplique:'No jogo: comece cada interrogatório com uma pergunta aberta. Guarde as fechadas (“Você saiu às 22h?”) pra TESTAR contradições, nunca pra começar.'},
+ {t:'2. Confronte com EVIDÊNCIA, não com suspeita',corpo:`<p>No PEACE, o confronto vem <b>depois</b> do relato completo, e é <b>baseado em evidência</b> (“Você disse que ficou na cozinha, mas o registro mostra o elevador subindo às 21h47 — como explica?”), nunca em pressuposição de culpa. Técnicas que forçam confissão (modelo Reid, evidência falsa) produzem mais confissões — inclusive <b>falsas</b>.</p>`,aplique:'No jogo: anote contradições no caderno e confronte o personagem com o que JÁ verificou. Personagens (como pessoas) reag melhor a “notei isso…” do que a “você está mentindo!”.'},
+ {t:'3. Viés de confirmação e visão-túnel — o inimigo é VOCÊ',corpo:`<p><b>Viés de confirmação:</b> caçar o que confirma sua primeira impressão e descartar o resto. <b>Visão-túnel:</b> fechar a teoria cedo e filtrar tudo por ela. Estudos (Findley & Scott; caso Central Park Five; Dror — peritos de impressão digital mudando laudo conforme o contexto) mostram que isso contribui para condenações erradas. Até peritos experientes se contaminam.</p><p><b>O antídoto:</b> hipóteses RIVAIS (no mínimo 2 explicações vivas até o fim) e procurar DE PROPÓSITO a evidência que <i>desmontaria</i> sua teoria favorita.</p>`,aplique:'No jogo: o caderno tem um campo “hipótese alternativa”. O parecer final avalia se você manteve alternativas vivas ou casou cedo.'},
+ {t:'4. Princípio de Locard: toda ação deixa traço',corpo:`<p>Edmond Locard, pai da criminalística: “todo contato deixa um vestígio”. Quem esteve ali trouxe algo e levou algo. Investigador real pergunta de cada cena: <b>o que deveria estar aqui e não está? o que está aqui e não deveria?</b> E cuida da cadeia de custódia: evidência sem origem documentada vale pouco.</p><p>Mas cuidado com a armadilha oposta: <b>ausência de evidência não é evidência de ausência</b> — às vezes é só falta de busca.</p>`,aplique:'No jogo: ao abrir cada pista, pergunte-se “o que isso EXCLUI?” além de “o que isso indica?”. Exclusões constroem teoria tanto quanto confirmações.'},
+ {t:'5. Detectar mentira pela CARA não funciona — pelas FATOS, sim',corpo:`<p>A meta-análise clássica (Bond & DePaulo, 2006): humanos acertam ~<b>54%</b> em detectar mentiras — pouco acima do cara-ou-coroa. “Linguagem corporal” e microexpressões como detector universal não têm sustentação científica; olhar nos olhos, mentir "meio nervoso", nada disso passa em teste.</p><p>O que funciona: <b>contradições verificáveis</b> entre versões e evidências, detalhes que só quem viveu o evento saberia, e consistência ao longo do tempo (técnica de carga cognitiva: peça pra contar a história em ordem inversa e veja onde quebra).</p>`,aplique:'No jogo: não condenem ninguém por “cara de culpado”. Anote o QUE cada um afirma e compare — a mentira mora nos fatos que não fecham.'},
+ {t:'6. Avalie teorias como cientista',corpo:`<p>Uma boa teoria é <b>falsificável</b> (diz o que a desmentiria), explica TODAS as evidências (não só as convenientes), não exige conspiração gigante (Occam), e respeita <b>taxas-base</b> (o improvável comum acontece mais que o improvável raro). Antes de fechar: “o que EU precisaria ver pra estar errado?” — se não há resposta, é fé, não investigação.</p>`,aplique:'No jogo: a teoria final pede culpado + método + motivo + evidências. O parecer compara sua teoria com a cadeia de raciocínio do investigador-mestre, ponto a ponto.'}
+];
+
+/* ═══ CASOS (fair-play: a solução é derivável do material) ═══ */
+const CASOS=[
+{
+ id:'jantar',titulo:'A Última Ceia do Chef Duarte',dif:1,difTxt:'INICIANTE',
+ intro:`Sábado, 21h40. O chef <b>Álvaro Duarte</b>, 58, dono do restaurante “Cobre & Alma”, despenca no meio do jantar de comemoração do seu prêmio anual. A causa, confirmada pelo médico presente: <b>envenenamento por ciclovisina</b> — substância usada em aquários, de ação rápida (5 a 15 min) e gosto amargo forte.<br><br>A polícia isolou a mesa: <b>4 pessoas jantaram com ele</b>. Ninguém saiu antes do colapso. A dose estava <b>no vinho da taça dele</b> — e só nela. A garrafa (um Barolo caro, presente de agradecimento) foi aberta <b>na frente de todos às 20h55</b> e Álvaro bebeu três taças: 21h05, 21h20 e 21h32. Colapsou às 21h40.<br><br>Portanto: o veneno entrou <b>na taça dele, entre a abertura da garrafa e uma das três taças</b> — não no vinho todo.`,
+ personagens:[
+  {id:'marina',nome:'Marina Duarte',papel:'esposa do chef',prompt:`Você é MARINA DUARTE, 54, esposa do chef Álvaro Duarte, que acabou de morrer envenenado. Você é a viúva em choque, elegante, contida. VERDADES: você amava ele, mas estava separada de fato há 8 meses — dormia no quarto de hóspedes; ninguém da mesa sabe ao certo. Você bebeu a MESMA garrafa de vinho (taças servidas por você) e está bem. SEGREDO que você esconde: você sabia do caso dele com a sommelière Íris (viu mensagens no celular dele na terça), mas NUNCA contou a ninguém — vergonha. Se perguntarem sobre o casamento, no começo você disfarça (“tínhamos nossos altos e baixos”); se confrontada com carinho/ evidência das mensagens ou com o fato da separação, você chora e ADMITE a separação e que sabia do caso. Você NÃO sabe quem fez. Você relembra: o garçom Bruno trocou a taça de Álvaro às 21h28 porque “achou que tinha resto de batom de outra taça” — você achou estranho na hora, ele parecia nervoso. Você também lembra que Íris foi “conferir a adega” às 21h15 e voltou aos 21h25, com as mãos meio frias. Fale natural, curto, emocional, em português. Nunca revele essas infos de uma vez — só sob a pergunta certa.`},
+  {id:'iris',nome:'Íris Vasques',papel:'sommelière do restaurante',prompt:`Você é ÍRIS VASQUES, 33, sommelière do restaurante “Cobre & Alma”, ex-amante do chef Álvaro (2 meses, terminou QUATRO dias atrás — por ele). Você é profissional, defensiva, magoada. SEGREDO PESADO: você sabia que o chef ia demitir você (soube na quinta, do gerente). E: você FOI à adega às 21h15 e voltou 21h25 — foi CHORAR sozinha, e lavou o rosto (mãos frias da água). MAS: você viu algo na adega — <b>o aquarista Caio tinha uma caixa aberta de produtos de aquário (fertilizantes/tratamentos) na prateleira do vinagre, na terça</b>, porque o restaurante mantém um aquário de marinha na entrada; você achou estranho na hora e comentou nada. Você SÓ revela ter visto a caixa se perguntarem diretamente sobre a adega/Caio/aquário — você não quer se meter. O MEDICAMENTO do aquário da casa é à base de ciclovisina? Você sabe que usam “tratamento ictio” no aquário (frasco azul), mas não sabe o princípio ativo. Se perguntarem do caso amoroso: no começo nega (“imaginação”); se confrontado com calma ou com a demissão, admite o caso e que terminou, e que estava magoada, MAS insiste: “ele me demitiu, não o contrário — eu chorando na adega é prova do meu tamanho amor”. Fale seca, profissional, em português, curto.`},
+  {id:'caio',nome:'Caio Fontes',papel:'aquarista que cuida do aquário do restaurante',prompt:`Você é CAIO FONTES, 27, aquarista terceirizado que cuida do aquário de marinha do restaurante (visita terças e sábados). Você estava NO restaurante no sábado à noite para trocar a água do aquário (por isso estava na cozinha/área de serviço às vezes). Você é tagarela, ansioso, fala demais. Fatos que você sabe: o chef o TRATOU MAL na terça (“tirou no pé” sua profissão na frente da equipe) e você reclamou alto no grupo do WhatsApp dos funcionários “esse homem não merece o aquário que eu cuido” — isso vai te incriminar de propósito? Você fica DEFENSIVO se perguntarem se o chef te tratou mal, admite a briga de terça. SEGREDO: a caixa de produtos de aquário aberta na adega é SUA (guardou ali temporariamente na terça porque o armário do aquário estava com vazamento) — dentro tinha o frasco de “TRATO ICTIO PLUS” que contém ciclovisina. Você percebeu tarde demais que aquilo pode te incriminar e ESTÁ EM PÂNICO por dentro; se perguntarem diretamente sobre a caixa/frasco, você trava, engole seco e ADMITE que é seu, e que o frasco estava INTEIRO e LACRADO quando guardou (na terça). Você jura que não mexeu mais. Você viu, às 21h29, <b>o garçom Bruno saindo do salão com uma taça na mão, rápido, voltando sem a taça</b> — só revela se perguntarem o que você estava fazendo/vendo entre 21h25-21h35 (você estava escondido mandando áudio no grupo reclamando). Fale rápido, ansioso, gíria leve, português.`},
+  {id:'bruno',nome:'Bruno Sanches',papel:'garçom que serviu a mesa',prompt:`Você é BRUNO SANCHES, 41, garçom experiente. Você abriu o vinho na frente de todos (20h55) e a MARINA serviu as taças. FATO CRUCIAL que você esconde por MEDO de ser demitido/processado: às <b>21h28, você tirou a taça da mão do chef e trocou por outra limpa</b> — o chef reclamou que a taça tinha “gosto de sabão”, você levou a taça dele pra copa, e foi ali NA COPA que você completou o nível com vinho da MESMA garrafa antes de levar de volta (21h30). Você fez isso por capricho profissional (servir taça limpa), NÃO é culpado — mas está apavorado porque essa manobra sua é EXATAMENTE a janela que o culpado usou. Se perguntarem sobre a troca: no primeiro momento você omite (medo); se confrontado com testemunha (Caio te viu com a taça) ou pressão calma (“queremos entender a sequência, quem mexeu na taça?”), você ADMITE, desesperado pra provar que só fez o serviço. Detalhe que você sabe: quando levou a taça suja pra copa, ela já estava MEIO CHEIA — e você jura que estava intacta quando serviu às 21h20. A cozinha tinha gente até 21h (fechou depois). Você também lembra que o aquarista (Caio) circulava perto da área de serviço “de vez em quando”. Fale formal, cauteloso, português. Resista um pouco antes de confessar a troca.`}
+ ],
+ pistas:[
+  {id:'p1',onde:'Mesa do chef',titulo:'Taça do vinho (a que ele bebia quando colapsou)',corpo:`Restos de vinho com fundo amargo acentuado. Ciclovisina concentrada AQUI. A taça é uma substituta — tem a marca de guardanapo polido por cima de um lábio antigo: foi LAVADA às pressas e completada com vinho da garrafa. Quem serviu/ completou essa taça depois das 21h20 é a janela do veneno.`,ins:'A taça trocada às 21h28 é o único ponto onde o veneno pôde entrar sozinho na taça dele.'},
+  {id:'p2',onde:'Garrafa Barolo',titulo:'Garrafa aberta às 20h55',corpo:`Consumida por MARINA (2 taças) e pelo CONTADOR Rúben (convidado, sem relação) — ambos bem. O veneno NÃO estava na garrafa. A taça de 21h05 e a de 21h20 do chef: ele não sentiu gosto amargo nelas (elogiou o vinho) — a dose amarga entrou na 3ª.`,ins:'Elimina vinho envenenado em massa; aponta pra taça individual — janela entre 21h20 e 21h32.'},
+  {id:'p3',onde:'Adega (prateleira do vinagre)',titulo:'Caixa de produtos de aquário aberta',corpo:`Caixa do aquarista Caio, guardada na TERÇA (armário do aquário com vazamento). Contém frasco “TRATO ICTIO PLUS” — rótulo: ciclovisina 20%. O frasco está INTEIRO, LACRADO e com o lote intacto. Ou seja: ESTE frasco não foi o usado no crime… ou alguém recolocou um novo. Nada no frasco indica abertura recente; o lacre é de fábrica.`,ins:'A fonte do veneno EXISTE na casa (acesso de Caio) — mas o frasco lacrado não fecha a conta: onde está o frasco aberto? Ou o culpado usou outro recipiente?'},
+  {id:'p4',onde:'Lixeira da copa',titulo:'Guardanapo com resto de batom + taça “limpa” suja de polimento',corpo:`Nada relevante de veneno. Mas confirma a manobra da copa às 21h28-21h30: alguém mexeu nas taças ali. Bruno admite que foi ele.`,ins:'Confirma a janela física da troca — é a “porta” por onde o veneno entrou.'},
+  {id:'p5',onde:'Celular do chef (mensagens)',titulo:'Conversa com Íris terminada há 4 dias',corpo:`“…você sabe que esse fim de ano a casa vai ter que cortar gente. A sommelière é luxo, Íris.” — o chef ia DEMITIR Íris. Motivo? Não aparece. Ela sabia (soube na quinta).`,ins:'Motivo de Íris: perdia o emprego em dias. Mas motivo não é prova — e ela NÃO teve acesso à taça.'},
+  {id:'p6',onde:'Grupo de WhatsApp dos funcionários',titulo:'Reclamação pública de Caio (terça)',corpo:`“esse homem não merece o aquário que eu cuido. um dia ele engole o que fala.” — Caio, bravo com o chef. A frase “engole o que fala” ficou feia no contexto do envenenamento…`,ins:'Parece muito culpado (motivo + acesso ao veneno + na casa) — é a ARMADILHA do caso: suspeito óbvio demais.'},
+  {id:'p7',onde:'Depoimento Marina + registro do elevador',titulo:'Movimentação 21h15–21h35',corpo:`21h15-21h25 Íris na adega (chorando, comprovado por câmera do corredor). 21h28-21h30 Bruno na copa trocando a taça (visto por Caio). 21h29 Caio na área de serviço (áudios no grupo com timestamp). Marina serviu as taças e voltou ao lugar à mesa. NINGUÉM mais se aproximou da taça do chef.`,ins:'Fecha a janela: só a taça das 21h28-30 passou por MÃOS (Bruno) — mas o veneno tinha que JÁ estar nela ou entrar ali.'},
+  {id:'p8',onde:'Análise da taça original (a retirada às 21h28)',titulo:'A taça que Bruno levou embora',corpo:`ENCONTRADA na copa, lavada — MAS com resíduo de ciclovisina no LÁBIO interno. Ou seja: a taça das 21h20 JÁ TINHA veneno quando Bruno a retirou (por isso o gosto de “sabão” do chef = amargo!). O chef bebeu um GOLE da taça envenenada às ~21h26, reclamou, e Bruno trocou. O veneno entrou ANTES de 21h26 — quando a taça ficou ao alcance de... quem serviu e circulou: Marina serviu às 21h20; entre 21h20-21h26 a taça ficou MESA... exceto pelo momento em que Íris PASSOU ATRÁS DO CHEF ao voltar da adega (21h25, câmera: ela se inclina — “apoiou a mão na mesa”, diz ela).`,ins:'O gosto “de sabão” às 21h26 = amargo do veneno → dose entrou 21h20-21h26. Marina serviu; Íris passou atrás do chef na volta da adega. A dose já estava na taça ANTES da troca de Bruno.'}
+ ],
+ solucao:{
+  culpado:'Marina Duarte',
+  metodo:'Aplicou a ciclovisina na taça do marido às 21h20, ao servir a 3ª taça (ela servia as taças — ninguém mais tocou na garrafa/taças). Gosto amargo fez o chef reclamar de “sabão” às 21h26, o que gerou a troca inocente da taça por Bruno — que borrrou o rastro.',
+  motivo:'Separação de fato há 8 meses + humilhações públicas + o caso com Íris. O prêmio e a celebração eram a fachada; ela decidiu encerrar o casamento (e o cônjuge) no dia em que todos veriam “um ataque súbito”.',
+  cadeia:[ 'O veneno estava SÓ na taça (garrafa excluída — p2: outros beberam).','Gosto amargo às 21h26 (“sabão”) → a dose JÁ estava na taça ANTES da troca de Bruno (p8) — inocenta Bruno e fecha a janela em 21h20-21h26.','Quem mexeu na taça nessa janela? Marina serviu às 21h20 (p7); Íris estava na adega chorando (câmera) até 21h25; Caio estava mandando áudio na área de serviço (p7).','Fonte do veneno: casa tinha ciclovisina (p3, caixa de Caio) — acesso incidental, não prova. O frasco LACRADO indica que o culpado pegou de outro recipiente (ou abriu e trocou o frasco novo da caixa no sábado de tarde, quando o aquarista não estava).','Motivo: Marina é a única com motivo estrutural (separação + caso do marido, p5 + segredo dela) e a ÚNICA com as mãos na taça na janela fatal (p7).'],
+  pistas_chave:['p2','p8','p7','p3','p5'],
+  armadilhas:['Culpar Caio por “engole o que fala” (p6) — motivo ruidoso ≠ culpado; ele só expôs a fonte do veneno.','Culpar Bruno pela troca da taça — a troca foi inocente e, ironicamente, PROVA que o veneno já estava lá (p8).','Culpar Íris pelo caso/demissão (p5) — ela não teve acesso à taça na janela (câmera da adega/corredor).','Pensar que o veneno veio da garrafa (p2 desmente).']
+ },
+ avalSistema:`Você é um INVESTIGADOR-MESTRE (metodologia: PEACE, antivieses, Locard). Recebe a SOLUÇÃO de um caso e a TEORIA do aprendiz. Avalie o RACIOCÍNIO (não só o culpado): 1) acertou o culpado? 2) a janela/método faz sentido no que ele propõe? 3) usou as pistas-chave? 4) caiu em alguma armadilha clássica? 5) manteve hipótese alternativa ou casou cedo (viés de confirmação)? Responda SOMENTE JSON: {"nota":0-100,"acertos":["..."],"falhas":["..."],"vieses":["..."],"melhorar":"como investigar melhor (concreto, cite a técnica)","desfecho":"3-4 frases estilo dossiê fechando o caso, em pt-BR"}.`
+},
+{
+ id:'galeria',titulo:'O Apagão da Galeria Vértice',dif:2,difTxt:'EXIGENTE',
+ intro:`Quinta, 19h52. Durante o coquetel de lançamento, a Galeria Vértice fica <b>4 minutos às escuras</b> (sobrecarga na subestação — comprovado depois, não foi sabotagem). Quando as luzes voltam, <b>“Retrato de Duas Irmãs” (Tarsila do p. fictícia “Helena Morais”, avaliado em R$ 8 milhões) sumiu do parede principal</b>. Alarme não tocou (o quadro tinha sensor de remoção? Tinha — desarmado com código 15 minutos antes). 4 pessoas estavam no pavimento. A janela de remoção física é de <b>3-4 minutos no escuro</b>: o quadro sai do gancho, sai da moldura? Não — saiu COM a moldura, num recorte planejado.`,
+ personagens:[
+  {id:'otto',nome:'Otto Krauss',papel:'segurador da obra',prompt:`Você é OTTO KRAUSS, 49, avaliador/sinistros da seguradora Meridiano, que garantiu o quadro em R$ 8M. Educado, calculista, sempre “infeliz com a situação”. SEGREDO: a apólice tinha cláusula de recompra da seguradora em caso de venda para colecionador estrangeiro — a galeria estava QUASE fechando venda direta por R$ 9,5M com um comprador de São Paulo, o que TE DAVA prejuízo no contrato de coinsurance (você assumiu metade do risco e o preço da apólice ficou errado depois da reavaliação). Um roubo de R$ 8M te salva de um buraco de R$ 2M. Você NÃO rouba — você veio AVALIAR o sinistro hoje mesmo, a convite da dona. Se perguntarem da apólice/venda: no começo fala em “detalhes contratuais”; se confrontado com a venda de R$ 9,5M e a cláusula, ADMITE o conflito de interesse, mas aponta: “se eu quisesse sumir com o quadro, não viria assinar o laudo com meu nome”. Dica que você dá naturalmente (você é detalhista): a desativação do sensor às 19h37 foi FEITA NO PAINEL da recepção com código de FUNCIONÁRIO — e você estava assinando papéis com a diretora no escritório 19h30-19h50 (tem assinatura e recepcionista como testemunha). Fale formal, fino, português.`},
+  {id:'lua',nome:'Luana “Lua” Prado',papel:'restauradora responsável pelo quadro',prompt:`Você é LUANA PRADO, 36, restauradora que cuida do quadro há 3 anos. Apaixonada pela obra, emotiva, quebradiça de tanto chorar. VERDADES: você DESARMOU o sensor às 19h37 (código de funcionário seu) porque o quadro ia ser MOVIDO para a sessão de fotos do catálogo às 20h — procedimento normal que você faz todo lançamento. No apagão (19h52-19h56), você estava NO PÚNTO DE LUZ do salão, falando com o jornalista Félix, que confirmará. Você viu uma silhueta passar correndo na direção da escada de serviço com algo “retangular enrolado” e ouviu UMA batida seca (parede?) — mas só fala disso se perguntarem “o que você viu/ouviu no escuro?”. O SEGREDO seu (vergonha, não crime): você vai ser demitida — a diretora Beatriz descobriu na quarta que você deixou uma lâmpada UV queimar a borda do quadro em fevereiro e escondeu. Se perguntarem da desativação, você assume logo (“foi eu, procedimento!”) e explica. Fale emotivo, rápido, português.`},
+  {id:'bea',nome:'Beatriz Andrade',papel:'diretora da galeria',prompt:`Você é BEATRIZ ANDRADE, 52, diretora da galeria. Dona do espaço, controladora, coachada, fala em “narrativa” e “posicionamento”. SEGREDO PESADO: o quadro ia ser VENDIDO por R$ 9,5M na segunda-feira (comprador de SP) — você não contou à equipe pra não gerar “ansiedade”. E Pior: a venda estava pendente de LAUDO TÉCNICO que você pediu à Otto (seguradora) — se o laudo apontasse o dano de UV da borda (que Luana escondeu), o preço CAIRIA ~R$ 1,5M. Você descobriu o dano NA QUARTA (por isso sabe da Luana). No apagão, você estava no escritório com Otto (assinando o pedido de laudo, a recepcionista viu). Se perguntarem da venda: nega no primeiro momento (“rumor de mercado”); se confrontada com o e-mail do comprador ou com calma, ADMITE e minimiza (“venda era sigilosa, normal”). Você viu NADA no escuro. Fale Coach, controlada, português.`},
+  {id:'felix',nome:'Félix Nakamura',papel:'jornalista de arte no coquetel',prompt:`Você é FÉLIX NAKAMURA, 38, jornalista de arte. Curioso, tagarela, vaidoso com o olho treinado. Você estava NO ponto de luz com a Luana no apagão. Você TEMPLA tudo: no escuro, você ouviu passos CORRENDO na direção da escada de serviço E, segundos antes do apagão, você viu alguém DESCER do pavimento de cima (arquivo) COM UMA MOCHILA GRANDE — <b>a recepcionista Duda</b>, que tinha acesso ao arquivo e à escada de serviço, e que saiu do coquetel “por indicação médica” 5 min depois, SEM ser percebida. Você fotografou o coquetel TODO no celular: à 19h48, Duda aparece com a mochila no ombro vazia; na 19h58 (segunda foto, na porta) a mochila está CHEIA E RÍGIDA. Você SÓ mostra/fala das fotos se perguntarem “o que você registrou/viu antes e depois do apagão?” — você quer guardar pra sua reportagem, mas não consegue segurar vaidade se elogiarem seu olho. Você sabe também que Duda foi CONTRATADA há 3 semanas “indicação da seguradora” (contrato de apoio operacional via Meridiano — Otto assinou). Fale ágil, irônico, português.`}
+ ],
+ pistas:[
+  {id:'q1',onde:'Parede principal',titulo:'Gancho intacto, sensor desarmado às 19h37',corpo:`O quadro saiu pelo gancho padrão (sem arrombamento). O sensor foi DESARMADO às 19h37 com código de funcionário — procedimento da restauradora para a foto do catálogo das 20h. Quem sabia do procedimento: equipe + diretoria.`,ins:'Desarmar o sensor não é o crime — é rotina. O crime aproveitou a JANELA de 4 min de apagão.'},
+  {id:'q2',onde:'Subestação local',titulo:'Apagão real da rede (não sabotagem)',corpo:`Companhia de energia confirmou: sobrecarga genuína no bairro às 19h52 (mais 3 ruas caíram). NINGUÉM da galeria causou o apagão — o culpado APROVEITOU um evento externo. Quem tinha plano de roubo pronto pra executar em 4 min, sem depender de saber que ia ter apagão.`,ins:'Isso EXCLUI planejamento dependente do apagão (como drogar o gerador). O plano era o Sensor desarmado + uma saída rápida QUALQUER — o apagão foi sorte do culpado.'},
+  {id:'q3',onde:'Escada de serviço',titulo:'Marcas de arraste + batida seca na parede do 1º lance',corpo:`Raspado novo no corrimão e uma amassado de moldura no canto da parede (poeira fresca). Alguém desceu ESCADA DE SERVIÇO carregando algo grande e rígido, às pressas. A porta da escada só abre com crachá de FUNCIONÁRIO (Duda tinha; convidados não).`,ins:'Quem carregou o quadro tinha CRACHÁ. Convidados (Otto, Félix) não teriam como sair por ali.'},
+  {id:'q4',onde:'Recepção (log de crachás)',titulo:'Log do crachá de Duda (operacional)',corpo:`Crachá D.B. usado na porta da escada de serviço às 19h57 (no escuro, às 19h55 na saida de emergência que não trava). Duda foi contratada há 3 semanas via contrato de apoio OPERACIONAL indicado e assinado pela MERIDIANO (seguradora) — um “olho da seguradora” na rotina da galeria.`,ins:'Duda = mãos do plano, e o vínculo dela vem da SEGURADORA (Otto). Por que a seguradora tinha uma operacional dentro?'},
+  {id:'q5',onde:'Fotos do coquetel (Félix)',titulo:'Mochila vazia às 19h48, cheia e rígida às 19h58',corpo:`Nas fotos de Félix: 19h48 Duda com mochila fina; 19h58 saindo “indisposta” com a mochila cheia, retangular. O quadro COM moldura tem ~90×70cm — cabe numa mochila 40L. Duda saiu 5 min depois das luzes voltarem.`,ins:'A mochila fecha a equação física: quadro saiu no corpo de Duda, NA ESCADA DE SERVIÇO, durante o apagão.'},
+  {id:'q6',onde:'Contratos (escritório)',titulo:'Venda de R$ 9,5M na segunda + cláusula da seguradora',corpo:`E-mail no computador da diretora: venda direta aprovada “sujeita a laudo técnico”. Cláusula da apólice: se vendida a terceiro, a Meridiano tem direito de primeira recusa e a coinsurance recalcula — Otto perdia a comissão do contrato. Uma VENDA seriam pior para Otto que um ROUBO indenizado.`,ins:'Motivo de Otto existe (dinheiro), mas Otto estava VISÍVEL com a diretora 19h30-19h50 (testemunha + assinatura). Motivo não é mão na obra.'},
+  {id:'q7',onde:'Arquivo (pavimento de cima)',titulo:'Moldura de transporte vazia + luva de algodão',corpo:`No arquivo, um estojo de transporte ABERTO (o tipo usado pra mover obras com segurança) e UMA luva de algodão de manuseio. Quem desceu com o quadro sabia MANUSEAR arte (embarcou devidamente) — não era amador em pânico. Luana nega saber do estojo; é material do “kit de rotina” que fica no arquivo.`,ins:'O executor sabia manusear quadro e tinha acesso ao arquivo — operacional treinada (Duda) casa perfeitamente; amador não.'},
+  {id:'q8',onde:'Relatório interno Meridiano (rascunho na pasta de Otto)',titulo:'“Reavaliar exposição coinsurance — galeria Vértice”',corpo:`Rascunho com números: venda direta a SP faria a Meridiano perder a margem do contrato; “alternativa: sinistro de perda total mantém prêmio e evita recalculo”. Frase ambígua escrita pelo próprio Otto — parece ruim DE MAIS, o que o propio Otto aponta ao defender-se: “ninguém planeja crime escrevendo no rascunho assinado”.`,ins:'Confirma o MOTIVO de Otto (estrutural), mas Otto estava com a diretora na janela (19h30-50) e não tem crachá funcional (q3/q4). Ele é o MANDANTE provável; as MÃOS foram de Duda.'}
+ ],
+ solucao:{
+  culpado:'Duda (operacional indicada pela seguradora), a mão; Otto Krauss como mandante/motivado',
+  metodo:'Duda desceu com o quadro (já no estojo/mochila rígida) pela escada de serviço DURANTE o apagão (19h52-56), usando o crachá funcional e o kit de manuseio do arquivo. O plano NÃO dependia do apagão (externo, q2): contava com o sensor desarmado na rotina das 20h e com a mochila na saída; o apagão só eliminou testemunhas visuais. Ela saiu “indisposta” 5 min após as luzes (q5).',
+  motivo:'Venda de R$ 9,5M na segunda geraria recalculo de coinsurance e prejuízo para a Meridiano/Otto (q6/q8); um “roubo” indenizado em R$ 8M evita isso e mantém o contrato. Otto montou a operacional dentro da galeria 3 semanas antes (q4).',
+  cadeia:['Física do crime: quadro saiu com moldura pela ESCADA DE SERVIÇO (q3) — só crachá funcional abre (q4).','No escuro, quem desceu carregando sabia manusear arte (q7: estojo + luva) — perfil operacional treinada, não convidado.','Fotos de Félix (q5) fecham a mochila vazia→cheia de Duda, que saiu 5 min depois.','O apagão foi genuíno (q2) → o plano era “sensor desarmado na rotina + saída rápida”, e o culpado tinha que estar PRONTO pra agir num infortúnio qualquer = plano pré-montado.','Motivo estrutural: venda de R$ 9,5M na segunda prejudicava a seguradora (q6/q8); Otto indicou/assinalou a contratação de Duda (q4) e estava “visível” assinando papéis na janela (álibi de vitrine).'],
+  pistas_chave:['q3','q4','q5','q7','q2','q6'],
+  armadilhas:['Culpar Otto como executor — ele tem motivo, mas estava assinando com a diretora (q6, testemunha) e não tem crachá funcional (q3/q4). A leitura fina: mandante.','Achar que o apagão foi armado (q2 desmente) — casar cedo com “sabotagem” é visão-túnel.','Suspeitar da Luana por ter desarmado o sensor (q1) — era ROTINA documentada para a foto das 20h.','Achar que a diretora “vendeu e simulou” — ela PERDERIA com o roubo (receberia indenização menor que a venda) e estava com Otto na janela.']
+ },
+ avalSistema:`Você é um INVESTIGADOR-MESTRE (PEACE, antivieses, Locard). Recebe a SOLUÇÃO e a TEORIA do aprendiz. Avalie o RACIOCÍNIO: culpado certo? distinção mandante×mãos? janela física coerente? pistas-chave usadas? caiu em armadilha (executor óbvio, apagão “sabotado”, sensor=culpa)? manteve hipóteses rivais? Responda SOMENTE JSON: {"nota":0-100,"acertos":["..."],"falhas":["..."],"vieses":["..."],"melhorar":"como investigar melhor (concreto, cite técnica)","desfecho":"3-4 frases estilo dossiê fechando o caso, pt-BR"}.`
+}
+];
+
+/* ═══ ESTADO ═══ */
+let C=null, EXAM=new Set(), NOTAS=[], HIPALT='', INTERLOC=null, INTERHIST=[];
+function ver(id){ ['v-home','v-caso','v-escola'].forEach(v=>$('#'+v).hidden=(v!==id)); window.scrollTo({top:0}); }
+$('#b-home').onclick=()=>{ renderHome(); ver('v-home'); };
+$('#b-escola').onclick=()=>{ renderEscola(); ver('v-escola'); };
+function renderHome(){
+  $('#lista-casos').innerHTML=CASOS.map((c,i)=>`<div class="ccard" data-i="${i}"><span class="dif ${c.dif===1?'d1':'d2'}">${c.difTxt}</span><b>${esc(c.titulo)}</b><small>${c.personagens.length} suspeitos · ${c.pistas.length} pistas · interrogatório livre · parecer de raciocínio</small></div>`).join('');
+  document.querySelectorAll('.ccard').forEach(el=>el.onclick=()=>abrirCasos(CASOS[+el.dataset.i]));
+}
+function renderEscola(){
+  $('#licoes').innerHTML=LICOES.map(l=>`<div class="lição"><h3>${l.t}</h3>${l.corpo}<p class="aplique">${l.aplique}</p></div>`).join('');
+}
+
+/* ═══ CASO ═══ */
+function abrirCasos(c){
+  C=c; EXAM=new Set(); NOTAS=[]; HIPALT=''; fecharInterrog();
+  $('#v-home').hidden=true; $('#v-escola').hidden=true; $('#v-caso').hidden=false;
+  renderDossie(); renderPistas(); renderPers(); renderCaderno(); renderTeoria();
+  document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on')); t.classList.add('on');
+    ['t-dossie','t-pistas','t-pers','t-caderno','t-teoria'].forEach(id=>$('#'+id).hidden=(id!==t.dataset.t));
+    if(t.dataset.t==='t-caderno') renderCaderno();
+  });
+  window.scrollTo({top:0});
+}
+function renderDossie(){
+  $('#t-dossie').innerHTML=`<span class="badge">${C.difTxt}</span><h2>${esc(C.titulo)}</h2><p>${C.intro}</p><p style="color:var(--muted);font-size:13px">🎓 Antes de interrogar: comece com perguntas ABERTAS (“conte o que você viu”) — só depois confronte com evidências. E mantenha uma hipótese alternativa viva (aba Caderno).</p>`;
+}
+function renderPistas(){
+  $('#n-pistas').textContent=`(${EXAM.size}/${C.pistas.length})`;
+  $('#t-pistas').innerHTML='<p style="color:var(--muted);font-size:13px;margin-bottom:12px">Toque pra examinar. Uma boa investigação pergunta de cada pista: <i>o que isso indica?</i> e <i>o que isso EXCLUI?</i></p>'+C.pistas.map(p=>`
+    <div class="pista" data-p="${p.id}"><b>🔎 ${esc(p.titulo)}</b><span class="onde">— ${esc(p.onde)}</span><div class="corpo">${p.corpo}${p.ins?`<span class="tagins">💡 ${esc(p.ins)}</span>`:''}</div></div>`).join('');
+  document.querySelectorAll('.pista').forEach(el=>el.onclick=()=>{
+    el.classList.toggle('aberta');
+    if(el.classList.contains('aberta')&&!EXAM.has(el.dataset.p)){
+      EXAM.add(el.dataset.p); renderPistas();
+      const p=C.pistas.find(x=>x.id===el.dataset.p);
+      NOTAS.push('Pista: '+p.titulo+' — '+p.ins);
+      toast('🔍 pista registrada no caderno');
+    }
+  });
+  C.pistas.forEach(p=>{ if(EXAM.has(p.id)) document.querySelector(`.pista[data-p="${p.id}"]`)?.classList.add('examinada'); });
+}
+function renderPers(){
+  $('#grid-pers').innerHTML=C.personagens.map(p=>`<div class="pcard" data-id="${p.id}"><b>${esc(p.nome)}</b><small>${esc(p.papel)}</small></div>`).join('');
+  document.querySelectorAll('.pcard').forEach(el=>el.onclick=()=>abrirInterrog(C.personagens.find(x=>x.id===el.dataset.id)));
+}
+/* interrogatório */
+function abrirInterrog(p){
+  INTERLOC=p;
+  const key='mt_hist_'+C.id+'_'+p.id;
+  INTERHIST=store.getJ(key)||[{r:'pers',txt:`(${p.nome}, ${p.papel}). Você pode interrogar. Dica de investigador: comece aberto — “conte o que você estava fazendo entre 19h45 e 20h?”`}];
+  $('#i-nome').textContent=p.nome+' · '+p.papel;
+  $('#interrog').hidden=false;
+  $('#grid-pers').hidden=true;
+  pintarInterrog();
+}
+function fecharInterrog(){
+  $('#interrog').hidden=true; $('#grid-pers').hidden=false;
+  if(C) store.setJ('mt_hist_'+C.id+'_'+(INTERLOC?INTERLOC.id:'x'),INTERHIST.slice(-30));
+}
+function pintarInterrog(){
+  $('#i-chat').innerHTML=INTERHIST.map(m=>m.dica?`<div class="dica">💡 ${esc(m.txt)}</div>`:`<div class="m ${m.r}">${m.r==='eu'?'':'<span class="q">'+esc(INTERLOC?INTERLOC.nome:'')+'</span>'}${esc(m.txt)}</div>`).join('');
+  $('#i-chat').scrollTop=99999;
+}
+async function interrogar(){
+  const i=$('#i-in'); const q=i.value.trim(); if(!q||!INTERLOC) return;
+  i.value='';
+  INTERHIST.push({r:'eu',txt:q}); pintarInterrog();
+  const dica=dicaDeTécnica(INTERHIST);
+  if(dica) INTERHIST.push({dica:true,txt:dica});
+  const m=document.createElement('div'); m.className='m pers'; m.textContent='…'; $('#i-chat').appendChild(m); $('#i-chat').scrollTop=99999;
+  try{
+    const sys=INTERLOC.prompt+'\n\nNUNCA invente fatos fora do seu papel. Se perguntarem algo que seu personagem não sabe, diga que não sabe/viu. Responda em 2-5 frases, em português.';
+    const hist=INTERHIST.filter(x=>!x.dica).slice(-12).map(x=>({role:x.r==='eu'?'user':'assistant',content:x.txt}));
+    const resp=await callAI([{role:'system',content:sys},...hist.length?hist:[{role:'user',content:q}]]);
+    m.remove();
+    INTERHIST.push({r:'pers',txt:resp.trim()});
+    pintarInterrog();
+    store.setJ('mt_hist_'+C.id+'_'+INTERLOC.id,INTERHIST.slice(-30));
+  }catch(e){ m.remove(); toast('⚠️ '+e.message); }
+}
+/* 🎓 coaching de técnica (PEACE) embutido na conversa */
+function dicaDeTécnica(hist){
+  const n=hist.filter(x=>!x.dica).length, perguntas=hist.filter(x=>x.r==='eu');
+  if(n===1) return 'Regra de ouro (PEACE): relato aberto ANTES de perguntas fechadas. “Conte tudo o que você fez naquela janela de tempo” rende mais que “onde você estava às 21h28?”.';
+  if(n===4&&!perguntas.some(p=>/por que|motivo|por qual razão/i.test(p.txt))) return 'Cuidado com a âncora: já perguntou o MOTIVO da versão dele? E a de OUTRO suspeito conflita? Compare versões — contradição é ouro.';
+  if(n===8) return 'Viés de confirmação aí: você só está testando UMA hipótese? Formule também o que DESMONTARIA sua teoria e pergunte exatamente isso.';
+  if(n===12) return 'Locard: volte às pistas e pergunte-se “o que deveria estar aqui e não está?”. Toda ação deixa traço — inclusive a do culpado.';
+  return null;
+}
+/* caderno */
+function renderCaderno(){
+  const notasAuto=NOTAS.map(n=>`<li>${esc(n)}</li>`).join('');
+  const hip=store.getJ('mt_hip_'+C.id)||'';
+  $('#t-caderno').innerHTML=`
+    <h2>📓 Caderno do investigador</h2>
+    <p style="color:var(--muted);font-size:13px">Pistas examinadas viram notas automáticas. As suas você escreve abaixo — e a HIPÓTESE ALTERNATIVA é obrigatória pra não casar cedo (viés de confirmação).</p>
+    <h3 style="font-size:14px;margin:12px 0 6px;color:var(--brand2)">Pistas registradas</h3>
+    ${notasAuto?`<ul>${notasAuto}</ul>`:'<p style="color:var(--muted)">Nenhuma pista examinada ainda.</p>'}
+    <label>Suas anotações</label>
+    <textarea id="cad-notas" placeholder="contradições, versões dos suspeitos, o que não fecha…">${esc(store.getJ('mt_notas_'+C.id)||'')}</textarea>
+    <label>⚖️ Hipótese ALTERNATIVA (quem mais poderia ser? como?)</label>
+    <textarea id="cad-hip" placeholder="mesmo que ache óbvio, mantenha uma segunda linha viva…">${esc(hip)}</textarea>
+    <button class="btn sec" id="cad-salvar">💾 Salvar caderno</button>`;
+  $('#cad-salvar').onclick=()=>{
+    store.setJ('mt_notas_'+C.id,$('#cad-notas').value);
+    store.setJ('mt_hip_'+C.id,$('#cad-hip').value);
+    HIPALT=$('#cad-hip').value;
+    toast('💾 caderno salvo');
+  };
+}
+/* teoria final */
+function renderTeoria(){
+  $('#t-teoria').innerHTML=`
+    <h2>🧠 Teoria final</h2>
+    <p style="color:var(--muted);font-size:13px">Você é obrigado a se comprometer: culpado, método, motivo e as evidências que sustentam. Depois, o investigador-mestre devolve o parecer: o que você percebeu, o que deixou passar e como investigar melhor.</p>
+    <label>Culpado</label>
+    <select id="te-culpado"><option value="">— escolha —</option>${C.personagens.map(p=>`<option>${esc(p.nome)}</option>`).join('')}<option>Outra pessoa / mandante + executor</option></select>
+    <label>Como aconteceu (método, janela de tempo)</label>
+    <textarea id="te-como" placeholder="passo a passo do crime segundo você…"></textarea>
+    <label>Por quê (motivo)</label>
+    <textarea id="te-motivo" placeholder="o que levou ao crime…"></textarea>
+    <label>Evidências que sustentam sua teoria</label>
+    <textarea id="te-ev" placeholder="cite as pistas/fatos…"></textarea>
+    <button class="btn" id="te-enviar">📋 Enviar ao investigador-mestre</button>
+    <div id="te-res"></div>`;
+  $('#te-enviar').onclick=avaliar;
+}
+async function avaliar(){
+  const teoria={culpado:$('#te-culpado').value,como:$('#te-como').value.trim(),motivo:$('#te-motivo').value.trim(),evidencias:$('#te-ev').value.trim()};
+  if(!teoria.culpado||!teoria.como) return toast('Preencha ao menos culpado e método 🙂');
+  const hip=$('#cad-hip')?$('#cad-hip').value:(store.getJ('mt_hip_'+C.id)||'');
+  const notas=$('#cad-notas')?$('#cad-notas').value:(store.getJ('mt_notas_'+C.id)||'');
+  const b=$('#te-enviar'); b.disabled=true; b.textContent='🔎 o investigador-mestre está analisando seu raciocínio…';
+  try{
+    const user=`SOLUÇÃO VERDADEIRA:\n${JSON.stringify(C.solucao)}\n\nTEORIA DO APRENDIZ:\n${JSON.stringify(teoria)}\n\nHIPÓTESE ALTERNATIVA que ele manteve: "${hip||'(nenhuma — casou cedo?)'}"\nPISTAS QUE ELE EXAMINOU: ${[...EXAM].join(', ')||'nenhuma'} de ${C.pistas.map(p=>p.id).join(', ')}\nNOTAS DELE: ${notas.slice(0,800)||'—'}\n\nAvalie conforme o system. Nota 100 = raciocínio impecável; culpado certo sem método = nota média; culpado errado por cair em armadilha = baixa, EXPLIQUE a armadilha.`;
+    const r=await callAI([{role:'system',content:C.avalSistema},{role:'user',content:user}]);
+    const o=tentaJSON(r);
+    if(!o) throw new Error('resposta ilegível — tente de novo');
+    renderParecer(o);
+  }catch(e){ toast('⚠️ '+e.message); }
+  b.disabled=false; b.textContent='📋 Enviar ao investigador-mestre';
+}
+function renderParecer(o){
+  const li=a=>(a||[]).map(x=>`<li>${esc(x)}</li>`).join('');
+  $('#te-res').innerHTML=`
+    <div class="nota">${(o.nota??0)}/100</div>
+    <div class="res"><h3>✅ O que você percebeu</h3><ul>${li(o.acertos)}</ul></div>
+    <div class="res"><h3>🕳️ O que deixou passar</h3><ul>${li(o.falhas)}</ul></div>
+    <div class="res"><h3>🧠 Vieses detectados no seu raciocínio</h3><ul>${li(o.vieses)}</ul></div>
+    <div class="res"><h3>🎯 Como investigar melhor</h3><p>${esc(o.melhorar||'')}</p></div>
+    <div class="res"><h3>📜 Desfecho do caso</h3><p style="font-style:italic">${esc(o.desfecho||'')}</p></div>
+    <p style="color:var(--muted);font-size:13px">Quer afinar? Releia as lições da 🎓 Escola (especialmente as que o parecer citou) e tente de novo — a segunda teoria sempre investiga melhor.</p>`;
+  $('#te-res').scrollIntoView({behavior:'smooth'});
+}
+
+/* interrog handlers */
+$('#i-send').onclick=interrogar;
+$('#i-in').addEventListener('keydown',e=>{ if(e.key==='Enter') interrogar(); });
+$('#i-fechar').onclick=fecharInterrog;
+
+/* boot */
+renderHome();
+</script>
+</body>
+</html>
