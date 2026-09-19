@@ -328,23 +328,59 @@ li{margin-bottom:6px}
 .ds-ver{font-size:13.5px;color:#7fe0b2;font-weight:700;margin:10px 0 2px}
 @media(max-width:600px){h1{font-size:24px}.sheet{padding:18px}.ccap{width:92px;height:92px}.hero{height:150px}.pimg{height:128px}.pimg-x{height:128px}.brand small{display:none}.hj-grid{grid-template-columns:1fr}}
 
+
+/* ═══ v6: homepage, mentor ═══ */
+.brand{cursor:pointer}
+.land{min-height:calc(100vh - 170px);display:flex;flex-direction:column;justify-content:center;padding-top:6px}
+.land-hero{text-align:center;padding:26px 8px 18px}
+.land-logo{font-size:52px;line-height:1}
+.land h1{font-size:37px;margin-top:8px}
+.frase-j{font-size:20.5px;color:var(--brand2);font-weight:600;line-height:1.5;margin:16px auto 4px;max-width:560px;font-style:italic}
+.frase-j small{display:block;font-size:11px;color:var(--muted);font-style:normal;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-top:9px}
+.land-sub{max-width:540px;margin:12px auto 0}
+.land-cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.land-cta .btn{width:auto;min-width:220px;margin-top:0}
+.land-stats{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.land-why{display:grid;gap:12px;grid-template-columns:1fr 1fr;margin-top:24px}
+@media(max-width:640px){.land-why{grid-template-columns:1fr}}
+.land-card{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:18px;font-size:13.5px;color:#d4d9e0;line-height:1.68;text-align:left}
+.land-card b{color:var(--brand2);display:block;margin-bottom:7px;font-size:14px}
+.mini-chip{background:var(--bg3);border:1px solid var(--line);border-radius:999px;padding:8px 13px;font-size:12.5px;color:var(--muted);cursor:pointer;text-align:left;transition:border-color .15s,color .15s}
+.mini-chip:hover{border-color:var(--brand);color:var(--tx)}
 </style>
 </head>
 <body>
 <header>
   <div class="brand"><span class="logo">🧠</span> Mentalista <small>treino diário</small></div>
-  <div class="hbtns"><button class="hb" id="b-hoje">Hoje</button><button class="hb" id="b-prog">Programa</button><button class="hb" id="b-diario">Diário</button><button class="hb" id="b-desaf">Desafios</button><button class="hb" id="b-home">Prática</button><button class="hb" id="b-escola">Escola</button></div>
+  <div class="hbtns"><button class="hb" id="b-hoje">Hoje</button><button class="hb" id="b-prog">Programa</button><button class="hb" id="b-diario">Diário</button><button class="hb" id="b-mentor">🗣️ Mentor</button><button class="hb" id="b-desaf">Desafios</button><button class="hb" id="b-home">Prática</button><button class="hb" id="b-escola">Escola</button></div>
 </header>
 
 <main>
   <!-- HOME -->
+  <section id="v-land" hidden>
+    <div class="sheet land">
+      <div class="land-hero">
+        <div class="land-logo">🧠</div>
+        <h1>Mentalista</h1>
+        <div class="frase-j">“As pessoas mostram quem são o tempo todo. Você só precisa observar.”<small>— o lema da casa</small></div>
+        <p class="sub land-sub">Um treinador <b>gratuito</b> pra quem quer aprender a <b>observar de verdade</b>: missões diárias curtas, diário com coaching e desafios de cena — com ciência honesta, sem mágica de TV.</p>
+        <div class="land-cta"><button class="btn" id="land-start">▶ Começar o treino de hoje</button><button class="btn sec" id="land-prog" style="width:auto;min-width:150px">📅 Ver o programa</button></div>
+        <div class="land-stats" id="land-stats"></div>
+      </div>
+      <div class="land-why">
+        <div class="land-card"><b>Por que este site existe</b>Porque “ler pessoas” virou dois extremos: promessa de telepatia de um lado, desdém de “é tudo sorte” do outro. No meio está a versão real — a que entrevistadores de referência e a ciência do comportamento usam — e ela é treinável. Este site nasceu pra ensinar essa versão, de graça e em português, no ritmo de quem trabalha e estuda: <b>missões curtas todo dia vencem maratonas de fim de semana.</b></div>
+        <div class="land-card"><b>Inspiração</b>Do <b>Patrick Jane</b> e dos mentalistas de ficção que nos faziam sonhar — e da ciência real que é mais interessante que o truque: o modelo PEACE de entrevista, o efeito Loftus, o princípio de Locard, os ~200 estudos de Bond &amp; DePaulo (54% é o acerto humano em detectar mentira!), a observação de Joe Navarro e os erros que condenaram inocentes (visão-túnel, viés de confirmação). A diferença pra TV: <b>aqui não existe mágica — existe método.</b></div>
+      </div>
+    </div>
+  </section>
+
   <section id="v-hoje" hidden><div id="hj-box"></div></section>
 
   <section id="v-prog" hidden>
     <div class="sheet">
       <span class="badge">PROGRAMA · 12 SEMANAS</span>
       <h2>🧠 O caminho pra virar mentalista</h2>
-      <p class="sub">Ninguém "nasce lendo pessoas": é treino. <b>3 meses, 4 fases</b> — <b>OLHAR</b> (perceber), <b>LER</b> (deduzir com método), <b>AGIR</b> (usar no dia a dia). Cada semana: uma lição de nível alto + 7 missões curtas (5–10 min) pra fazer na vida real. Faça pelo menos 5 por semana pra destravar a seguinte.</p>
+      <p class="sub">Ninguém "nasce lendo pessoas": é treino. <b>3 meses, 4 fases</b> — <b>OLHAR</b> (perceber), <b>LER</b> (deduzir com método), <b>AGIR</b> (usar no dia a dia). Cada semana: uma lição de nível alto + 7 missões curtas (5–10 min) pra fazer na vida real. Faça pelo menos 5 por semana pra destravar a seguinte. <b>1 missão por dia</b> — o hábito é o treino.</p>
       <div id="prog-top"></div>
       <div id="prog-lista"></div>
       <div style="margin-top:18px"><button class="hb" id="b-aprender">📚 Fundamentos — trilha clássica (6 lições)</button></div>
@@ -353,13 +389,23 @@ li{margin-bottom:6px}
 
   <section id="v-diario" hidden><div id="dj-box"></div></section>
 
+  <section id="v-mentor" hidden>
+    <div class="sheet">
+      <span class="badge">🗣️ MENTOR IA</span>
+      <h2>Converse com o mentor</h2>
+      <p class="mini">Dúvida de leitura, caso do seu dia, mito de TV, treino sob medida — o mentor responde com ciência honesta e sempre te devolve um teste pra fazer.</p>
+      <div class="chatbox" id="m-chat"></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px" id="m-chips"></div>
+      <div class="cform"><input type="text" id="m-in" maxlength="500" placeholder="pergunte ao mentor…"><button id="m-send">➤</button></div>
+    </div>
+  </section>
+
   <section id="v-desafios" hidden><div id="ds-box"></div></section>
 
   <section id="v-home" hidden>
     <div class="sheet">
       <span class="badge">TREINADOR DE MENTALISTA / INVESTIGADOR</span>
       <h1>Todo caso ensina algo.</h1>
-      <p class="frase">“As pessoas mostram quem são o tempo todo. Você só precisa observar.”</p>
       <p class="sub">Casos fictícios de investigação: examine a cena, analise pistas, <b>interrogue os personagens</b>, monte sua teoria — e receba um parecer de como você investiga: o que percebeu, o que deixou passar e como investigar melhor. A escola ensina a metodologia real usada por investigadores.</p>
       <div class="strip">🧠 <span>Aqui é a <b>prática avançada</b> — casos pra deduzir. O caminho principal é o <b>Programa</b>: missões diárias pra virar mentalista.</span><button id="strip-b">Abrir Programa</button></div>
       <div class="casos" id="lista-casos"></div>
@@ -460,6 +506,7 @@ li{margin-bottom:6px}
    ciência da detecção de engano, hipóteses rivais. ═════ */
 const $=s=>document.querySelector(s);
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const PATENTES=[[0,'👁️','Aprendiz de Olhar'],[80,'🔈','Ouvidor'],[250,'🔍','Observador'],[450,'🕵️','Interrogador'],[700,'🧠','Analista'],[950,'🎭','Leitor de Pessoas'],[1250,'🔮','Mentalista'],[1600,'🏆','Gran Mentalista']];
 const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},
              set(k,v){try{localStorage.setItem(k,v)}catch(e){}},
              getJ(k){try{return JSON.parse(localStorage.getItem(k)||'null')}catch(e){return null}},
@@ -579,7 +626,7 @@ const CASOS=[
 
 /* ═══ ESTADO ═══ */
 let C=null, EXAM=new Set(), NOTAS=[], HIPALT='', INTERLOC=null, INTERHIST=[];
-function ver(id){ ['v-hoje','v-prog','v-diario','v-desafios','v-home','v-caso','v-escola','v-aprender','v-editor','v-comunidade'].forEach(v=>{const el=$('#'+v); if(el) el.hidden=(v!==id)}); const mapa={v_hoje:'b-hoje',v_prog:'b-prog',v_diario:'b-diario',v_desafios:'b-desaf',v_home:'b-home',v_escola:'b-escola',v_aprender:'b-aprender'}; Object.values(mapa).forEach(b=>{const el=$('#'+b);if(el)el.classList.remove('on')}); const on=mapa['v_'+id.replace('v-','')]; if(on&&$('#'+on))$('#'+on).classList.add('on'); window.scrollTo({top:0}); }
+function ver(id){ ['v-land','v-hoje','v-prog','v-diario','v-desafios','v-mentor','v-home','v-caso','v-escola','v-aprender','v-editor','v-comunidade'].forEach(v=>{const el=$('#'+v); if(el) el.hidden=(v!==id)}); const mapa={v_hoje:'b-hoje',v_prog:'b-prog',v_diario:'b-diario',v_desafios:'b-desaf',v_home:'b-home',v_escola:'b-escola',v_aprender:'b-aprender'}; Object.values(mapa).forEach(b=>{const el=$('#'+b);if(el)el.classList.remove('on')}); const on=mapa['v_'+id.replace('v-','')]; if(on&&$('#'+on))$('#'+on).classList.add('on'); window.scrollTo({top:0}); }
 $('#b-home').onclick=()=>{ renderHome(); ver('v-home'); };
 $('#b-escola').onclick=()=>{ renderEscola(); ver('v-escola'); };
 function renderHome(){
@@ -1499,12 +1546,18 @@ function xpTotal(){
  x+=Object.keys(store.getJ('mt_des_log')||{}).length*15;
  x+=(store.getJ('mt_diario')||[]).length*5;return x;
 }
-function patente(){const x=xpTotal();return x>=800?'🧠 Mentalista':x>=400?'🕵️ Interrogador':x>=150?'🔍 Observador':'🔈 Ouvidor'}
+
+function patente(){const x=xpTotal();let p=PATENTES[0];PATENTES.forEach(q=>{if(x>=q[0])p=q});return p[1]+' '+p[2]}
+function proxPat(){const x=xpTotal();for(const q of PATENTES)if(x<q[0])return q;return null}
 function tipDoDia(){const dt=new Date();const n=Math.floor((dt-new Date(dt.getFullYear(),0,0))/864e5);return TIPS[n%TIPS.length]}
 /* ═══ HOJE ═══ */
 function renderHoje(){
  const box=$('#hj-box');if(!box)return;
- const w=semanaAtual(),P=PROGRAMO[w-1],m=proximaMissao(),d=store.getJ('mt_dia')||{},feitos=doneNaSemana(w),total=Math.min(84,Object.keys(getLog()).length);
+ const w=semanaAtual(),P=PROGRAMO[w-1],d=store.getJ('mt_dia')||{},feitos=doneNaSemana(w),total=Math.min(84,Object.keys(getLog()).length);
+ const jaFez=d.lastDone===hojeISO();
+ let m;
+ if(jaFez&&d.keyHoje){const kk=d.keyHoje.match(/w(\d+)d(\d+)/);m=(kk&&PROGRAMO[+kk[1]-1])?{w:+kk[1],d:+kk[2],m:PROGRAMO[+kk[1]-1].missoes[+kk[2]-1]}:proximaMissao();}
+ else m=proximaMissao();
  if(!m){
   box.innerHTML=`<div class="hj-hero"><div class="hj-k">🎓 FORMATURA</div><div class="hj-m">Você completou as 12 semanas.</div><p class="hj-pq">O programa acaba; o olho treinado fica. Mantenha o diário vivo (3× por semana) e os desafios afiados. <b>Mentalista não lê mentes: lê padrões — e testa antes de acreditar neles.</b></p><button class="btn" id="hj-diario2">📓 registrar leitura de hoje</button></div>`;
   $('#hj-diario2').onclick=()=>{renderDiario();ver('v-diario');};return;
@@ -1520,7 +1573,7 @@ function renderHoje(){
     <div class="hj-k">Missão de hoje — Semana ${w} · Dia ${m.d} · ${P.tema}</div>
     <div class="hj-m">${esc(m.m)}</div>
     <div class="hj-pq"><b>Por que funciona:</b> ${P.res}. ${esc(P.chave)}.</div>
-    <button class="btn" id="hj-done">✅ Concluir treino de hoje (+10 XP)</button>
+    ${jaFez?'<button class="btn" disabled>✅ Treino de hoje concluído — volte amanhã 🔥</button>':'<button class="btn" id="hj-done">✅ Concluir treino de hoje (+10 XP)</button>'}
   </div>
   <div class="hj-bar"><span>Programa</span><span class="br"><i style="width:${progPct}%"></i></span><b>${progPct}%</b></div>
   <div class="hj-grid">
@@ -1528,8 +1581,10 @@ function renderHoje(){
     <button class="hj-act" id="hj-desaf"><span class="ico">🎭</span><b>Desafio de cena</b><small>uma situação real pra deduzir agora — a IA avalia seu raciocínio</small></button>
   </div>
   <div class="hj-tip">💡 <b>Dica do dia:</b> ${esc(tipDoDia())}</div>`;
- $('#hj-done').onclick=()=>{
+ const hd=$('#hj-done');
+ if(hd)hd.onclick=()=>{
   const L=getLog();L['w'+w+'d'+m.d]=1;store.setJ('mt_log',L);
+  const dd=store.getJ('mt_dia')||{};dd.lastDone=hojeISO();dd.keyHoje='w'+w+'d'+m.d;store.setJ('mt_dia',dd);
   const st=tocaStreak();
   toast('🔥 treino do dia concluído! '+st+(st>1?' dias seguidos':' dia')+' · +10 XP');
   renderHoje();
@@ -1556,12 +1611,17 @@ function renderProg(){
    </div></details>`;
  });
  $('#prog-lista').innerHTML=html;
- $('#prog-top').innerHTML=`<div class="xpbar"><div class="xt"><span>${patente()}</span><b>${xpTotal()} XP</b></div><div class="xpr"><i style="width:${Math.min(100,Math.round(xpTotal()/800*100))}%"></i></div><div class="mini" style="margin:8px 0 0">Rumo a 🧠 Mentalista (800 XP) · 🔥 ${ (store.getJ('mt_dia')||{}).streak||0} dias seguidos</div></div>`;
+ $('#prog-top').innerHTML=`<div class="xpbar"><div class="xt"><span>${patente()}</span><b>${xpTotal()} XP</b></div><div class="xpr"><i style="width:${Math.min(100,Math.round(xpTotal()/800*100))}%"></i></div><div class="mini" style="margin:8px 0 0">${(()=>{const q=proxPat();return q?'Rumo a '+q[1]+' '+q[2]+' ('+q[0]+' XP)':'patente máxima alcançada 🏆'})()} · 🔥 ${(store.getJ('mt_dia')||{}).streak||0} dias seguidos</div></div>`;
  document.querySelectorAll('#prog-lista .dchk').forEach(b=>b.onclick=()=>{
   const row=b.closest('.dml'),w=+row.dataset.w,d=+row.dataset.d,L=getLog();
   if(!semanaDesbloq(w))return toast('🔒 complete 5 missões da semana anterior pra abrir essa');
   if(L['w'+w+'d'+d]){delete L['w'+w+'d'+d];store.setJ('mt_log',L);}
-  else{L['w'+w+'d'+d]=1;store.setJ('mt_log',L);tocaStreak();toast('✅ missão registrada (+10 XP) · 🔥 '+(store.getJ('mt_dia')||{}).streak+' dias');}
+  else{
+   const dd=store.getJ('mt_dia')||{};
+   if(dd.lastDone===hojeISO()&&dd.keyHoje!=='w'+w+'d'+d)return toast('1 treino por dia 😉 — o hábito é o treino, não a maratona. Volte amanhã!');
+   L['w'+w+'d'+d]=1;store.setJ('mt_log',L);
+   dd.lastDone=hojeISO();dd.keyHoje='w'+w+'d'+d;store.setJ('mt_dia',dd);
+   tocaStreak();toast('✅ missão registrada (+10 XP) · 🔥 '+(store.getJ('mt_dia')||{}).streak+' dias');}
   renderProg();
  });
  marcarGloss($('#prog-lista'));
@@ -1654,10 +1714,61 @@ $('#b-prog').onclick=()=>{renderProg();ver('v-prog');};
 $('#b-diario').onclick=()=>{renderDiario();ver('v-diario');};
 $('#b-desaf').onclick=()=>{renderDesafios();ver('v-desafios');};
 
+
+/* ═══════════ v6 — homepage · mentor IA · patentes ═══════════ */
+function renderLand(){
+ const dd=store.getJ('mt_dia')||{};const ms=Object.keys(getLog()).length;
+ $('#land-stats').innerHTML=`<span class="hj-chip fogo">🔥 <b>${dd.streak||0}</b> dias</span><span class="hj-chip">${patente()} · <b>${xpTotal()} XP</b></span><span class="hj-chip">🎯 <b>${ms}/84</b> missões</span>`;
+}
+/* ═══ MENTOR ═══ */
+const MENTOR_SYS=`Você é o MENTOR do app Mentalista: um treinador brasileiro de leitura de pessoas — direto, calmo, generoso — com a ética de um entrevistador profissional e a curiosidade de quem ainda estuda todo dia.
+
+DIRETRIZES INVIOLÁVEIS:
+1. CIÊNCIA HONESTA, nunca mistificação. Não existem "sinais universais de mentira". Suas ferramentas: linha de base (o normal da pessoa), cluster (3+ sinais do mesmo lado), contexto (quem/onde/quando) e verificação. ~54% é a taxa humana média de detectar engano (Bond & DePaulo) — desconfie de certeza absoluta, inclusive a sua.
+2. MITOS DE TV: corrija sem rodeio quando aparecerem — microexpressão não é mapa da mente; o mentiroso típico NÃO desvia o olhar; braços cruzados pode ser frio; "leitura" de foto por frase genérica é efeito Barnum.
+3. Toda leitura é HIPÓTESE: ofereça sempre 2+ explicações rivais antes de qualquer conclusão e feche com 1 teste concreto ("como você verificaria isso amanhã?").
+4. CASOS REAIS do usuário: JAMAIS dê veredito sobre pessoa específica. Se faltar contexto, pergunte (o que aconteceu antes? como ela é normalmente?). Lembre que desvio pode ser dor, fome, timidez, cansaço. Não diagnostique e não substitua profissional de saúde.
+5. ÉTICA: você ensina observação para empatia, proteção e comunicação melhor. Se pedirem manipulação (pressionar, enganar, assediar, influenciar contra a vontade de alguém), recuse com firmeza gentil e redirecione para o caminho legítimo (clareza, rapport, exemplo).
+6. FORMATO: português do Brasil; 4-8 frases (mais só se pedirem); sem markdown pesado; sem saudação; no máximo UMA pergunta socrática no fim, quando ajudar a pensar.
+7. CONHEÇA O APP: programa de 12 semanas (OLHAR/LER/AGIR) com missões diárias, diário de leituras com coaching, 12 desafios de cena, casos fair-play na aba Prática, escola com PEACE/Locard/vieses. Aponte a ferramenta certa pra dúvida. XP/patentes são progresso, não julgamento.`;
+function pintarMentor(){
+ const H=store.getJ('mt_mentor_hist')||[];
+ $('#m-chat').innerHTML=H.map(m=>m.r==='eu'?`<div class="m eu">${esc(m.txt)}</div>`:`<div class="m pers"><span class="q">🧠 <span>Mentor</span></span>${esc(m.txt)}</div>`).join('');
+ $('#m-chat').scrollTop=99999;
+}
+function renderMentor(){
+ if(!store.getJ('mt_mentor_hist'))store.setJ('mt_mentor_hist',[{r:'pers',txt:'Eu sou o mentor daqui — treino leitura de pessoas com ciência honesta, sem mágica. Traga um caso do seu dia, uma dúvida, ou peça um treino sob medida. O que você quer aprender a enxergar?'}]);
+ $('#m-chips').innerHTML=['Como saber se alguém está mentindo?','Me dê um treino de 5 minutos','Acho que meu chefe não gostou da minha ideia','O que são microexpressões?','Como treinar no ônibus?'].map(x=>`<button class="mini-chip">${x}</button>`).join('');
+ document.querySelectorAll('#m-chips .mini-chip').forEach(c=>c.onclick=()=>{$('#m-in').value=c.textContent;enviarMentor();});
+ pintarMentor();
+}
+async function enviarMentor(){
+ const i=$('#m-in'),q=i.value.trim();if(!q||!INTERLOC_ALLOWED())return;
+ i.value='';
+ const H=store.getJ('mt_mentor_hist')||[];
+ H.push({r:'eu',txt:q});pintarMentor();
+ const typ=document.createElement('div');typ.className='m pers typ';typ.innerHTML='<i></i><i></i><i></i>';$('#m-chat').appendChild(typ);$('#m-chat').scrollTop=99999;
+ try{
+  const r=await callAI([{role:'system',content:MENTOR_SYS},...H.slice(-16).map(x=>({role:x.r==='eu'?'user':'assistant',content:x.txt}))]);
+  typ.remove();H.push({r:'pers',txt:r.trim()});
+ }catch(e){
+  typ.remove();H.push({r:'pers',txt:'⚠️ A linha de IA está cheia agora — tenta daqui a 1 minutinho. Enquanto isso: qual seria a explicação ALTERNATIVA pro que você observou?'});toast('⚠️ '+e.message);
+ }
+ store.setJ('mt_mentor_hist',H.slice(-40));pintarMentor();
+}
+function INTERLOC_ALLOWED(){return true}
+/* binds v6 */
+$('#b-mentor').onclick=()=>{renderMentor();ver('v-mentor');};
+$('#land-start').onclick=()=>{renderHoje();ver('v-hoje');};
+$('#land-prog').onclick=()=>{renderProg();ver('v-prog');};
+$('.brand').onclick=()=>{renderLand();ver('v-land');};
+$('#m-send').onclick=enviarMentor;
+$('#m-in').addEventListener('keydown',e=>{if(e.key==='Enter')enviarMentor();});
+
 /* boot */
 renderHome();
-renderHoje();
-ver('v-hoje');
+renderLand();
+ver('v-land');
 </script>
 </body>
 </html>
