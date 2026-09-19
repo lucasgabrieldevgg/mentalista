@@ -1741,6 +1741,13 @@ function renderHoje(){
   <div class="hj-tip">💡 <b>Dica do dia:</b> ${esc(tipDoDia())}</div>`;
  const hd=$('#hj-done');
  if(hd)hd.onclick=()=>{
+  /* guard NO CLIQUE: outra aba (ou outro caminho) pode ter concluído depois deste render */
+  const dAgora=store.getJ('mt_dia')||{};
+  if(dAgora.lastDone===hojeISO()&&dAgora.keyHoje!=='w'+w+'d'+m.d){
+   toast('1 treino por dia 😉 — a lição de hoje já foi feita (outra aba?). Volte amanhã!');
+   renderHoje();return;
+  }
+  if(getLog()['w'+w+'d'+m.d]){renderHoje();return;} /* já estava marcada: nada de XP duplo */
   const L=getLog();L['w'+w+'d'+m.d]=1;store.setJ('mt_log',L);
   const dd=store.getJ('mt_dia')||{};dd.lastDone=hojeISO();dd.keyHoje='w'+w+'d'+m.d;store.setJ('mt_dia',dd);
   const st=tocaStreak();
@@ -2131,6 +2138,20 @@ $('#fa-open').onclick=()=>{
  };
 };
 $('#b-faces').onclick=()=>{renderFaces();ver('v-faces');};
+
+/* ═══ sincronização entre abas do navegador ═══ */
+window.addEventListener('storage',e=>{try{
+ if(!e.key||String(e.key).indexOf('mt_')===0){
+  if(!$('#v-hoje').hidden)renderHoje();
+  if(!$('#v-prog').hidden)renderProg();
+ }
+}catch(err){}});
+document.addEventListener('visibilitychange',()=>{try{
+ if(document.visibilityState==='visible'){
+  if(!$('#v-hoje').hidden)renderHoje();
+  if(!$('#v-prog').hidden)renderProg();
+ }
+}catch(err){}});
 
 /* boot */
 renderHome();
