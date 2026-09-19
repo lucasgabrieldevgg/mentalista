@@ -3,289 +3,365 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0e0c09">
-<title>Mentalista — treine seu olho de investigador</title>
+<meta name="theme-color" content="#0b0c10">
+<title>Mentalista — treine como um, todo dia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
 <style>
-:root{--bg:#0e0c09;--bg2:#16120d;--bg3:#1f1912;--tx:#ece3d0;--muted:#a08f75;--brand:#d9a441;--brand2:#f0c268;--red:#b23a2e;--ok:#7ba05b;--bad:#b23a2e;--line:#322a1e;--paper:#e8dcc0}
+/* ═══ v5 — MENTALISTA · escuro moderno + âmbar ═══ */
+:root{--bg:#0b0c10;--bg2:#121419;--bg3:#171a21;--tx:#f2f3f6;--muted:#98a0ad;--brand:#f5b73d;--brand2:#ffd268;--hot:#ff8a3d;--ok:#3ecf8e;--bad:#f0604d;--line:#23262e;--line2:#2e323c}
 *{box-sizing:border-box;margin:0;padding:0}
 [hidden]{display:none!important}
-body{background:var(--bg);color:var(--tx);font-family:Georgia,'Times New Roman',serif;line-height:1.55;min-height:100vh}
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:59;background:radial-gradient(1100px 480px at 72% -5%,rgba(217,164,65,.06),transparent 60%)}
-@keyframes surge{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-@keyframes tica{0%,100%{opacity:.2}50%{opacity:1}}
+body{background:var(--bg);color:var(--tx);font-family:'Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-size:15.5px;line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(900px 420px at 80% -8%,rgba(245,183,61,.07),transparent 60%)}
 button{font:inherit;cursor:pointer;border:0;color:inherit;background:none}
 input,textarea,select{font:inherit}
-header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;position:sticky;top:0;z-index:6;background:rgba(14,12,9,.93);backdrop-filter:blur(10px);border-bottom:2px solid var(--line)}
-.brand{display:flex;align-items:center;gap:10px;font-family:'Special Elite','Courier New',Georgia,serif;font-size:19px;letter-spacing:.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.brand .logo{font-size:22px;filter:sepia(.35)}
-.brand small{color:var(--muted);font-size:11.5px;font-style:italic;font-family:Georgia,serif}
-.hbtns{display:flex;gap:8px;flex-shrink:0}
-.hb{background:#241d12;border:1px solid var(--line);border-radius:9px;padding:8px 13px;font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.3px;transition:color .15s,border-color .15s,transform .1s}
-.hb:hover{color:var(--brand2);border-color:var(--brand)}
-.hb:active{transform:scale(.95)}
-.hb.on{color:#191204;background:linear-gradient(135deg,var(--brand),var(--brand2));border-color:transparent}
-main{max-width:880px;margin:0 auto;padding:24px 16px 110px}
-.sheet{background:linear-gradient(175deg,#181309,#120e08 60%);border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:0 20px 50px rgba(0,0,0,.5),inset 0 1px 0 rgba(240,194,104,.05)}
-.badge{display:inline-block;font-family:'Special Elite','Courier New',Georgia,serif;font-size:11px;letter-spacing:1.6px;background:rgba(217,164,65,.09);border:1px solid rgba(217,164,65,.4);color:var(--brand2);border-radius:3px;padding:4px 10px;margin-bottom:12px}
-h1{font-family:'Special Elite','Courier New',Georgia,serif;font-size:29px;line-height:1.18;margin-bottom:8px;color:var(--paper);font-weight:400}
-.frase{font-style:italic;color:#d8c9a4;font-size:17px;line-height:1.5;border-left:3px solid var(--red);padding-left:14px;margin:12px 0 18px}
+::selection{background:rgba(245,183,61,.35)}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;position:sticky;top:0;z-index:6;background:rgba(11,12,16,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand .logo{font-size:22px}
+.brand small{color:var(--muted);font-weight:500;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase}
+.hbtns{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;flex-shrink:0;max-width:62vw}
+.hbtns::-webkit-scrollbar{display:none}
+.hb{background:transparent;border:1px solid transparent;border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap;transition:color .15s,background .15s}
+.hb:hover{color:var(--tx);background:rgba(255,255,255,.05)}
+.hb:active{transform:scale(.96)}
+.hb.on{color:#141005;background:linear-gradient(135deg,var(--brand),var(--brand2));font-weight:700}
+main{max-width:760px;margin:0 auto;padding:22px 16px 120px;position:relative;z-index:1}
+.sheet{background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:0 16px 40px rgba(0,0,0,.35)}
+.badge{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:rgba(245,183,61,.1);border:1px solid rgba(245,183,61,.3);color:var(--brand2);border-radius:999px;padding:5px 12px;margin-bottom:14px}
+h1{font-size:29px;font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:8px}
+.frase{color:#e8c98a;font-size:16.5px;line-height:1.55;border-left:3px solid var(--brand);padding-left:14px;margin:12px 0 18px;font-weight:500}
 .sub{color:var(--muted);font-size:14.5px;line-height:1.65;margin-bottom:16px}
-.sub b{color:var(--tx)}
-h2{font-family:'Special Elite','Courier New',Georgia,serif;font-size:21px;margin-bottom:8px;color:var(--paper);font-weight:400}
-.casos{display:grid;gap:14px;grid-template-columns:1fr;max-width:640px}
-.ccard{display:flex;gap:14px;background:#151009;border:1px solid var(--line);border-radius:12px;padding:12px;cursor:pointer;transition:border-color .18s,transform .18s,box-shadow .18s}
-.ccard:hover{border-color:var(--brand);transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.55)}
-.ccard:active{transform:translateY(-1px)}
-.ccap{width:122px;height:122px;object-fit:cover;border-radius:8px;border:1px solid var(--line);filter:sepia(.18) contrast(1.05);flex-shrink:0}
+.sub b,.mini b{color:var(--tx)}
+h2{font-size:22px;font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
+h3{font-weight:700}
+.mini{font-size:12.5px;color:var(--muted);margin:4px 0;line-height:1.5}
+.cnt{font-size:11px;color:var(--muted);font-weight:500}
+/* cartões de caso */
+.casos{display:grid;gap:12px;grid-template-columns:1fr}
+.ccard{display:flex;gap:14px;background:var(--bg3);border:1px solid var(--line);border-radius:16px;padding:12px;cursor:pointer;transition:border-color .18s,transform .18s}
+.ccard:hover{border-color:var(--brand);transform:translateY(-2px)}
+.ccard:active{transform:scale(.99)}
+.ccap{width:112px;height:112px;object-fit:cover;border-radius:12px;flex-shrink:0}
+.ccap-x{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1c1f27,#232733);font-size:30px}
 .cinf{display:flex;flex-direction:column;gap:6px;padding:2px 0;min-width:0}
-.cinf b{font-family:'Special Elite','Courier New',Georgia,serif;font-size:16.5px;color:var(--paper);line-height:1.25;font-weight:400}
+.cinf b{font-size:16px;font-weight:700;letter-spacing:-.01em;line-height:1.3}
 .cinf small{color:var(--muted);line-height:1.45}
-.dif{display:inline-flex;align-items:center;font-size:10.5px;font-weight:800;letter-spacing:1.2px;border-radius:3px;padding:3px 8px;width:max-content}
-.d1{background:rgba(123,160,91,.13);color:#a9c78a;border:1px solid rgba(123,160,91,.4)}
-.d2{background:rgba(178,58,46,.13);color:#e08a7e;border:1px solid rgba(178,58,46,.45)}
-.chead{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;font-family:'Special Elite','Courier New',Georgia,serif}
-.chead .ch-n{background:var(--red);color:#f5e9d0;font-size:12.5px;border-radius:3px;padding:3px 9px;letter-spacing:1px}
-.chead b{font-size:16.5px;color:var(--paper);font-weight:400}
-.chead small{color:var(--muted);font-size:12px;font-family:Georgia,serif}
+.dif{display:inline-flex;align-items:center;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:3px 9px;width:max-content}
+.d1{background:rgba(62,207,142,.12);color:#7fe0b2;border:1px solid rgba(62,207,142,.35)}
+.d2{background:rgba(240,96,77,.12);color:#ff9a8a;border:1px solid rgba(240,96,77,.35)}
+/* caso */
+.chead{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.chead .ch-n{background:linear-gradient(135deg,var(--brand),var(--hot));color:#141005;font-size:11px;font-weight:800;border-radius:999px;padding:4px 11px;letter-spacing:.08em;text-transform:uppercase}
+.chead b{font-size:16px;font-weight:700}
+.chead small{color:var(--muted);font-size:12.5px}
+#road{display:flex;gap:7px;overflow-x:auto;padding:2px 0 10px;scrollbar-width:none}
+#road::-webkit-scrollbar{display:none}
+.rst{flex-shrink:0;display:flex;align-items:center;gap:7px;background:var(--bg3);border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-size:12px;color:var(--muted);cursor:pointer;font-weight:600;transition:border-color .15s,color .15s}
+.rst:hover{border-color:var(--line2);color:var(--tx)}
+.rst.cur{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#141005;border-color:transparent;font-weight:700}
+.rst.done{border-color:rgba(62,207,142,.4);color:#7fe0b2}
+.rst .rn{background:rgba(0,0,0,.22);border-radius:99px;min-width:17px;height:17px;display:inline-flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700;padding:0 4px}
+.rst.done .rn{background:var(--ok);color:#06170e}
+.rst.cur .rn{background:rgba(20,16,5,.2);color:#141005}
 .tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
-.tab{padding:9px 13px;border-radius:8px 8px 0 0;background:#17120b;border:1px solid var(--line);border-bottom:2px solid var(--line);font-size:12.5px;font-weight:700;color:var(--muted);letter-spacing:.3px;transition:color .15s,border-color .15s}
+.tab{padding:9px 14px;border-radius:999px;background:var(--bg3);border:1px solid var(--line);font-size:12.5px;font-weight:600;color:var(--muted);transition:color .15s,border-color .15s}
 .tab:hover{color:var(--tx)}
-.tab.on{background:#241c10;color:var(--brand2);border-color:var(--brand);border-bottom:2px solid var(--brand)}
-.painel{background:#151009;border:1px solid var(--line);border-radius:4px 12px 12px 12px;padding:20px;line-height:1.7;font-size:15px;animation:surge .25s ease;box-shadow:0 12px 34px rgba(0,0,0,.4)}
+.tab.on{background:rgba(245,183,61,.12);border-color:var(--brand);color:var(--brand2)}
+.painel{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:20px;line-height:1.7;font-size:15px;box-shadow:0 12px 30px rgba(0,0,0,.3)}
 .painel p{margin-bottom:10px}
-.hero{height:200px;border-radius:10px;border:1px solid var(--line);background-size:cover;background-position:center;margin-bottom:16px;position:relative;overflow:hidden;filter:sepia(.12)}
-.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(14,12,9,.88))}
-.pista{background:#1c160d;border:1px solid var(--line);border-left:3px solid #6b5a33;border-radius:4px 10px 10px 4px;padding:12px 14px 12px 12px;margin-bottom:10px;cursor:pointer;transition:border-color .15s;display:flex;gap:11px;align-items:flex-start}
-.pista:hover{border-color:var(--brand);border-left-color:var(--brand)}
-.pista .num{font-family:'Special Elite','Courier New',Georgia,serif;background:var(--brand);color:#191204;font-weight:700;font-size:13px;min-width:26px;height:26px;border-radius:3px;display:flex;align-items:center;justify-content:center;transform:rotate(-3deg);box-shadow:2px 2px 0 rgba(0,0,0,.45);flex-shrink:0;margin-top:2px}
+.hero{height:190px;border-radius:14px;background-size:cover;background-position:center;margin-bottom:16px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(11,12,16,.85))}
+.pista{background:var(--bg3);border:1px solid var(--line);border-radius:14px;padding:13px 15px;margin-bottom:10px;cursor:pointer;transition:border-color .15s;display:flex;gap:12px;align-items:flex-start}
+.pista:hover{border-color:var(--brand)}
+.pista .num{background:linear-gradient(135deg,var(--brand),var(--hot));color:#141005;font-weight:800;font-size:12.5px;min-width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .pdiv{min-width:0;flex:1}
-.pista b{font-size:14.5px;color:var(--paper)}
-.pista .onde{display:block;color:var(--muted);font-size:12px;font-style:italic;margin-top:2px}
-.pista .corpo{display:none;margin-top:10px;font-size:14px;color:#ddd2bc;line-height:1.6}
-.pista.aberta .corpo{display:block;animation:surge .2s ease}
-.pista.examinada{border-left-color:var(--brand)}
-.pista .tagins{display:inline-block;margin-top:8px;font-size:12px;color:var(--brand2);font-style:italic}
+.pista b{font-size:14.5px}
+.pista .onde{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.pista .corpo{display:none;margin-top:10px;font-size:14px;color:#d4d9e0;line-height:1.65}
+.pista.aberta .corpo{display:block}
+.pista.examinada{border-color:rgba(62,207,142,.4)}
+.tagins{display:inline-block;margin-top:8px;font-size:12.5px;color:var(--brand2);background:rgba(245,183,61,.07);border-radius:8px;padding:3px 9px}
+/* suspeitos */
 .pers{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
-@media(min-width:640px){.pers{grid-template-columns:repeat(3,1fr)}}
-.pcard{background:#1c160d;border:1px solid var(--line);border-radius:12px;padding:10px 10px 12px;cursor:pointer;transition:border-color .18s,transform .18s,box-shadow .18s}
-.pcard:hover{border-color:var(--brand);transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,0,0,.5)}
-.pcard:active{transform:translateY(-1px)}
-.pimg{width:100%;height:150px;object-fit:cover;object-position:center 22%;border-radius:8px;border:1px solid var(--line);filter:sepia(.35) contrast(1.03);transition:filter .2s}
-.pcard:hover .pimg{filter:sepia(.05) contrast(1.03)}
-.pimg-x{display:flex;align-items:center;justify-content:center;height:150px;border-radius:8px;border:1px solid var(--line);background:repeating-linear-gradient(45deg,#221b10,#221b10 8px,#1b150c 8px,#1b150c 16px);font-family:'Special Elite','Courier New',Georgia,serif;font-size:30px;color:var(--brand)}
-.pcard b{display:block;font-family:'Special Elite','Courier New',Georgia,serif;font-size:13.5px;color:var(--paper);margin-top:9px;font-weight:400}
-.pcard small{display:block;color:var(--muted);font-size:12px;margin-top:2px;line-height:1.4}
-.temper{display:inline-block;margin-top:7px;font-size:10.5px;color:#c7b58f;background:rgba(217,164,65,.07);border:1px dashed rgba(217,164,65,.3);border-radius:99px;padding:2px 9px}
-.ihead{display:flex;align-items:center;gap:11px;margin:14px 0 10px}
-.ihead b{font-family:'Special Elite','Courier New',Georgia,serif;font-size:16px;color:var(--paper);font-weight:400}
-.temper-in{font-size:11px;color:var(--muted);font-style:italic;font-family:Georgia,serif}
-.avt{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:center 25%;border:2px solid #4a3a1e;box-shadow:0 3px 10px rgba(0,0,0,.5);flex-shrink:0}
-.avt-x{display:inline-flex;align-items:center;justify-content:center;background:#2c2314;color:var(--brand);font-family:'Special Elite','Courier New',Georgia,serif}
-.ihead .avt{width:46px;height:46px}
-.pac{display:inline-block;width:170px;max-width:48vw;height:7px;border-radius:99px;background:#2a2214;border:1px solid var(--line);overflow:hidden;vertical-align:middle}
-.pac i{display:block;height:100%;width:100%;border-radius:99px;background:var(--ok);transition:width .3s,background .3s}
+@media(min-width:620px){.pers{grid-template-columns:repeat(3,1fr)}}
+.pcard{background:var(--bg3);border:1px solid var(--line);border-radius:14px;padding:9px 10px 12px;cursor:pointer;transition:border-color .18s,transform .18s}
+.pcard:hover{border-color:var(--brand);transform:translateY(-2px)}
+.pimg{width:100%;height:145px;object-fit:cover;object-position:center 22%;border-radius:10px;transition:filter .2s}
+.pcard:hover .pimg{filter:brightness(1.12)}
+.pimg-x{display:flex;align-items:center;justify-content:center;height:145px;border-radius:10px;background:linear-gradient(135deg,#1d212b,#262b38);font-size:28px;font-weight:800;color:var(--brand)}
+.pcard b{display:block;font-size:13.5px;margin-top:9px;font-weight:700}
+.pcard small{display:block;color:var(--muted);font-size:11.5px;margin-top:2px;line-height:1.4}
+.temper{display:inline-block;margin-top:7px;font-size:10.5px;color:#d8c193;background:rgba(245,183,61,.08);border-radius:999px;padding:2px 9px}
+/* interrogatório */
+.ihead{display:flex;align-items:center;gap:12px;margin:14px 0 10px}
+.ihead b{font-size:15.5px;font-weight:700}
+.temper-in{font-size:11.5px;color:var(--muted)}
+.avt{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:center 25%;border:2px solid var(--line2);flex-shrink:0}
+.avt-x{display:inline-flex;align-items:center;justify-content:center;background:#232836;color:var(--brand);font-weight:800}
+.pac{display:inline-block;width:160px;max-width:44vw;height:6px;border-radius:99px;background:#20242d;overflow:hidden;vertical-align:middle}
+.pac i{display:block;height:100%;border-radius:99px;background:var(--ok);transition:width .3s,background .3s}
 .pacl{font-size:11px;color:var(--muted);margin-left:8px}
-.chatbox{background:#120e08;border:1px solid var(--line);border-radius:12px;padding:14px;height:400px;overflow:auto;display:flex;flex-direction:column;gap:9px;margin-bottom:10px}
-.m{max-width:88%;padding:9px 12px;border-radius:12px;font-size:14px;line-height:1.55;white-space:pre-wrap}
-.m.eu{align-self:flex-end;background:linear-gradient(160deg,#3a2d14,#2c2210);border:1px solid rgba(217,164,65,.32);color:#f0e6cf;border-bottom-right-radius:4px}
-.m.pers{align-self:flex-start;background:#201910;border:1px solid var(--line);border-bottom-left-radius:4px}
-.m.pers .q{display:flex;align-items:center;gap:7px;font-size:11.5px;color:var(--muted);margin-bottom:4px;font-weight:700}
-.m.pers .q .avt{width:24px;height:24px;border-width:1px;font-size:9px}
+.chatbox{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:14px;height:390px;overflow:auto;display:flex;flex-direction:column;gap:9px;margin-bottom:10px}
+.m{max-width:88%;padding:10px 13px;border-radius:16px;font-size:14px;line-height:1.55;white-space:pre-wrap}
+.m.eu{align-self:flex-end;background:linear-gradient(135deg,var(--brand),var(--hot));color:#141005;font-weight:500;border-bottom-right-radius:5px}
+.m.pers{align-self:flex-start;background:var(--bg3);border:1px solid var(--line);border-bottom-left-radius:5px}
+.m.pers .q{display:flex;align-items:center;gap:7px;font-size:11.5px;color:var(--muted);margin-bottom:4px;font-weight:600}
+.m.pers .q .avt{width:22px;height:22px;border-width:1px;font-size:9px}
+@keyframes tica{0%,100%{opacity:.2}50%{opacity:1}}
 .typ{display:flex;gap:4px;align-items:center}
 .typ i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:tica 1s infinite}
 .typ i:nth-child(2){animation-delay:.2s}
 .typ i:nth-child(3){animation-delay:.4s}
-.dica{align-self:center;font-size:12.5px;color:#d8c9a4;font-style:italic;background:rgba(217,164,65,.07);border:1px dashed rgba(217,164,65,.35);border-radius:12px;padding:7px 12px;max-width:92%;text-align:center}
+.dica{align-self:center;font-size:12.5px;color:#e8c98a;font-style:italic;background:rgba(245,183,61,.06);border:1px dashed rgba(245,183,61,.3);border-radius:12px;padding:7px 12px;max-width:92%;text-align:center}
 .cform{display:flex;gap:8px}
-.cform input{flex:1;background:#201910;border:1px solid var(--line);border-radius:10px;color:var(--tx);padding:11px 13px;outline:none}
+.cform input{flex:1;background:var(--bg3);border:1px solid var(--line);border-radius:12px;color:var(--tx);padding:11px 14px;outline:none;transition:border-color .15s}
 .cform input:focus{border-color:var(--brand)}
-.cform button{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#191204;border-radius:10px;padding:0 18px;font-weight:800}
-label{display:block;font-size:13px;font-weight:700;margin:12px 0 5px;color:#cdbd9a}
-input[type=text],textarea,select{width:100%;background:#201910;border:1px solid var(--line);border-radius:10px;color:var(--tx);padding:11px 13px;outline:none}
+.cform button{background:linear-gradient(135deg,var(--brand),var(--hot));color:#141005;border-radius:12px;padding:0 18px;font-weight:700}
+/* formulários */
+label{display:block;font-size:12.5px;font-weight:600;margin:12px 0 5px;color:#c8ced9;letter-spacing:.01em}
+input[type=text],input[type=password],textarea,select{width:100%;background:var(--bg3);border:1px solid var(--line);border-radius:12px;color:var(--tx);padding:11px 14px;outline:none;transition:border-color .15s}
 input:focus,textarea:focus,select:focus{border-color:var(--brand)}
-textarea{min-height:90px;resize:vertical;line-height:1.5}
-select option{background:#201910}
-.btn{padding:13px 18px;border-radius:10px;font-weight:800;font-size:15px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#191204;border:0;width:100%;margin-top:14px;letter-spacing:.2px;transition:filter .15s,transform .1s}
-.btn:hover{filter:brightness(1.08)}
-.btn:active{transform:scale(.98)}
-.btn.sec{background:#241d12;border:1px solid var(--line);color:var(--tx)}
-.btn:disabled{opacity:.55;cursor:not-allowed}
-.res{border-left:3px solid var(--brand);padding-left:14px;margin:12px 0}
-.res h3{font-size:15px;color:var(--brand2);margin-bottom:6px}
+textarea{min-height:90px;resize:vertical;line-height:1.55}
+select option{background:var(--bg3)}
+.btn{padding:13px 18px;border-radius:13px;font-weight:700;font-size:14.5px;background:linear-gradient(135deg,var(--brand),var(--hot));color:#141005;border:0;width:100%;margin-top:12px;transition:filter .15s,transform .1s}
+.btn:hover{filter:brightness(1.07)}
+.btn:active{transform:scale(.985)}
+.btn.sec{background:var(--bg3);border:1px solid var(--line2);color:var(--tx)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+/* parecer */
+.res{border-left:3px solid var(--brand);padding-left:14px;margin:14px 0}
+.res h3{font-size:14.5px;color:var(--brand2);margin-bottom:6px}
 .res ul{margin-left:18px;line-height:1.6}
-.nota{font-family:'Special Elite','Courier New',Georgia,serif;font-size:42px;text-align:center;margin:10px 0;color:var(--brand2)}
+.nota{font-size:44px;font-weight:800;text-align:center;margin:10px 0;letter-spacing:-.03em;background:linear-gradient(135deg,var(--brand2),var(--hot));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 li{margin-bottom:6px}
-.lição{border-bottom:1px dashed #2e2619;padding:16px 0}
+.lição{border-bottom:1px solid var(--line);padding:16px 0}
 .lição:last-child{border-bottom:0}
-.lição h3{color:var(--brand2);font-size:16px;margin-bottom:7px;font-family:'Special Elite','Courier New',Georgia,serif;font-weight:400}
-.lição p,.lição li{font-size:14.5px;line-height:1.65;color:#ddd2bc}
-.lição .aplique{margin-top:8px;font-size:13px;color:#c7b58f;font-style:italic}
-.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#241d12;border:1px solid var(--brand);color:#f0e6cf;padding:11px 17px;border-radius:10px;font-size:13.5px;opacity:0;pointer-events:none;transition:opacity .25s;z-index:70;max-width:90vw;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.6)}
+.lição h3{color:var(--brand2);font-size:15.5px;margin-bottom:7px}
+.lição p,.lição li{font-size:14.5px;line-height:1.65;color:#d4d9e0}
+.lição .aplique{margin-top:8px;font-size:13px;color:#d8c193;font-style:italic}
+/* toast */
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#1b1e26;border:1px solid var(--line2);padding:12px 18px;border-radius:14px;font-size:13.5px;opacity:0;pointer-events:none;transition:opacity .25s;z-index:70;max-width:92vw;text-align:center;box-shadow:0 14px 40px rgba(0,0,0,.6)}
 .toast.on{opacity:1}
-@media(max-width:600px){.ccap{width:96px;height:96px}.hero{height:150px}.pimg{height:130px}.pimg-x{height:130px}h1{font-size:24px}.sheet{padding:18px}.brand small{display:none}}
-
-/* ═══ v3: aprendiz, glossário, editor, comunidade ═══ */
-.strip{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:linear-gradient(160deg,rgba(217,164,65,.1),rgba(217,164,65,.03));border:1px solid rgba(217,164,65,.35);border-radius:10px;padding:12px 14px;margin:0 0 14px;font-size:13.5px;color:#e6d6b4;max-width:640px}
+/* callouts */
+.strip{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:linear-gradient(135deg,rgba(245,183,61,.09),rgba(255,138,61,.04));border:1px solid rgba(245,183,61,.3);border-radius:16px;padding:14px 16px;margin:0 0 16px;font-size:13.5px;color:#e8dcc2}
 .strip b{color:var(--brand2)}
-.strip button{background:var(--brand);color:#191204;font-weight:800;border-radius:8px;padding:8px 14px;font-size:13px;flex-shrink:0}
-.hb2{display:flex;gap:10px;margin-top:14px;max-width:640px}
+.strip button{background:linear-gradient(135deg,var(--brand),var(--hot));color:#141005;font-weight:700;border-radius:10px;padding:9px 15px;font-size:13px;flex-shrink:0}
+.hb2{display:flex;gap:10px;margin-top:14px}
 .hb2 .btn{margin-top:0}
-.seu-t{font-family:'Special Elite','Courier New',Georgia,serif;color:var(--brand2);font-size:15px;margin:22px 0 10px;letter-spacing:.5px}
+.seu-t{color:var(--brand2);font-size:14px;font-weight:700;margin:22px 0 10px;letter-spacing:.02em}
+.dbox{background:rgba(62,207,142,.06);border:1px dashed rgba(62,207,142,.3);border-radius:12px;padding:11px 14px;font-size:12.5px;color:#b9d9c6;line-height:1.6;margin:10px 0}
+.dbox b{color:#7fe0b2}
+.warnbox{background:rgba(245,183,61,.06);border:1px dashed rgba(245,183,61,.35);border-radius:12px;padding:11px 14px;font-size:13px;color:#e8dcc2;line-height:1.6;margin:10px 0}
+.warnbox b{color:var(--brand2)}
+.idea{background:linear-gradient(135deg,rgba(245,183,61,.08),rgba(255,138,61,.03));border:1px solid rgba(245,183,61,.3);border-radius:16px;padding:15px;margin-bottom:16px}
+.idea h4{font-size:14px;color:var(--brand2);margin-bottom:6px}
 /* glossário */
-
-#glo{position:fixed;top:0;right:0;bottom:0;width:330px;max-width:92vw;background:#171208;border-left:2px solid var(--brand);z-index:65;transform:translateX(102%);transition:transform .25s ease;overflow-y:auto;box-shadow:-18px 0 40px rgba(0,0,0,.55);padding:16px}
+.glo-t{background:rgba(245,183,61,.16);border:1px solid rgba(245,183,61,.45);border-radius:6px;padding:0 6px;color:var(--brand2);cursor:help;font-weight:600;white-space:nowrap;transition:background .15s}
+.glo-t:hover{background:rgba(245,183,61,.32)}
+#glo{position:fixed;top:0;right:0;bottom:0;width:340px;max-width:94vw;background:#111318;border-left:1px solid var(--line);z-index:65;transform:translateX(103%);transition:transform .25s ease;overflow-y:auto;box-shadow:-20px 0 50px rgba(0,0,0,.5);padding:18px}
 #glo.on{transform:none}
-#glo h3{font-family:'Special Elite','Courier New',Georgia,serif;color:var(--paper);font-size:16px;display:flex;justify-content:space-between;align-items:center;font-weight:400}
-#glo .gclose{background:none;border:0;color:var(--muted);font-size:20px;cursor:pointer;padding:2px 8px}
-#glo .gclose:hover{color:var(--bad)}
-#glo .gsub{font-size:12px;color:var(--muted);margin:4px 0 10px;line-height:1.45}
-#glo input{margin-bottom:10px}
-.gterm{border:1px solid var(--line);border-radius:8px;margin-bottom:8px;background:#1e180d}
-.gterm summary{cursor:pointer;padding:9px 11px;font-size:13.5px;font-weight:700;color:var(--brand2);list-style:none;display:flex;justify-content:space-between;gap:8px}
+#glo h3{color:var(--tx);font-size:16px;display:flex;justify-content:space-between;align-items:center;font-weight:700}
+#glo .gclose{background:var(--bg3);border:1px solid var(--line);color:var(--muted);font-size:14px;cursor:pointer;padding:4px 10px;border-radius:10px}
+#glo .gsub{font-size:12.5px;color:var(--muted);margin:6px 0 12px;line-height:1.5;border-bottom:1px solid var(--line);padding-bottom:10px}
+#glo input{margin-bottom:12px}
+.gterm{border:1px solid var(--line);border-radius:12px;margin-bottom:8px;background:var(--bg3);overflow:hidden}
+.gterm summary{cursor:pointer;padding:11px 13px;font-size:13.5px;font-weight:600;color:var(--brand2);list-style:none;display:flex;justify-content:space-between;gap:8px}
 .gterm summary::-webkit-details-marker{display:none}
 .gterm summary::after{content:'+';color:var(--muted)}
 .gterm[open] summary::after{content:'–'}
-.gterm .gd{padding:0 11px 10px;font-size:13px;color:#ddd2bc;line-height:1.55}
-.gterm.hit{border-color:var(--brand);box-shadow:0 0 0 1px var(--brand)}
-/* trilha / aprender */
-.xpbar{background:#241c10;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:16px}
+.gterm .gd{padding:2px 13px 12px;font-size:13px;color:#d4d9e0;line-height:1.6}
+.gterm.hit{border-color:var(--brand)}
+/* trilha clássica (fundamentos) */
+.xpbar{background:var(--bg3);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:16px}
 .xpbar .xt{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:8px}
-.xpbar .xt b{color:var(--brand2);font-family:'Special Elite','Courier New',Georgia,serif;font-weight:400}
-.xpr{height:9px;background:#1a140b;border:1px solid var(--line);border-radius:99px;overflow:hidden}
-.xpr i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--brand2));border-radius:99px;transition:width .4s}
-.etapa{background:#151009;border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.xpbar .xt b{color:var(--brand2)}
+.xpr{height:8px;background:#1a1d24;border-radius:99px;overflow:hidden}
+.xpr i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--hot));border-radius:99px;transition:width .4s}
+.etapa{background:var(--bg3);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}
 .etapa summary{cursor:pointer;padding:14px 16px;display:flex;align-items:center;gap:12px;list-style:none}
 .etapa summary::-webkit-details-marker{display:none}
-.etapa summary:hover{background:#1a140b}
-.etp-n{font-family:'Special Elite','Courier New',Georgia,serif;min-width:34px;height:34px;border-radius:8px;background:#241c10;border:1px solid var(--line);color:var(--brand2);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
-.etapa.done .etp-n{background:var(--ok);color:#101608;border-color:transparent}
+.etapa summary:hover{background:#1a1d25}
+.etp-n{min-width:34px;height:34px;border-radius:11px;background:#20242e;border:1px solid var(--line);color:var(--brand2);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0}
+.etapa.done .etp-n{background:var(--ok);color:#06170e;border-color:transparent}
 .etp-t{flex:1;min-width:0}
-.etp-t b{display:block;color:var(--paper);font-size:15px}
+.etp-t b{display:block;font-size:14.5px}
 .etp-t small{color:var(--muted);font-size:12px}
-.etp-st{font-size:12px;color:var(--muted);flex-shrink:0}
+.etp-st{font-size:11.5px;color:var(--muted);flex-shrink:0}
 .etapa.done .etp-st{color:var(--ok)}
-.etp-b{padding:2px 16px 18px;border-top:1px dashed #2e2619}
-.etp-b h4{font-size:13px;color:var(--brand2);margin:14px 0 6px;font-family:'Special Elite','Courier New',Georgia,serif;font-weight:400;letter-spacing:.5px}
-.etp-b .lic{font-size:14px;color:#ddd2bc;line-height:1.65}
-.etp-b .lic b{color:var(--paper)}
+.etp-b{padding:2px 16px 18px;border-top:1px solid var(--line)}
+.etp-b h4{font-size:12px;color:var(--brand2);margin:14px 0 6px;letter-spacing:.1em;text-transform:uppercase}
+.etp-b .lic{font-size:14px;color:#d4d9e0;line-height:1.65}
+.etp-b .lic b{color:var(--tx)}
 .etp-b .lic ul{margin:6px 0 6px 18px}
-.treino{background:#1c160d;border:1px solid var(--line);border-left:3px solid var(--brand);border-radius:4px 10px 10px 4px;padding:13px 15px;margin-top:8px}
-.treino .tq{font-size:14px;line-height:1.6;color:#e9dfc9;margin-bottom:10px}
+.treino{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:13px 15px;margin-top:8px}
+.treino .tq{font-size:14px;line-height:1.6;margin-bottom:10px}
 .tops{display:flex;flex-direction:column;gap:7px}
-.top{text-align:left;background:#241d12;border:1px solid var(--line);border-radius:9px;padding:10px 13px;font-size:13.5px;color:#e0d5bd;line-height:1.45;transition:border-color .15s}
+.top{text-align:left;background:#1a1d25;border:1px solid var(--line);border-radius:12px;padding:11px 13px;font-size:13.5px;line-height:1.5;transition:border-color .15s}
 .top:hover{border-color:var(--brand)}
-.top.ok{border-color:var(--ok);background:rgba(123,160,91,.12);color:#cfe3b8}
-.top.no{border-color:var(--bad);background:rgba(178,58,46,.1)}
-.top .exp{display:block;margin-top:6px;font-size:12.5px;font-style:italic;color:var(--muted)}
-.top.ok .exp{color:#b9d19a}
-.top.no .exp{color:#e0a196}
+.top.ok{border-color:var(--ok);background:rgba(62,207,142,.08)}
+.top.no{border-color:var(--bad);background:rgba(240,96,77,.07)}
+.top .exp{display:block;margin-top:6px;font-size:12.5px;color:var(--muted)}
+.top.ok .exp{color:#7fe0b2}
+.top.no .exp{color:#ff9a8a}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 10px}
-.chip{background:#241d12;border:1px solid var(--line);border-radius:8px;padding:9px 13px;font-size:13px;color:#e0d5bd;font-weight:700}
+.chip{background:#1a1d25;border:1px solid var(--line);border-radius:10px;padding:9px 13px;font-size:13px;font-weight:600;transition:border-color .15s}
 .chip:hover{border-color:var(--brand)}
-.chip.sel{background:var(--brand);color:#191204;border-color:var(--brand)}
-.chip.ok{background:var(--ok);color:#101608;border-color:transparent}
-.chip.no{background:var(--bad);color:#f5e9d0;border-color:transparent}
+.chip.sel{background:var(--brand);color:#141005;border-color:var(--brand)}
+.chip.ok{background:var(--ok);color:#06170e;border-color:transparent}
+.chip.no{background:var(--bad);color:#fff;border-color:transparent}
 .tok{margin-top:10px;font-size:13px;font-weight:700;color:var(--ok);display:none}
 .tok.on{display:block}
-.missao{background:#181206;border:1px dashed rgba(217,164,65,.4);border-radius:10px;padding:13px 15px;margin-top:8px}
-.missao .mt2{font-size:13.5px;color:#e6d6b4;line-height:1.55;margin-bottom:8px}
-.missao textarea{min-height:70px}
+.missao{background:var(--bg2);border:1px dashed rgba(245,183,61,.35);border-radius:12px;padding:13px 15px;margin-top:8px}
+.missao .mt2{font-size:13.5px;color:#e8dcc2;line-height:1.55;margin-bottom:8px}
 .missao .mdone{font-size:13px;font-weight:700;color:var(--ok);margin-top:8px;display:none}
 .missao.done .mdone{display:block}
-.plano{margin-top:8px;background:rgba(123,160,91,.06);border:1px solid rgba(123,160,91,.3);border-radius:10px;padding:11px 15px;font-size:13px;color:#cfe0b5;line-height:1.6}
-.plano b{color:#a9c78a}
+.plano{margin-top:8px;background:rgba(62,207,142,.05);border:1px solid rgba(62,207,142,.25);border-radius:12px;padding:11px 15px;font-size:13px;color:#b9d9c6;line-height:1.65}
+.plano b{color:#7fe0b2}
 /* editor */
-.fsec{background:#151009;border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
-.fsec h3{font-family:'Special Elite','Courier New',Georgia,serif;color:var(--brand2);font-size:15px;margin-bottom:10px;font-weight:400;display:flex;justify-content:space-between;align-items:center}
+.fsec{background:var(--bg3);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:14px}
+.fsec h3{color:var(--brand2);font-size:15px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
 .frow{display:grid;gap:10px;grid-template-columns:1fr}
 @media(min-width:640px){.frow.c2{grid-template-columns:1fr 1fr}.frow.c3{grid-template-columns:1fr 1fr 1fr}}
-.fitem{background:#1c160d;border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:10px}
-.fitem .fdel{float:right;background:none;border:0;color:var(--bad);cursor:pointer;font-size:15px;padding:2px 6px}
-.fitem .fai{float:right;background:none;border:1px dashed rgba(217,164,65,.4);color:var(--brand2);cursor:pointer;font-size:11px;border-radius:99px;padding:3px 9px;margin-right:6px}
+.fitem{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px}
+.fitem .fdel{float:right;background:none;color:var(--bad);font-size:15px;padding:2px 6px}
+.fitem .fai{float:right;background:none;border:1px dashed rgba(245,183,61,.4);color:var(--brand2);font-size:11px;border-radius:999px;padding:3px 9px;margin-right:6px}
 .fitem .fai:hover{border-color:var(--brand)}
 .fitem .fai:disabled{opacity:.5;cursor:wait}
-.mini{font-size:12px;color:var(--muted);margin:2px 0 4px;line-height:1.4}
-.cnt{font-size:11px;color:var(--muted);font-family:Georgia,serif;font-weight:400}
-/* comunidade */
-.ccard2{display:flex;gap:12px;align-items:center;background:#151009;border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:10px}
-.ccard2 .ci{flex:1;min-width:0}
-.ccard2 b{color:var(--paper);font-family:'Special Elite','Courier New',Georgia,serif;font-weight:400}
-.ccard2 small{display:block;color:var(--muted);margin-top:3px;line-height:1.4}
-.ccard2 .cb{display:flex;flex-direction:column;gap:6px;flex-shrink:0}
-.ccard2 .cb .btn{margin:0;padding:8px 12px;font-size:12.5px}
-.cstat{font-size:12.5px;color:var(--muted);background:#1a140b;border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-bottom:12px;line-height:1.5}
-.codebox{font-family:'Courier New',monospace;font-size:11px;background:#120e08;border:1px solid var(--line);border-radius:8px;padding:9px;word-break:break-all;color:#cbbd97;margin-top:8px}
-/* conta modal */
-#conta{position:fixed;inset:0;background:rgba(8,6,3,.8);z-index:80;display:flex;align-items:center;justify-content:center;padding:16px}
-#conta .cbox{background:#171208;border:2px solid var(--brand);border-radius:14px;max-width:430px;width:100%;padding:22px;max-height:92vh;overflow-y:auto}
-#conta h3{font-family:'Special Elite','Courier New',Georgia,serif;color:var(--paper);font-size:18px;margin-bottom:4px;font-weight:400}
-#conta .csub{font-size:12.5px;color:var(--muted);margin-bottom:12px;line-height:1.5}
-.reckey{font-family:'Courier New',monospace;font-size:16px;letter-spacing:2px;background:#241d12;border:1px dashed var(--brand);color:var(--brand2);border-radius:8px;padding:10px;text-align:center;margin:10px 0;font-weight:700}
-.cwarn{font-size:12px;color:#e0a196;line-height:1.5}
-.cok{font-size:13px;color:var(--ok);font-weight:700}
-.dicabtn{position:relative}
-.dicabtn .ndica{background:rgba(0,0,0,.25);border-radius:99px;padding:1px 7px;font-size:11px;margin-left:4px}
-@media(max-width:600px){#glo{width:100%;border-left:0;border-top:2px solid var(--brand);top:auto;height:72vh;border-radius:14px 14px 0 0}}
-/* ═══ v4: termos destacados, roadmap do caso, tour 1ª vez, wizard de criação ═══ */
-.glo-t{background:rgba(217,164,65,.16);border:1px solid rgba(217,164,65,.5);border-bottom-width:2px;border-radius:5px;padding:0 6px;color:var(--brand2);cursor:help;font-style:normal;font-weight:700;white-space:nowrap;transition:background .15s}
-.glo-t:hover{background:rgba(217,164,65,.34)}
-#glo .gsub{border-bottom:1px solid var(--line);padding-bottom:8px}
-.gterm{border:1px solid var(--line);border-radius:8px;margin-bottom:8px;background:#1e180d;overflow:hidden}
-.gterm summary{cursor:pointer;padding:10px 12px;font-size:13.5px;font-weight:700;color:var(--brand2);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:8px;background:#241d12}
-.gterm[open] summary{border-bottom:1px solid var(--line)}
-.gterm .gd{padding:10px 12px;font-size:13px;color:#ddd2bc;line-height:1.6}
-#road{display:flex;gap:7px;overflow-x:auto;padding:2px 0 10px;margin-bottom:8px;scrollbar-width:thin}
-.rst{flex-shrink:0;display:flex;align-items:center;gap:6px;background:#1c160d;border:1px solid var(--line);border-radius:99px;padding:7px 12px;font-size:12px;color:var(--muted);cursor:pointer;font-weight:700}
-.rst:hover{border-color:var(--brand)}
-.rst.cur{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#191204;border-color:transparent}
-.rst.done{border-color:rgba(123,160,91,.55);color:#a9c78a}
-.rst .rn{background:rgba(0,0,0,.25);border-radius:99px;min-width:17px;height:17px;display:inline-flex;align-items:center;justify-content:center;font-size:10.5px;padding:0 4px}
-.rst.done .rn{background:var(--ok);color:#101608}
-.rst.cur .rn{background:rgba(25,18,4,.25);color:#191204}
-#tour{position:fixed;inset:0;background:rgba(8,6,3,.88);z-index:85;display:flex;align-items:center;justify-content:center;padding:16px}
-#tour .tbox{background:#171208;border:2px solid var(--brand);border-radius:14px;max-width:470px;width:100%;padding:22px;max-height:92vh;overflow-y:auto}
-#tour h3{font-family:'Special Elite','Courier New',Georgia,serif;color:var(--paper);font-weight:400;margin-bottom:4px}
-#tour .tsub{font-size:12.5px;color:var(--muted);margin-bottom:10px;line-height:1.5}
-#tour .tstep{display:flex;gap:11px;margin:11px 0;font-size:13.5px;line-height:1.5;color:#e0d5bd;align-items:flex-start}
-#tour .tstep .tn{font-family:'Special Elite','Courier New',Georgia,serif;background:var(--brand);color:#191204;min-width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0}
-.wsteps{display:flex;gap:6px;overflow-x:auto;margin-bottom:14px}
-.wst{flex:1;min-width:78px;background:#1c160d;border:1px solid var(--line);border-radius:9px;padding:8px 10px;font-size:11.5px;font-weight:700;color:var(--muted);cursor:pointer;text-align:left;white-space:nowrap}
-.wst .wn{display:inline-flex;min-width:17px;height:17px;border-radius:99px;background:#241d12;border:1px solid var(--line);align-items:center;justify-content:center;font-size:10px;margin-right:5px;padding:0 3px}
+.wsteps{display:flex;gap:6px;overflow-x:auto;margin-bottom:14px;scrollbar-width:none}
+.wsteps::-webkit-scrollbar{display:none}
+.wst{flex:1;min-width:76px;background:var(--bg3);border:1px solid var(--line);border-radius:12px;padding:9px 11px;font-size:11.5px;font-weight:600;color:var(--muted);cursor:pointer;text-align:left;white-space:nowrap}
+.wst .wn{display:inline-flex;min-width:17px;height:17px;border-radius:99px;background:#20242e;align-items:center;justify-content:center;font-size:10px;margin-right:5px;padding:0 3px}
 .wst.cur{border-color:var(--brand);color:var(--brand2)}
-.wst.done .wn{background:var(--ok);color:#101608;border-color:transparent}
+.wst.done .wn{background:var(--ok);color:#06170e}
 .wnav{display:flex;gap:10px;margin-top:14px;align-items:center}
 .wnav .btn{margin-top:0}
 .wnav .spacer{flex:1}
-.dbox{background:rgba(123,160,91,.07);border:1px dashed rgba(123,160,91,.35);border-radius:10px;padding:10px 13px;font-size:12.5px;color:#c9d8ae;line-height:1.55;margin:10px 0}
-.dbox b{color:#a9c78a}
-.idea{background:#181206;border:1px solid rgba(217,164,65,.35);border-radius:12px;padding:13px;margin-bottom:16px}
-.idea h4{font-size:13.5px;color:var(--brand2);margin-bottom:6px}
-.warnbox{background:rgba(217,164,65,.07);border:1px dashed rgba(217,164,65,.4);border-radius:10px;padding:10px 13px;font-size:13px;color:#e6d6b4;line-height:1.6;margin:10px 0}
-.warnbox b{color:var(--brand2)}
-.revline{font-size:13.5px;color:#ddd2bc;margin:5px 0}
-.revline b{color:var(--paper)}
+.revline{font-size:14px;color:#d4d9e0;margin:5px 0}
+.revline b{color:var(--tx)}
+/* comunidade/conta */
+.ccard2{display:flex;gap:12px;align-items:center;background:var(--bg3);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:10px}
+.ccard2 .ci{flex:1;min-width:0}
+.ccard2 b{font-weight:700}
+.ccard2 small{display:block;color:var(--muted);margin-top:3px;line-height:1.4}
+.ccard2 .cb{display:flex;flex-direction:column;gap:6px;flex-shrink:0}
+.ccard2 .cb .btn{margin:0;padding:8px 12px;font-size:12.5px}
+.cstat{font-size:12.5px;color:var(--muted);background:var(--bg3);border:1px solid var(--line);border-radius:12px;padding:9px 13px;margin-bottom:12px;line-height:1.55}
+.codebox{font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:11px;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px;word-break:break-all;color:#c8ced9;margin-top:8px}
+#conta{position:fixed;inset:0;background:rgba(5,6,9,.75);backdrop-filter:blur(6px);z-index:80;display:flex;align-items:center;justify-content:center;padding:16px}
+#conta .cbox{background:#14161c;border:1px solid var(--line2);border-radius:20px;max-width:430px;width:100%;padding:24px;max-height:92vh;overflow-y:auto;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+#conta h3{font-size:18px;margin-bottom:4px;font-weight:800;letter-spacing:-.02em}
+#conta .csub{font-size:12.5px;color:var(--muted);margin-bottom:12px;line-height:1.55}
+.reckey{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:16px;letter-spacing:2px;background:var(--bg3);border:1px dashed var(--brand);color:var(--brand2);border-radius:12px;padding:11px;text-align:center;margin:10px 0;font-weight:700}
+.cwarn{font-size:12px;color:#ff9a8a;line-height:1.5}
+.cok{font-size:13px;color:var(--ok);font-weight:700}
+/* tour */
+#tour{position:fixed;inset:0;background:rgba(5,6,9,.8);backdrop-filter:blur(6px);z-index:85;display:flex;align-items:center;justify-content:center;padding:16px}
+#tour .tbox{background:#14161c;border:1px solid var(--line2);border-radius:20px;max-width:480px;width:100%;padding:24px;max-height:92vh;overflow-y:auto;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+#tour h3{font-size:18px;font-weight:800;letter-spacing:-.02em;margin-bottom:4px}
+#tour .tsub{font-size:12.5px;color:var(--muted);margin-bottom:10px;line-height:1.5}
+#tour .tstep{display:flex;gap:12px;margin:12px 0;font-size:13.5px;line-height:1.55;color:#d4d9e0;align-items:flex-start}
+#tour .tstep .tn{background:linear-gradient(135deg,var(--brand),var(--hot));color:#141005;min-width:26px;height:26px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;font-size:12.5px}
+.dicabtn .ndica{background:rgba(245,183,61,.2);border-radius:99px;padding:1px 7px;font-size:10.5px;margin-left:4px}
+/* ═══ v5 novas views ═══ */
+.hj-top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.hj-chip{display:flex;align-items:center;gap:8px;background:var(--bg3);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:12.5px;color:var(--muted);font-weight:600}
+.hj-chip b{color:var(--tx)}
+.hj-chip.fogo b{color:#ffb14d}
+.hj-hero{background:linear-gradient(150deg,#181b23,#121419 70%);border:1px solid var(--line2);border-radius:20px;padding:24px;position:relative;overflow:hidden;margin-bottom:14px}
+.hj-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle,rgba(245,183,61,.14),transparent 70%)}
+.hj-k{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brand2);margin-bottom:8px}
+.hj-m{font-size:19px;font-weight:700;line-height:1.45;letter-spacing:-.01em;margin-bottom:12px}
+.hj-pq{font-size:13.5px;color:var(--muted);line-height:1.6;border-top:1px solid var(--line);padding-top:12px;margin-bottom:6px}
+.hj-pq b{color:#e8c98a}
+.hj-grid{display:grid;gap:10px;grid-template-columns:1fr 1fr;margin-bottom:14px}
+.hj-act{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:15px;cursor:pointer;transition:border-color .15s;text-align:left}
+.hj-act:hover{border-color:var(--brand)}
+.hj-act .ico{font-size:21px}
+.hj-act b{display:block;font-size:13.5px;margin-top:5px}
+.hj-act small{color:var(--muted);font-size:11.5px;line-height:1.4;display:block;margin-top:2px}
+.hj-bar{display:flex;align-items:center;gap:10px;background:var(--bg3);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:12.5px;color:var(--muted);margin-bottom:14px}
+.hj-bar .br{flex:1;height:7px;background:#20242d;border-radius:99px;overflow:hidden}
+.hj-bar .br i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--hot));border-radius:99px;transition:width .4s}
+.hj-tip{background:rgba(245,183,61,.05);border:1px solid rgba(245,183,61,.22);border-radius:16px;padding:15px 17px;font-size:13.5px;color:#e8dcc2;line-height:1.6}
+.hj-tip b{color:var(--brand2)}
+/* programa */
+.fase-t{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:20px 0 10px}
+.pw{background:var(--bg2);border:1px solid var(--line);border-radius:16px;margin-bottom:10px;overflow:hidden}
+.pw summary{cursor:pointer;padding:15px 17px;display:flex;align-items:center;gap:13px;list-style:none}
+.pw summary::-webkit-details-marker{display:none}
+.pw summary:hover{background:var(--bg3)}
+.pw.cur summary{background:linear-gradient(135deg,rgba(245,183,61,.1),transparent)}
+.pw.lock{opacity:.55}
+.pw-n{min-width:38px;height:38px;border-radius:12px;background:#20242e;border:1px solid var(--line);color:var(--brand2);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0}
+.pw.cur .pw-n{background:linear-gradient(135deg,var(--brand),var(--hot));color:#141005;border-color:transparent}
+.pw.done .pw-n{background:var(--ok);color:#06170e;border-color:transparent}
+.pw-t{flex:1;min-width:0}
+.pw-t b{display:block;font-size:14.5px}
+.pw-t small{color:var(--muted);font-size:12px}
+.pw-st{font-size:11.5px;color:var(--muted);flex-shrink:0}
+.pw-b{padding:2px 17px 18px;border-top:1px solid var(--line)}
+.pw-b .lic{font-size:14px;color:#d4d9e0;line-height:1.65;margin-top:12px}
+.pw-b .lic b{color:var(--tx)}
+.pw-b .lic ul{margin:6px 0 6px 18px}
+.dml{display:flex;align-items:flex-start;gap:11px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.dml:last-child{border-bottom:0}
+.dml .dchk{min-width:24px;height:24px;border-radius:8px;border:1.5px solid var(--line2);background:var(--bg2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:12px;color:#06170e;margin-top:1px;transition:background .15s,border-color .15s}
+.dml.ok .dchk{background:var(--ok);border-color:var(--ok)}
+.dml .dtx{flex:1;font-size:13.5px;line-height:1.55;color:#d4d9e0}
+.dml.ok .dtx{color:var(--muted);text-decoration:line-through}
+.dml .dxp{font-size:10.5px;color:var(--muted);background:var(--bg3);border-radius:99px;padding:2px 8px;margin-top:2px;flex-shrink:0}
+.pw-quote{margin-top:12px;font-size:13.5px;color:#e8c98a;font-style:italic;border-left:3px solid var(--brand);padding-left:12px}
+/* diário */
+.dj-item{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px}
+.dj-item .djm{font-size:12px;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:7px}
+.dj-item .djl{font-size:13.5px;color:#d4d9e0;white-space:pre-wrap;line-height:1.55}
+.dj-coach{margin-top:10px;background:rgba(245,183,61,.05);border:1px solid rgba(245,183,61,.25);border-radius:12px;padding:11px 13px;font-size:13px;color:#e8dcc2;line-height:1.6;white-space:pre-wrap}
+.dj-coach b{color:var(--brand2)}
+/* desafios */
+.ds-item{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:12px}
+.ds-cena{font-size:14.5px;line-height:1.7;color:#d4d9e0;background:var(--bg3);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0}
+.ds-pontos .top{margin-bottom:6px}
+.ds-ver{font-size:13.5px;color:#7fe0b2;font-weight:700;margin:10px 0 2px}
+@media(max-width:600px){h1{font-size:24px}.sheet{padding:18px}.ccap{width:92px;height:92px}.hero{height:150px}.pimg{height:128px}.pimg-x{height:128px}.brand small{display:none}.hj-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
 <header>
-  <div class="brand"><span class="logo">🔍</span> Mentalista <small>· treine seu olho</small></div>
-  <div class="hbtns"><button class="hb" id="b-aprender">🧭 Aprender</button><button class="hb" id="b-home">🗂️ Casos</button><button class="hb" id="b-escola">🎓 Escola</button></div>
+  <div class="brand"><span class="logo">🧠</span> Mentalista <small>treino diário</small></div>
+  <div class="hbtns"><button class="hb" id="b-hoje">Hoje</button><button class="hb" id="b-prog">Programa</button><button class="hb" id="b-diario">Diário</button><button class="hb" id="b-desaf">Desafios</button><button class="hb" id="b-home">Prática</button><button class="hb" id="b-escola">Escola</button></div>
 </header>
 
 <main>
   <!-- HOME -->
-  <section id="v-home">
+  <section id="v-hoje" hidden><div id="hj-box"></div></section>
+
+  <section id="v-prog" hidden>
+    <div class="sheet">
+      <span class="badge">PROGRAMA · 12 SEMANAS</span>
+      <h2>🧠 O caminho pra virar mentalista</h2>
+      <p class="sub">Ninguém "nasce lendo pessoas": é treino. <b>3 meses, 4 fases</b> — <b>OLHAR</b> (perceber), <b>LER</b> (deduzir com método), <b>AGIR</b> (usar no dia a dia). Cada semana: uma lição de nível alto + 7 missões curtas (5–10 min) pra fazer na vida real. Faça pelo menos 5 por semana pra destravar a seguinte.</p>
+      <div id="prog-top"></div>
+      <div id="prog-lista"></div>
+      <div style="margin-top:18px"><button class="hb" id="b-aprender">📚 Fundamentos — trilha clássica (6 lições)</button></div>
+    </div>
+  </section>
+
+  <section id="v-diario" hidden><div id="dj-box"></div></section>
+
+  <section id="v-desafios" hidden><div id="ds-box"></div></section>
+
+  <section id="v-home" hidden>
     <div class="sheet">
       <span class="badge">TREINADOR DE MENTALISTA / INVESTIGADOR</span>
       <h1>Todo caso ensina algo.</h1>
       <p class="frase">“As pessoas mostram quem são o tempo todo. Você só precisa observar.”</p>
       <p class="sub">Casos fictícios de investigação: examine a cena, analise pistas, <b>interrogue os personagens</b>, monte sua teoria — e receba um parecer de como você investiga: o que percebeu, o que deixou passar e como investigar melhor. A escola ensina a metodologia real usada por investigadores.</p>
-      <div class="strip">🧭 <span><b>Primeira vez?</b> O <b>Modo Aprendiz</b> ensina passo a passo — treinos, missões de campo e o caminho pra “ler” pessoas de verdade.</span><button id="strip-b">Começar</button></div>
+      <div class="strip">🧠 <span>Aqui é a <b>prática avançada</b> — casos pra deduzir. O caminho principal é o <b>Programa</b>: missões diárias pra virar mentalista.</span><button id="strip-b">Abrir Programa</button></div>
       <div class="casos" id="lista-casos"></div>
       <div class="seu-t" id="seus-t" hidden>🗂️ Seus casos</div>
       <div class="casos" id="lista-meus"></div>
@@ -503,7 +579,7 @@ const CASOS=[
 
 /* ═══ ESTADO ═══ */
 let C=null, EXAM=new Set(), NOTAS=[], HIPALT='', INTERLOC=null, INTERHIST=[];
-function ver(id){ ['v-home','v-caso','v-escola','v-aprender','v-editor','v-comunidade'].forEach(v=>{const el=$('#'+v); if(el) el.hidden=(v!==id)}); $('#b-home').classList.toggle('on',id==='v-home'); $('#b-escola').classList.toggle('on',id==='v-escola'); $('#b-aprender').classList.toggle('on',id==='v-aprender'); window.scrollTo({top:0}); }
+function ver(id){ ['v-hoje','v-prog','v-diario','v-desafios','v-home','v-caso','v-escola','v-aprender','v-editor','v-comunidade'].forEach(v=>{const el=$('#'+v); if(el) el.hidden=(v!==id)}); const mapa={v_hoje:'b-hoje',v_prog:'b-prog',v_diario:'b-diario',v_desafios:'b-desaf',v_home:'b-home',v_escola:'b-escola',v_aprender:'b-aprender'}; Object.values(mapa).forEach(b=>{const el=$('#'+b);if(el)el.classList.remove('on')}); const on=mapa['v_'+id.replace('v-','')]; if(on&&$('#'+on))$('#'+on).classList.add('on'); window.scrollTo({top:0}); }
 $('#b-home').onclick=()=>{ renderHome(); ver('v-home'); };
 $('#b-escola').onclick=()=>{ renderEscola(); ver('v-escola'); };
 function renderHome(){
@@ -1292,7 +1368,7 @@ avalSistema:AVAL_PADRAO};
 
 /* ═══ LIGAÇÕES ═══ */
 $('#b-aprender').onclick=()=>{renderTrilha();ver('v-aprender');};
-$('#strip-b').onclick=()=>{renderTrilha();ver('v-aprender');};
+$('#strip-b').onclick=()=>{renderProg();ver('v-prog');};
 $('#b-criar').onclick=()=>abrirEditor();
 $('#b-comun').onclick=()=>{renderComunidade();testaServ();};
 $('#b-dica').onclick=pedirDica;
@@ -1303,8 +1379,285 @@ document.addEventListener('click',e=>{const u=e.target.closest&&e.target.closest
 renderTrilha();
 testaServ();
 
+/* ═══════════ v5 — TREINADOR: programa 12 semanas · hoje · diário · desafios ═══════════ */
+const FASES={1:'MÊS 1 · OLHAR — perceber antes de concluir',5:'MÊS 2 · LER — deduzir com método',9:'MÊS 3 · AGIR — pensar como mentalista'};
+const PROGRAMO=[
+{n:1,tema:'Linha de base: o padrão vem antes do desvio',res:'Você não lê o diferente sem conhecer o normal.',
+ base:`O erro nº 1 de quem quer "ler pessoas" é pular direto pro sinal. Antes disso vem a <b>linha de base</b>: como alguém fica quando está confortável — ritmo de fala, o que as mãos fazem, tom, distância. Só com o padrão na mão você nota o <b>desvio</b> — e desvio significa "algo mudou", nunca "está mentindo" (pode ser dor, pressa, vergonha). Esta semana você monta seu banco de referências: das outras pessoas <b>e seu</b>.`,
+ missoes:['Espelho, 2 min: rosto relaxado. Descreva SEU rosto neutro em 3 traços (sobrancelhas, boca, olhar). Essa é a sua linha de base.','Escolha a pessoa que você mais verá hoje. Anote 3 hábitos dela: como cumprimenta, o que faz com as mãos, tom de voz habitual.','Mesma pessoa, outro ângulo: como ela fica quando está CLARAMENTE confortável? Guarde essa “foto mental” como o padrão dela.','Hoje, note pés e pernas de 2 pessoas sentadas (para onde apontam, se balançam). Sem conclusão — só coleta.','Registre no Diário 1 leitura completa de alguém que você viu hoje.','Sob observação agora: pergunte a alguém de confiança “como eu fico quando estou nervoso?”. Compare com a sua autovisão.','Revisão da semana: releia suas anotações. O que você nunca tinha percebido apesar de ver todo dia?'],
+ chave:'Você não nota o diferente sem saber qual é o normal.'},
+{n:2,tema:'Três canais: rosto, corpo e voz',res:'Um canal é chute; três juntos são informação.',
+ base:`Toda pessoa transmite por <b>3 canais ao mesmo tempo</b>: rosto (expressão), corpo (postura, gestos, distância) e voz (ritmo, pausa, volume). Ler um canal é apostar; ler os três é investigar. Sinais do <b>mesmo sentido em canais diferentes</b> formam um <b>cluster</b> — e é o cluster que informa, nunca o detalhe solto (braços cruzados pode ser só frio).`,
+ missoes:['Num lugar com movimento, leia SÓ o corpo de alguém longe (postura, mãos, distância). Escreva: “parece…” + “porque…”.','Mesmo lugar, agora SÓ rostos: sobrancelhas e canto da boca — onde a emoção aparece primeiro.','3 min de entrevista na TV SEM som: leia o visual. Depois ASSISTA com som: o que sua leitura acertou?','Numa ligação de hoje, ignore as palavras por 30s: só ritmo, pausas, volume. O que muda quando o assunto muda?','Diário: 1 leitura completa com os 3 canais anotados em separado.','Caça ao cluster: ache uma conversa onde voz e rosto dizem coisas diferentes (ex.: sorriso + voz apertada). Anote o par.','Revisão: qual canal você mais ignora? Ele é o foco da próxima semana.'],
+ chave:'Um sinal é curiosidade; três do mesmo lado são informação.'},
+{n:3,tema:'Contexto é metade da leitura',res:'O mesmo gesto significa coisas diferentes em lugares diferentes.',
+ base:`Braços cruzados: frio, conforto ou defesa? Depende de <b>QUEM</b> (papel, idade, cultura), <b>ONDE</b> (lugar, hora, temperatura) e <b>QUANDO</b> (o que aconteceu 5 minutos antes?). Sem contexto, todo sinal vira achismo — e achismo genérico é exatamente o que "videntes" usam: frases que servem pra qualquer um (<b>efeito Barnum</b>). Ancorar em fatos observados é o que separa leitura de palpite.`,
+ missoes:['Pegue um hábito SEU (ex.: cruzar braços). Liste 3 contextos em que você faz isso sem nenhuma emoção envolvida.','Observe uma fila: o que é “normal” ali? Agora ache 1 desvio — e venha com 2 explicações possíveis ANTES de escolher uma.','Diário: 1 leitura em que o CONTEXTO explica o sinal (ex.: pessoa tremendo = ar-condicionado).','Barnum na prática: leia um horóscopo. Quantas frases servem pra qualquer pessoa? É disso que você foge ao citar fatos.','Marque 3 alarmes no celular hoje: em cada um, anote em 1 linha o contexto do momento (lugar, hora, ambiente).','Releia uma leitura antiga sua: o contexto muda sua conclusão?','Revisão: escreva sua “regra do contexto” com suas palavras.'],
+ chave:'Sinal sem contexto é horóscopo com observação.'},
+{n:4,tema:'Conforto, desconforto e os gestos de “tampar”',res:'Desconforto é real e mensurável — a causa é que exige cuidado.',
+ base:`Sob desconforto, as pessoas se <b>autorregulam</b>: tocam pescoço, massageiam a nuca, esfregam o braço, escondem as mãos, a voz sobe ou some. São <b>comportamentos de pacificação</b>. Eles sinalizam <b>estar desconfortável</b> — jamais "mentira" (mentiroso pode estar calmo; inocente nervoso desmorona). A pergunta certa diante de um sinal desses é: <b>o que causou isso AGORA?</b>`,
+ missoes:['Caça em VOCÊ: cada vez que se pegar tocando pescoço/rosto hoje, anote o que acabou de acontecer.','Num reality/documentário: identifique 3 pacificações (quem toca o quê, logo após o quê).','Diário: 1 leitura com foco em desconforto + o gatilho provável.','Teste o gatilho: converse 5 min sobre um tema que te incomoda e observe suas próprias mãos.','Observe alguém esperando um resultado (prova, consulta): separe sinais soltos de possíveis clusters.','Complete: “descontforto pode significar…” — liste 5 causas que NÃO sejam mentira.','Revisão do MÊS 1: releia tudo. O que mudou no seu olhar? Escreva 1 parágrafo.'],
+ chave:'Desconforto é uma frase sem verbo: algo doeu — descubra o quê.'},
+{n:5,tema:'O rosto fala (e tem sotaque)',res:'A emoção verdadeira mora nas bochechas e nos olhos — não na boca.',
+ base:`Há expressões que humanos de todas as culturas reconhecem: <b>alegria, tristeza, raiva, medo, nojo, surpresa</b>. Detalhe de ouro: o sorriso social usa só a boca; o sorriso real (<b>Duchenne</b>) levanta as bochechas e aperta levemente os olhos. Mas atenção: rosto é rápido e traição de sinal não é veredito — uma sobrancelha levantada não é uma confissão. A academia da semana é o <b>espelho</b>.`,
+ missoes:['Espelho: faça as 6 expressões básicas e sinta QUAIS músculos ligam em cada uma.','Fotografe seu rosto neutro e leia a foto como se fosse de um estranho: “o que esse rosto está falando?”','Pause uma série em 3 rostos SEM som: qual emoção? Confirme com o som.','Diário: leitura de um rosto real que você viu hoje, com 7+ detalhes.','Contador de sorrisos: hoje, quantos “de boca só” vs “de olhos” você viu?','Peça pra alguém contar uma história feliz e uma triste: repare QUANDO o rosto muda antes das palavras.','Revisão: nas leituras da semana, onde você leu emoção e era só descanso?'],
+ chave:'A boca mente bonito; bochechas e olhos, mal.'},
+{n:6,tema:'A voz não obedece tão rápido',res:'Palavras você escolhe; ritmo, pausa e tom escapam.',
+ base:`Você controla o QUE diz — mas <b>ritmo, pausas, volume e tom</b> escapam do controle consciente. Um desvio do padrão da pessoa (<b>linha de base!</b>) em resposta a um <b>tema específico</b> é um <b>ponto quente</b>: o endereço da próxima pergunta. Ferramenta clássica: pergunta aberta + pausa generosa — quem inventa precisa PRODUZIR; quem lembra só NAVEGA. E a regra fica de pé: ponto quente marca onde perguntar, não o que concluír.`,
+ missoes:['Numa ligação hoje, meça o tempo de resposta antes/depois de determinado assunto. Onde a pausa cresceu?','Leia uma notícia em voz alta 2×: neutra e animada. Sinta o esforço que a voz exige pra “fingir”.','Diário: 1 leitura com foco total na voz (ritmo, pausas, volume, tom).','Ponto quente: numa conversa real, mude de tema e note o tempo de resposta mudar.','Pratique a pausa de 3s após a resposta da pessoa — e anote O QUE ela completou no silêncio.','Série/entrevista: ache 1 pausa longa antes de responder. O que veio depois confirmou algo?','Revisão: qual tema faz A SUA voz mudar? Autodescovra.'],
+ chave:'A voz entrega o endereço da pergunta certa.'},
+{n:7,tema:'Leitura segura — e os truques usados contra você',res:'Cluster + contexto + linha de base. Sempre os três.',
+ base:`As <b>3 regras de ouro</b> juntas: (1) nunca sinal solto — procure <b>cluster</b>; (2) sempre com <b>contexto</b>; (3) sempre contra a <b>linha de base</b>. Falhou uma, vire achismo. E o outro lado da moeda: vendedores, golpistas e "videntes" usam leitura de gente CONTRA você — urgência falsa, espelhamento exagerado, frases Barnum (“você tem dificuldade em se abrir…"). Mentalista de verdade também é <b>imune</b> a truques.`,
+ missoes:['Estude 1 truque de vendedor hoje (escassez, urgência). Onde você quase caiu nessa semana?','Diário: 1 leitura com as 3 regras aplicadas E nomeadas no texto.','Pegue sua leitura mais “certeira” da semana e liste 2 explicações alternativas para ela.','Observe alguém te espelhar (postura/ritmo) — e note quando VOCÊ espelha sem querer.','Série: ache o “charmoso demais”. Quais sinais dele eram performance?','Experimento: mude UMA variável de contexto (lugar, hora) e observe o mesmo sinal mudar de sentido.','Revisão: escreva seu “manual de leitura” em 5 linhas.'],
+ chave:'Quem lê pessoas também é lido — proteja-se de quem lê melhor.'},
+{n:8,tema:'Calibração: quanto você acerta mesmo?',res:'A média humana acerta ~54% ao julgar engano. Meça o seu jogo.',
+ base:`Ciência dura: em ~200 estudos (Bond & DePaulo), pessoas acertam <b>~54%</b> ao julgar mentiras — pouco acima da moeda, e "experts" não vão muito além. A diferença do mentalista não é dom: é <b>PLACAR</b>. Previsão escrita ANTES → resultado DEPOIS → ajuste. Sem anotação, a memória infla: todo mundo "acha" que acerta 90% (<b>viés de retrospecto</b>). Esta semana você vira estatístico de si mesmo.`,
+ missoes:['Faça 3 previsões escritas hoje (“o vizinho vai reclamar do barulho”, “a fila anda rápido”). Confira à noite, com placar.','Diário: 1 leitura + 1 previsão VERIFICÁVEL sobre a pessoa/situação.','Placar parcial: some seus acertos da semana. Está acima de 54%?','Onde você acerta mais: gente próxima ou estranhos? (viés de familiaridade — teste!)','Peça feedback REAL: confirme uma leitura sua com a própria pessoa, se possível.','Assista um debate/entrevista: preveja a resposta antes, confira depois.','Revisão do MÊS 2: seu % real, seu canal mais forte, sua maior armadilha.'],
+ chave:'Sem placar, todo mundo acha que acerta 90%.'},
+{n:9,tema:'Perguntas que abrem pessoas',res:'O mentalista não extrai — colhe. E colhe quem planta segurança.',
+ base:`Pessoas falam com quem cria <b>segurança</b>. O kit é curto: perguntas <b>abertas</b> (“como foi…”, “o que você achou…"), um pedaço de entrega própria (você conta primeiro, em dose pequena) e a <b>pausa generosa</b>. “Você parece cansado" fecha a pessoa; “como foi o seu dia?" abre. E a matemática da atenção: quem pergunta melhor ouve melhor; quem ouve melhor lê melhor.`,
+ missoes:['Hoje, troque 3 vezes “tudo bem?" por “como foi…?" / “o que você andou fazendo…?"','Pausa de 3s: use após 2 respostas e anote o que a pessoa completou sem pressão.','Diário de uma conversa real: o que abriu? o que fechou?','Auto-revelação: conte 1 coisa pequena sua primeiro e observe o efeito dominó.','Aprenda a distinguir resposta educada (“legal, né?") de resposta aberta (com detalhes e verbos).','Reabra uma conversa morta com 1 pergunta nova sobre o que a pessoa AMA.','Revisão: qual foi sua melhor pergunta da semana? Guarde no arsenal.'],
+ chave:'Quem pergunta melhor, ouve melhor; quem ouve melhor, lê melhor.'},
+{n:10,tema:'Engano: onde procurar (e quando calar)',res:'Sinal nunca acusa — sinal aponta onde investigar.',
+ base:`Não existe "sinal de mentira". Existe: versão com <b>poucos detalhes verificáveis</b>, <b>contradição</b> entre versões, dificuldade ao <b>recontar ao contrário</b>, e pontos quentes de voz/corpo <b>alinhados a um tema</b>. Regra de ouro do ofício: sinal abre porta; <b>verificação</b> fecha caso. Acusar por "jeitinho" destrói inocentes (nervosismo não é prova!) e queima sua credibilidade pra sempre.`,
+ missoes:['Peça pra alguém recontar o dia DE TRÁS PRA FRENTE. O que ficou mais difícil? (experiência, não teste)','Diário: 1 leitura + o que você faria PARA VERIFICAR — escrito como plano, nunca como acusação.','Série/podcast/notícia: ache 1 contradição entre versões do mesmo fato.','Auto-teste: conte seu dia 2× pra pessoas diferentes — anote o que mudou (mudar é NORMAL).','Pratique a pergunta-neutra “me conta mais disso?" 3 vezes hoje, sem pressão.','Observe 1 mal-entendido no seu dia: alguém “concluiu" sem verificar? Como resolveu?','Revisão: escreva sua linha vermelha — quando EU falo, quando EU calo.'],
+ chave:'Sinal abre porta; verificação fecha caso.'},
+{n:11,tema:'Presença: a leitura que você causa',res:'Metade do jogo é o efeito que VOCÊ produz na sala.',
+ base:`As pessoas respondem a quem você é: postura aberta, contato visual confortável (3–5s, desviar PRA O LADO, nunca pro chão), escuta com o corpo (encarar ≠ intimidar). O <b>espelhamento leve</b> — ajustar ritmo e energia ao da pessoa — constrói rapport em minutos, sem virar imitação de papagaio. Quem causa segurança recebe verdade; quem causa ameaça recebe máscara.`,
+ missoes:['Espelho: sua postura “fechada” vs “aberta”. Sinta a diferença no peito e nos ombros.','Numa conversa real, ajuste seu ritmo ao da pessoa (devagar com quem fala devagar) e anote o efeito.','Diário: como a conversa MUDOU quando você mudou a sua postura?','Silêncio confortável: deixe 1 pausa existir sem preencher. Quem veio até você?','Primeiros 30s: cumprimente 3 pessoas com atenção TOTAL (celular longe, nome da pessoa).','Repare: quem está espelhando VOCÊ hoje?','Revisão: o que você causa numa sala cheia? Pergunte a 1 pessoa.'],
+ chave:'As pessoas mostram quem são o tempo todo — e respondem a quem você é.'},
+{n:12,tema:'O método completo (o que “mentalista” significa de verdade)',res:'OBSERVAR → FORMULAR → TESTAR → VERIFICAR → AJUSTAR.',
+ base:`O ciclo final: <b>OBSERVAR</b> (linha de base + contexto) → <b>FORMULAR</b> (2 hipóteses, nunca 1) → <b>TESTAR</b> (nova observação ou pergunta) → <b>VERIFICAR</b> (fato, não sensação) → <b>AJUSTAR</b>. Mentalista não é quem adivinha: é quem <b>erra menos porque afirma menos e testa mais</b>. Doze semanas constroem isso: olhar treinado, placar honesto, método próprio. E o mundo continua sendo a academia — diário 3× por semana mantém o olho vivo.`,
+ missoes:['Faça o ciclo completo numa leitura real: diário com as 5 etapas NOMEADAS.','Desafio final na aba Desafios — escolha o mais difícil que ficou pendente.','Explique o método pra alguém em 2 min. Ensinar é o teste final do domínio.','Releia sua leitura da semana 1: o que você faria diferente hoje?','Placar final: % de missões feitas, sua taxa de acerto nas previsões, canal mais forte.','Escolha sua prática permanente (diário 3×/semana? 1 desafio por semana?) e escreva o compromisso.','Formatura: registre como você vê o mundo AGORA vs antes do programa. Guarde isso.'],
+ chave:'Mentalista não lê mentes: lê padrões — e testa antes de acreditar neles.'}
+];
+/* dica do dia (rotação) */
+const TIPS=[
+ 'Linha de base antes de tudo: o “normal” da pessoa é sua régua. Sem régua, nenhuma medida faz sentido.',
+ 'Cluster: um sinal é curiosidade; três do mesmo lado são informação.',
+ 'Contexto primeiro: braços cruzados pode ser frio. Pergunta de ouro: “o que aconteceu 5 minutos antes?”',
+ 'Desconforto ≠ mentira: pode ser fome, dor, timidez. O sinal diz “algo aqui” — nunca “culpado”.',
+ 'Sorriso verdadeiro levanta bochechas e aperta os olhos (Duchenne). Sorriso de cortesia mora só na boca.',
+ 'Pés e troncos apontam pra onde o interesse vai — mas confirme com o resto do corpo.',
+ 'A voz entrega o endereço: pausa crescente num tema específico = ponto quente a explorar com calma.',
+ 'Pausa de 3 segundos depois da resposta: quem tem mais a dizer, diz no silêncio.',
+ '~54% é a taxa humana de detectar engano. Desconfie de certezas absolutas — inclusive as suas.',
+ 'Previsão escrita antes, resultado depois: sem placar, a memória infla seu placar (viés de retrospecto).',
+ 'Pergunta aberta (“como foi…?") rende 3× mais informação que pergunta fechada (“tudo bem?").',
+ 'Recontar ao contrário pesa mais na história inventada que na lembrada — teste, não acuse.',
+ 'Efeito Barnum: frases que servem pra todos (“você é duro por fora, mole por dentro") não são leitura.',
+ 'Quem espelha seu ritmo gosta de você — e você espelha de volta sem perceber. Use com ética.',
+ 'Sinal abre porta; verificação fecha caso. Acusar por “jeitinho” destrói inocentes.',
+ 'O que deveria estar aqui e não está? Ausência organizada também é informação.',
+ 'Antes de julgar alguém, caçe 1 fato que PROVARIA você errado. Esse é o músculo antivisiês.',
+ 'Contato visual 3–5s com desvio pro lado = confortável. Encara sem piscar = performance.',
+ 'Auto-leitura primeiro: sua fome, seu cansaço e sua pressa contaminam a leitura alheia.',
+ 'Mentalista não adivinha: afirma pouco, testa sempre e erra em público quando erra.'];
+const DESAFIOS=[
+ {id:'d1',t:'Sala de espera',cena:'Consultório dentário, 15h. Um homem espera sozinho. Nos últimos 10 minutos ele olhou o relógio 3 vezes, a perna começou a balançar e acelera toda vez que a porta da sala abre. Segura o celular na mão — com a tela apagada.',q:'O que o comportamento dele está “falando”? Quais sinais formam cluster, e qual contexto explica?',pontos:['Cluster de expectativa/ansiedade: relógio (tempo) + perna (tensão) + olhar pra porta (antecipação)','Celular na mão com tela apagada = conforto de segurança, não uso real — o foco está na porta','Contexto: ambiente médico + horário = consulta em breve; leitura mais forte: expectativa nervosa, não tédio','Cuidado: não dá pra saber SE é medo de dentista ou pressa — a leitura para onde para'],
+  modelo:'Cluster de expectativa: conferir relógio repetidamente mostra o relógio no relógio; a perna acelera quando a porta abre liga a tensão à entrada do dentista. O celular na mão sem uso mostra que é “mão de segurança”, não distração. Com o contexto (consultório), a leitura mais forte é ansiedade de consulta — mas sem saber se é medo do procedimento ou pressa de tempo. Próximo passo: observar o rosto quando a porta abrir.'},
+ {id:'d2',t:'A mensagem curta',cena:'Você manda um parágrafo animado pro seu amigo de anos — que sempre responde em 3 linhas com emoji. A resposta vem em 20 minutos: “tb vou.” Só isso.',q:'O que mudou, o que você levanta como hipóteses e como testa?',pontos:['Desvio claro da linha de base ESCRITA dele (sempre longo + emoji → uma palavra)','Hipóteses rivais obrigatórias: ocupado, irritado com você, com outro assunto, ou digitando às pressas','Contexto antes de concluir: o que aconteceu entre vocês nos últimos dias?','Teste: pergunta aberta e direta (“vi seu recado curto — tudo joia?”) em vez de desconfiar em silêncio'],
+  modelo:'O sinal é o DESVIO do padrão dele (parágrafos + emoji → “tb vou.”). Um desvio de escrita pode ser pressa, cansaço, irritação com você ou com outra coisa — são hipóteses rivais. Primeiro checo o contexto (houve atrito? ele está em semana difícil?). O teste é uma pergunta aberta e leve citando o que notei — sem acusação. Sinal apontou a porta; a conversa é que fecha o caso.'},
+ {id:'d3',t:'O “interessante” do chefe',cena:'Você apresenta uma ideia na reunião. O chefe sorri, diz “interessante”, mas cruza os braços, olha o celular duas vezes e encerra a pauta em 40 segundos.',q:'Palavras e corpo divergem. O que você conclui — e o que NÃO conclui?',pontos:['Cluster corporal (braços + celular + pressa) contradizendo a palavra “interessante”','Hipótese forte: receptividade baixa NAQUELE momento (cansaço, agenda, contexto da reunião)','Não conclui: “odeia a ideia” — corpo marca desinteresse no momento, não veredito sobre a ideia','Teste: retomar a ideia depois, em 1:1, com pergunta aberta'],
+  modelo:'Aqui há divergência palavra × corpo: sorriso + “interessante” contra braços cruzados, celular e pressa. O cluster corporal sugere baixa receptividade naquele momento — mas contexto importa: reunião longa? horário ruim? Não concluo que ele rejeitou a ideia; concluo que aquele não era o momento. Teste: retomo a ideia num 1:1 e observo a resposta com linha de base mais limpa.'},
+ {id:'d4',t:'A decisão no mercado',cena:'Uma senhora pega um creme, vira e lê o rótulo por 8 segundos, olha o preço, devolve na prateleira e pega outro da mesma marca — o menor.',q:'O que aconteceu? (Pista: nem toda leitura é de emoção.)',pontos:['Leitura de DECISÃO, não de emoção: rótulo (interesse) → preço (restrição) → devolução (rejeição da opção)','Sequência temporal conta a história: cada ação é um passo de escolha','Conclusão razoável: orçamento pesou na decisão; preferiu a marca mas ajustou o tamanho/preço','Humildade: pode ser dieta, troca pedida pelo médico etc. — probabilidade, não certeza'],
+  modelo:'Mentalista também lê decisões. A sequência rótulo → preço → devolução → versão menor conta um mini-drama de escolha: interesse confirmado no rótulo, restrição no preço, ajuste no tamanho. A leitura mais plausível é de orçamento — mas não certeza (pode ser orientação médica). O valor do exemplo: comportamento de ESCOLHA também é comportamento que fala.'},
+ {id:'d5',t:'O encontro com fantasma',cena:'Num primeiro encontro, ela espelha o jeito dele de segurar o copo, ri com os olhos — até o ex dela passar pela calçada. A partir daí: pés apontados pra saída, respostas uma nota abaixo, checa o celular.',q:'Monte a linha do tempo da leitura. O que mudou EXATAMENTE quando?',pontos:['Antes: cluster de interesse (espelhamento + sorriso de olhos = Duchenne)','O estímulo específico: o ex passou — a mudança É a partir dele (timing = causa provável)','Depois: pés pra saída + respostas baixas + celular = desconforto/presença mental em outro lugar','Não conclui “ainda ama o ex” — conclui “o encontro dela foi contaminado por aquele encontro”'],
+  modelo:'A leitura forte aqui é a LINHA DO TEMPO: cluster de interesse (espelho + sorriso de olhos) antes, e mudança imediata APÓS o estímulo (o ex). Pés pra saída, voz baixa e celular marcam desconforto e cabeça em outro lugar. O timing aponta a causa provável — mas “ainda ama o ex” é romance, não leitura: o que sei é que a presença dela saiu da mesa naquele momento.'},
+ {id:'d6',t:'O assento oferecido',cena:'No ônibus lotado, um rapaz oferece o assento pra uma senhora, mas segura a mochila firme no colo quando se levanta e mantém o quadril virado pra ela.',q:'Leitura de proteção: o que o gesto dele está dizendo?',pontos:['Oferecer assento (norma social) + segurar mochila no colo = proteção do pertence no ambiente lotado','Quadril virado pra mochila = posicionamento corporal de guarda (tronco protege o que importa)','Leitura razoável: consciente de furtos no contexto, sem pânico — rotina urbana, não medo','Ferramenta: prioridade corporal — o corpo organiza-se em torno do que valoriza'],
+  modelo:'O corpo dele organizou prioridades: cede o assento (norma social) mas trava a mochila no colo e vira o quadril pra ela — posicionamento de guarda. Num ônibus lotado, isso é leitura de contexto urbano (cuidado com furtos), não paranóia: é rotina de quem conhece o ambiente. O conceito novo: o corpo se organiza em volta do que a pessoa valoriza proteger no momento.'},
+ {id:'d7',t:'O filho de uma palavra',cena:'Seu filho de 14 anos, que normalmente narra tudo, chega da escola, responde “nada” pra três perguntas seguidas, braços no colo, e come mais rápido que o normal.',q:'Linha de base + contexto: como você abre essa porta sem cercar?',pontos:['Desvio da linha de base dele: narrador → monossilábico, braços (fechamento), comer rápido (tensão)','Hipóteses rivais: dia ruim, briga, nota baixa, cansaço, fome duplicada — “algo aconteceu” é o seguro','Erro clássico: interrogatório (“o que FOI?") fecha; cerceio gera mais uma palavra','Teste: presença + abertura (“queria contar, tô aqui”) e silêncio generoso'],
+  modelo:'O padrão dele é narrar; hoje veio monossílabo com braços fechados e fome acelerada — cluster de tensão. Conclusão segura: “algo aconteceu hoje”. A causa pode ser briga, nota, cansaço — hipóteses rivais. O interrogatório com pressão tende a fechar mais; o que abre é presença + abertura (“se quiser contar, tô aqui”) e paciência com o silêncio. Sinal pediu porta; porta se abre de dentro.'},
+ {id:'d8',t:'O colega que ri de tudo',cena:'O cara novo ri alto de TODAS as piadas do chefe — até das ruins — fala mais alto que todo mundo e concorda com tudo na primeira semana.',q:'Qual leitura é mais útil (e mais justa)?',pontos:['Linha de base impossível ainda: 1 semana = amostra pequena, cuidado com rótulo','Hipótese compassiva e provável: insegurança de inserção (quer pertencer), não “falsidade”','Viés de julgamento: “puxa-saco” é rótulo de caráter — leitura de comportamento diz “esforço de aprovação”','Teste: observá-lo em contexto sem o chefe — o padrão se mantém?'],
+  modelo:'Com uma semana de amostra, rótulo é abuso de leitura. O comportamento (riso seletivo pro chefe, volume alto, concordância imediata) descreve esforço de aprovação — quase sempre insegurança de quem está entrando. “Falsidade” é julgamento de caráter, não observação. Teste justo: vê-lo sem o cheve por perto. Se o padrão sumir, era inserção; se ficar, é o estilo dele — e segue não sendo crime.'},
+ {id:'d9',t:'A pausa do currículo',cena:'Você entrevista um candidato. Respostas fluentes… até a pergunta “por que saiu do último emprego?": pausa de 2 segundos, a voz sobe meio tom, e a resposta vem genérica (“buscava novos desafios”).',q:'O que o ponto quente significa e o que fazer com ele?',pontos:['Ponto quente TEMA-específico: fluência no geral, desvio só naquele assunto','Significa: aquele tema carrega algo (vergonha, conflito, cansaço) — não significa mentira','Uso correto: abrir por ali com pergunta aberta (“como foi aquele período?”) e ouvir detalhes verificáveis','Erro grave: concluir “problemático” e eliminar sem verificar'],
+  modelo:'O candidato é fluente na linha de base e trava num único tema — pausa + tom mais alto + resposta genérica. Isso marca o assunto como “carregado” (conflito, vergonha, esgotamento), NÃO como mentira. Uso correto do sinal: voltar ali com pergunta aberta e ouvir se a versão tem detalhes verificáveis (nomes, prazos, situações). Eliminar por um ponto quente é exatamente o erro que a semana 10 te ensinou a não cometer.'},
+ {id:'d10',t:'A contagem três vezes',cena:'Na fila do banco, uma senhora conta as notas da carteira 3 vezes antes de chegar ao caixa, reorganiza os papéis e suspira olhando o relógio da parede.',q:'Leitura com contexto e empatia: o que está “falando”? E o que você NÃO sabe?',pontos:['Recontar notas = dupla checagem (medo de faltar/cuidado com o pouco), não “esquecida”','Suspiro + relógio = tempo pressionado (fila longa × compromisso ou cansaço)','Contexto possível: aperto financeiro, burocracia que a assusta — leitura precisa de humildade','Empatia > julgamento: se fosse pra agir, seria oferecer ajuda, não rotular'],
+  modelo:'Contar 3× é dupla checagem — típico de quem não pode errar na conta, mais cuidado do que confusão. O suspiro com olhar no relógio adiciona pressão de tempo. O cluster sugere ansiedade financeira/burocrática, com contexto de banco e fila. O que NÃO sei: se é sempre assim ou se é um mês difícil. Leitura de gente também é empatia: o dado pede paciência, não julgamento.'},
+ {id:'d11',t:'O vizinho que sumiu',cena:'Seu vizinho de 10 anos, sempre parlante, há 3 semanas só acena curto da janela e some. Sua primeira "leitura" foi “me odeio”. Refaça essa leitura como profissional.',q:'Reescreva a hipótese: o que a linha de base e o tempo dizem?',pontos:['Desvio PERSISTENTE (3 semanas) = algo mudou NA VIDA dele, não necessariamente com você','Hipóteses rivais: luto, doença na família, depressão, trabalho novo, maratona de prazo','A primeira leitura (“me odeio”) é projeção/egocentrismo — o clássico erro de novato','Teste empático: 1 gesto de cuidado direto (bilhete, “tô por aqui”) — sem cobrar resposta'],
+  modelo:'“Me odeio” é leitura de egocentrismo — o erro que este programa treina pra tirar de você. Desvio persistente de 3 semanas indica mudança na VIDA dele: luto, saúde, trabalho, depressão. São hipóteses rivais e a mais provável não tem nada a ver com você. Teste empático: um gesto de cuidado sem cobrança. Profissional é isso: sinal → hipóteses → ação menor e gentil.'},
+ {id:'d12',t:'O espelho do dia ruim',cena:'Você acordou atrasado, discutiu em casa e agora responde seco no grupo da família. Seu irmão pergunta “você tá com problema comigo?".',q:'Aplique o método em VOCÊ: o que está acontecendo e qual resposta fecha o ciclo?',pontos:['Auto-leitura: desvio da SUA linha de base (seco) tem causa interna clara (dia ruim) — não relacional','Projeção: o risco é o irmão ler seu estado como “raiva dele” (exatamente como você lería um outro)','Cluster interno: pressa + cansaço + irritabilidade = estado, não intenção','Resposta que fecha o ciclo: nomear o estado (“dia péssimo, nada com você”) — linha de base restaurada'],
+  modelo:'Bônus: a leitura aqui é de VOCÊ. Seu estado (pressa + irritação) mudou sua linha de base — e quem te observa corre o risco de ler “raiva de mim”, exatamente o erro de projeção que você cometeria com um estranho. A resposta que fecha o ciclo é nomear o estado: “dia péssimo, não é com você”. Mentalista que não se lê, lê errado os outros.'}];
+
+/* ═══ estado do treino ═══ */
+const hojeISO=()=>new Date().toISOString().slice(0,10);
+function getLog(){return store.getJ('mt_log')||{}}
+function doneNaSemana(w){const L=getLog();let n=0;for(let d=1;d<=7;d++)if(L['w'+w+'d'+d])n++;return n}
+function semanaDesbloq(w){return w===1||doneNaSemana(w-1)>=5}
+function semanaAtual(){for(let w=1;w<=12;w++){if(semanaDesbloq(w)&&doneNaSemana(w)<5)return w}for(let w=1;w<=12;w++){if(doneNaSemana(w)<7)return w}return 12}
+function proximaMissao(){const w=semanaAtual();for(let d=1;d<=7;d++)if(!getLog()['w'+w+'d'+d])return{w,d,m:PROGRAMO[w-1].missoes[d-1]};return null}
+function tocaStreak(){
+ const h=hojeISO(),d=store.getJ('mt_dia')||{};
+ if(d.last===h)return d.streak||1;
+ const on=new Date(Date.now()-864e5).toISOString().slice(0,10);
+ d.streak=(d.last===on)?(d.streak||0)+1:1;d.last=h;d.best=Math.max(d.best||0,d.streak);
+ store.setJ('mt_dia',d);return d.streak;
+}
+function xpTotal(){
+ let x=0;const t=trEstado();TRILHA.forEach(e=>{const s=t[e.id]||{};if(s.done)x+=25;if(s.m)x+=35});
+ x+=Object.keys(getLog()).length*10;
+ x+=Object.keys(store.getJ('mt_des_log')||{}).length*15;
+ x+=(store.getJ('mt_diario')||[]).length*5;return x;
+}
+function patente(){const x=xpTotal();return x>=800?'🧠 Mentalista':x>=400?'🕵️ Interrogador':x>=150?'🔍 Observador':'🔈 Ouvidor'}
+function tipDoDia(){const dt=new Date();const n=Math.floor((dt-new Date(dt.getFullYear(),0,0))/864e5);return TIPS[n%TIPS.length]}
+/* ═══ HOJE ═══ */
+function renderHoje(){
+ const box=$('#hj-box');if(!box)return;
+ const w=semanaAtual(),P=PROGRAMO[w-1],m=proximaMissao(),d=store.getJ('mt_dia')||{},feitos=doneNaSemana(w),total=Math.min(84,Object.keys(getLog()).length);
+ if(!m){
+  box.innerHTML=`<div class="hj-hero"><div class="hj-k">🎓 FORMATURA</div><div class="hj-m">Você completou as 12 semanas.</div><p class="hj-pq">O programa acaba; o olho treinado fica. Mantenha o diário vivo (3× por semana) e os desafios afiados. <b>Mentalista não lê mentes: lê padrões — e testa antes de acreditar neles.</b></p><button class="btn" id="hj-diario2">📓 registrar leitura de hoje</button></div>`;
+  $('#hj-diario2').onclick=()=>{renderDiario();ver('v-diario');};return;
+ }
+ const progPct=Math.round(total/84*100);
+ box.innerHTML=`
+  <div class="hj-top">
+    <span class="hj-chip fogo">🔥 <b>${d.streak||0}</b> dias seguidos</span>
+    <span class="hj-chip">${patente()} · <b>${xpTotal()} XP</b></span>
+    <span class="hj-chip">Semana ${w} · ${feitos}/7 missões</span>
+  </div>
+  <div class="hj-hero">
+    <div class="hj-k">Missão de hoje — Semana ${w} · Dia ${m.d} · ${P.tema}</div>
+    <div class="hj-m">${esc(m.m)}</div>
+    <div class="hj-pq"><b>Por que funciona:</b> ${P.res}. ${esc(P.chave)}.</div>
+    <button class="btn" id="hj-done">✅ Concluir treino de hoje (+10 XP)</button>
+  </div>
+  <div class="hj-bar"><span>Programa</span><span class="br"><i style="width:${progPct}%"></i></span><b>${progPct}%</b></div>
+  <div class="hj-grid">
+    <button class="hj-act" id="hj-diario"><span class="ico">📓</span><b>Diário de leituras</b><small>analise um rosto/comportamento — pode ser o seu no espelho — e receba coaching</small></button>
+    <button class="hj-act" id="hj-desaf"><span class="ico">🎭</span><b>Desafio de cena</b><small>uma situação real pra deduzir agora — a IA avalia seu raciocínio</small></button>
+  </div>
+  <div class="hj-tip">💡 <b>Dica do dia:</b> ${esc(tipDoDia())}</div>`;
+ $('#hj-done').onclick=()=>{
+  const L=getLog();L['w'+w+'d'+m.d]=1;store.setJ('mt_log',L);
+  const st=tocaStreak();
+  toast('🔥 treino do dia concluído! '+st+(st>1?' dias seguidos':' dia')+' · +10 XP');
+  renderHoje();
+ };
+ $('#hj-diario').onclick=()=>{renderDiario();ver('v-diario');};
+ $('#hj-desaf').onclick=()=>{renderDesafios();ver('v-desafios');};
+}
+/* ═══ PROGRAMA ═══ */
+function renderProg(){
+ const cur=semanaAtual();
+ let faseAnt=0,html='';
+ PROGRAMO.forEach(P=>{
+  if(FASES[P.n]&&FASES[P.n]!==faseAnt){faseAnt=FASES[P.n];html+=`<div class="fase-t">${FASES[P.n]}</div>`;}
+  const feitos=doneNaSemana(P.n),aberta=semanaDesbloq(P.n);
+  const cls=P.n===cur?'cur':(feitos>=7?'done':(aberta?'':'lock'));
+  const st=feitos>=7?'✓ completa':(P.n===cur?feitos+'/7':(aberta?'disponível':'🔒 complete 5 da semana '+(P.n-1)));
+  html+=`<details class="pw ${cls}" ${P.n===cur?'open':''} data-w="${P.n}">
+   <summary><span class="pw-n">${feitos>=7?'✓':P.n}</span><span class="pw-t"><b>Semana ${P.n} — ${esc(P.tema)}</b><small>${esc(P.res)}</small></span><span class="pw-st">${st}</span></summary>
+   <div class="pw-b">
+    <div class="lic">${P.base}</div>
+    <h4 style="font-size:12px;color:var(--brand2);margin:14px 0 4px;letter-spacing:.1em;text-transform:uppercase">7 missões da semana</h4>
+    ${P.missoes.map((mm,i)=>`<div class="dml ${getLog()['w'+P.n+'d'+(i+1)]?'ok':''}" data-w="${P.n}" data-d="${i+1}"><button class="dchk" aria-label="marcar">✓</button><div class="dtx">${esc(mm)}</div><span class="dxp">+10</span></div>`).join('')}
+    <div class="pw-quote">“${esc(P.chave)}”</div>
+   </div></details>`;
+ });
+ $('#prog-lista').innerHTML=html;
+ $('#prog-top').innerHTML=`<div class="xpbar"><div class="xt"><span>${patente()}</span><b>${xpTotal()} XP</b></div><div class="xpr"><i style="width:${Math.min(100,Math.round(xpTotal()/800*100))}%"></i></div><div class="mini" style="margin:8px 0 0">Rumo a 🧠 Mentalista (800 XP) · 🔥 ${ (store.getJ('mt_dia')||{}).streak||0} dias seguidos</div></div>`;
+ document.querySelectorAll('#prog-lista .dchk').forEach(b=>b.onclick=()=>{
+  const row=b.closest('.dml'),w=+row.dataset.w,d=+row.dataset.d,L=getLog();
+  if(!semanaDesbloq(w))return toast('🔒 complete 5 missões da semana anterior pra abrir essa');
+  if(L['w'+w+'d'+d]){delete L['w'+w+'d'+d];store.setJ('mt_log',L);}
+  else{L['w'+w+'d'+d]=1;store.setJ('mt_log',L);tocaStreak();toast('✅ missão registrada (+10 XP) · 🔥 '+(store.getJ('mt_dia')||{}).streak+' dias');}
+  renderProg();
+ });
+ marcarGloss($('#prog-lista'));
+}
+/* ═══ DIÁRIO DE LEITURAS ═══ */
+function renderDiario(){
+ const ents=store.getJ('mt_diario')||[];
+ $('#dj-box').innerHTML=`<div class="sheet">
+  <span class="badge">DIÁRIO DE LEITURAS</span>
+  <h2>📓 O que essa pessoa está falando?</h2>
+  <p class="sub">Observe alguém hoje — ou <b>você mesmo no espelho</b> (o treino mais honesto que existe). Anote sua leitura: rosto, corpo, voz e contexto. A IA responde como <b>coach</b>: o que é sólido, onde pode haver projeção e <b>como testar</b>.</p>
+  <div class="fsec"><h3>Nova leitura</h3>
+   <div class="frow c2"><div><label>Onde foi?</label><input id="dj-onde" placeholder="ônibus, trabalho, espelho do banheiro…"></div><div><label>Quem?</label><input id="dj-quem" placeholder="colega, estranho, EU no espelho…"></div></div>
+   <label>Sua leitura (o que essa pessoa está falando — e por quê?)</label>
+   <textarea id="dj-leitura" style="min-height:120px" placeholder="Ex.: passou a reunião toda com a mão no pescoço e respostas curtas; quando o gerente entrou, parou. Parece desconfortável com o gerente…"></textarea>
+   <label>Como você TESTARIA isso? (opcional, mas é aqui que vira método)</label>
+   <input id="dj-teste" placeholder="ex.: amanhã, sem o gerente, ele volta ao normal?">
+   <button class="btn" id="dj-enviar">🕯️ Registrar e receber coaching (+5 XP)</button>
+  </div>
+  ${ents.length?`<h3 style="margin:18px 0 10px">Suas leituras (${ents.length})</h3>`+ents.slice().reverse().map((e,i)=>`<div class="dj-item"><div class="djm"><span>📅 ${e.data}</span><span>📍 ${esc(e.onde||'—')}</span><span>👤 ${esc(e.quem||'—')}</span></div><div class="djl">${esc(e.leitura)}</div>${e.teste?`<div class="mini" style="margin-top:6px">🧪 teste: ${esc(e.teste)}</div>`:''}${e.coach?`<div class="dj-coach">🕯️ <b>coach:</b> ${esc(e.coach)}</div>`:''}</div>`).join(''):'<p class="mini">Nenhuma leitura ainda — a primeira vale 5 XP.</p>'}
+ </div>`;
+ $('#dj-enviar').onclick=async()=>{
+  const leitura=$('#dj-leitura').value.trim();
+  if(leitura.length<20)return toast('Escreva a leitura com um pouco mais de detalhe (20+ letras) 🙂');
+  const e={data:hojeISO(),onde:$('#dj-onde').value.trim(),quem:$('#dj-quem').value.trim(),leitura,teste:$('#dj-teste').value.trim(),coach:''};
+  const b=$('#dj-enviar');b.disabled=true;b.textContent='🕯️ o coach está analisando…';
+  try{
+   const r=await callAI([{role:'system',content:'Você é o COACH de leitura de pessoas do app Mentalista. Ciência honesta: NÃO existem sinais universais de mentira; as ferramentas são linha de base, cluster (3+ sinais do mesmo lado), contexto e verificação. Analise a leitura do aprendiz e responda em 3-6 frases pt-BR, direto e encorajador, SEM saudação: (1) o que a leitura tem de SÓLIDO (fatos observados, timing, contexto); (2) onde pode haver projeção/achismo ou sinal solto (cluster fraco); (3) o que observar A MAIS na próxima vez; (4) 1 forma CONCRETA de testar. Se a leitura for boa, diga e eleve o nível.'},{role:'user',content:'ONDE: '+(e.onde||'—')+' | QUEM: '+(e.quem||'—')+'\nLEITURA: '+e.leitura+(e.teste?'\nTESTE PROPSTO: '+e.teste:'')}]);
+   e.coach=r.trim().slice(0,900);
+  }catch(err){e.coach='';toast('🕯️ IA indisponível agora — leitura registrada; coach volta depois');}
+  const arr=store.getJ('mt_diario')||[];arr.push(e);store.setJ('mt_diario',arr.slice(-60));
+  tocaStreak();renderDiario();
+  if(e.coach)toast('📓 leitura registrada com coaching (+5 XP) · 🔥 '+(store.getJ('mt_dia')||{}).streak+' dias');
+  else toast('📓 leitura registrada (+5 XP)');
+ };
+}
+/* ═══ DESAFIOS DE CENA ═══ */
+function renderDesafios(){
+ const log=store.getJ('mt_des_log')||{};
+ const prox=DESAFIOS.find(x=>!log[x.id]);
+ const list=DESAFIOS.map(x=>`<span class="hj-chip" style="cursor:pointer" data-ds="${x.id}">${log[x.id]?'✅':'🎭'} ${x.t}${log[x.id]?' · '+log[x.id]+' pts':''}</span>`).join(' ');
+ $('#ds-box').innerHTML=`<div class="sheet">
+  <span class="badge">DESAFIOS DE CENA</span>
+  <h2>🎭 Deduza a situação</h2>
+  <p class="sub">O app descreve uma cena real. Você deduz <b>com método</b> (cluster, contexto, linha de base, hipóteses rivais) — a IA avalia seu raciocínio e mostra a leitura modelo. Cada desafio resolvido vale <b>+15 XP</b>.</p>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">${list}</div>
+  ${prox?`<div class="ds-item" id="ds-atual"><div class="hj-k">Desafio: ${esc(prox.t)}</div><div class="ds-cena">${esc(prox.cena)}</div><p style="font-weight:700;margin-bottom:8px">${esc(prox.q)}</p>
+   <textarea id="ds-resp" style="min-height:110px" placeholder="Sua dedução: o que os sinais dizem juntos, com que contexto, e o que você NÃO conclui?"></textarea>
+   <button class="btn" id="ds-enviar">📤 Enviar dedução (+15 XP)</button><div id="ds-out"></div></div>`
+  :`<div class="dbox"><b>Todos os ${DESAFIOS.length} desafios resolvidos!</b> Revisite-os pela lista acima — cena vista de novo ensina de novo.</div>`}
+ </div>`;
+ document.querySelectorAll('[data-ds]').forEach(ch=>ch.onclick=()=>{renderDesafiosVer(ch.dataset.ds);});
+ if(prox)$('#ds-enviar').onclick=()=>avaliaDesafio(prox);
+}
+function renderDesafiosVer(id){
+ const x=DESAFIOS.find(d=>d.id===id),log=store.getJ('mt_des_log')||{};
+ $('#ds-box').innerHTML=`<div class="sheet"><span class="badge">DESAFIOS</span>
+  <h2>🎭 ${esc(x.t)}</h2><div class="ds-cena">${esc(x.cena)}</div>
+  <p style="font-weight:700">${esc(x.q)}</p>
+  ${log[id]?`<div class="dj-coach">✅ <b>sua nota:</b> ${log[id]}/100</div>`:`<textarea id="ds-resp" style="min-height:110px" placeholder="Sua dedução…"></textarea><button class="btn" id="ds-enviar">📤 Enviar dedução (+15 XP)</button>`}
+  <details class="gterm" style="margin-top:12px"><summary>👁️ Ver a leitura modelo</summary><div class="gd">${esc(x.modelo)}</div></details>
+  <div class="mini" style="margin-top:10px">Pontos que uma boa leitura toca: ${x.pontos.map(p=>'• '+esc(p)).join('<br>')}</div>
+  <button class="btn sec" id="ds-voltar" style="margin-top:12px">↩ voltar aos desafios</button></div>`;
+ $('#ds-voltar').onclick=()=>{renderDesafios();ver('v-desafios');};
+ if(!log[id])$('#ds-enviar').onclick=()=>avaliaDesafio(x);
+}
+async function avaliaDesafio(x){
+ const resp=($('#ds-resp')||{}).value||'';
+ if(resp.trim().length<30)return toast('Desenvolva sua dedução (30+ letras) — cluster, contexto, o que você não conclui 🙂');
+ const b=$('#ds-enviar');if(b){b.disabled=true;b.textContent='🎭 avaliando seu raciocínio…';}
+ let nota=null,out=$('#ds-out');
+ try{
+  const r=await callAI([{role:'system',content:'Você avalia deduções de leitura de pessoas no app Mentalista (ciência honesta: linha de base, cluster, contexto, hipóteses rivais, verificação; NUNCA "sinal de mentira"). Compare a dedução do aprendiz com os PONTOS esperados; aceite raciocínio bom adicional plausível. Responda SOMENTE JSON: {"nota":0-100,"acertos":["..."],"faltou":["..."],"cuidado":"1 frase"}. Nota alta exige cluster + contexto + humildade epistêmica.'},{role:'user',content:'CENA: '+x.cena+'\nPONTOS ESPERADOS: '+x.pontos.join(' | ')+'\nDEDUÇÃO DO APRENDIZ: '+resp}]);
+  const o=tentaJSON(r);
+  if(o&&typeof o.nota==='number'){nota=o.nota;
+   out.innerHTML=`<div class="nota">${o.nota}/100</div><div class="res"><h3>✅ Acertou</h3><ul>${(o.acertos||[]).map(a=>'<li>'+esc(a)+'</li>').join('')}</ul></div><div class="res"><h3>🕳️ Faltou</h3><ul>${(o.faltou||[]).map(a=>'<li>'+esc(a)+'</li>').join('')}</ul></div><div class="res"><h3>⚠️ Cuidado</h3><p>${esc(o.cuidado||'')}</p></div><div class="dj-coach">👁️ <b>leitura modelo:</b> ${esc(x.modelo)}</div>`;
+  }
+ }catch(e){}
+ if(nota===null){ /* IA fora do ar: auto-avaliação pelos pontos */
+  out=out||$('#ds-out');
+  if(out){out.innerHTML=`<div class="warnbox"><b>IA indisponível — auto-avaliação honesta:</b><ul style="margin:6px 0 0 18px">${x.pontos.map(p=>'<li>'+esc(p)+'</li>').join('')}</ul>Você tocou quantos desses? Sua nota honesta: <b>${x.pontos.length>=4?'80':x.pontos.length===3?'65':'50'}</b> se citou a maioria; menos se citou poucos.</div><div class="dj-coach">👁️ <b>leitura modelo:</b> ${esc(x.modelo)}</div>`;}
+  nota=60;
+ }
+ const L=store.getJ('mt_des_log')||{};if(!L[x.id]){L[x.id]=Math.round(nota);store.setJ('mt_des_log',L);tocaStreak();toast('🎭 desafio avaliado (+15 XP) · 🔥 '+(store.getJ('mt_dia')||{}).streak+' dias');}
+ if(b){b.disabled=false;b.textContent='📤 Enviar dedução (+15 XP)';}
+}
+/* binds das views novas */
+$('#b-hoje').onclick=()=>{renderHoje();ver('v-hoje');};
+$('#b-prog').onclick=()=>{renderProg();ver('v-prog');};
+$('#b-diario').onclick=()=>{renderDiario();ver('v-diario');};
+$('#b-desaf').onclick=()=>{renderDesafios();ver('v-desafios');};
+
 /* boot */
 renderHome();
+renderHoje();
+ver('v-hoje');
 </script>
 </body>
 </html>
