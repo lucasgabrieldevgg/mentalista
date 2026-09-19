@@ -347,12 +347,92 @@ li{margin-bottom:6px}
 .land-card b{color:var(--brand2);display:block;margin-bottom:7px;font-size:14px}
 .mini-chip{background:var(--bg3);border:1px solid var(--line);border-radius:999px;padding:8px 13px;font-size:12.5px;color:var(--muted);cursor:pointer;text-align:left;transition:border-color .15s,color .15s}
 .mini-chip:hover{border-color:var(--brand);color:var(--tx)}
+/* ═══ v7: patentes, config, tema claro ═══ */
+.gear{background:var(--bg3);border:1px solid var(--line);border-radius:50%;width:36px;height:36px;font-size:16px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:transform .3s,border-color .15s}
+.gear:hover{border-color:var(--brand);transform:rotate(40deg)}
+.cfgsec{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:14px}
+.cfgsec h3{color:var(--brand2);font-size:15px;margin-bottom:10px}
+.tema-row{display:flex;gap:10px}
+.tema-b{flex:1;background:var(--bg3);border:1.5px solid var(--line);border-radius:14px;padding:14px;font-size:13.5px;font-weight:700;color:var(--muted);text-align:center;transition:border-color .15s,color .15s}
+.tema-b:hover{border-color:var(--brand)}
+.tema-b.on{border-color:var(--brand);color:var(--brand2);background:rgba(245,183,61,.08)}
+.tema-b .ico{display:block;font-size:22px;margin-bottom:5px}
+.perf-row{display:flex;align-items:center;gap:14px}
+.perf-av{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--line2);flex-shrink:0}
+.perf-av-x{display:flex;align-items:center;justify-content:center;background:var(--bg3);color:var(--brand);font-weight:800;font-size:22px}
+.perf-btns{display:flex;gap:8px;flex-wrap:wrap}
+.perf-btns .btn{margin-top:0;width:auto;padding:9px 14px;font-size:13px}
+.danger-z{border-color:rgba(240,96,77,.35)}
+.btn.perigo{background:linear-gradient(135deg,#f0604d,#ff8a3d);color:#fff}
+.btn.perigo.confirma{animation:pulsad 1s infinite}
+@keyframes pulsad{0%,100%{filter:brightness(1)}50%{filter:brightness(1.25)}}
+/* patentes */
+.pt-head{background:linear-gradient(150deg,#181b23,#121419 70%);border:1px solid var(--line2);border-radius:20px;padding:22px;margin-bottom:16px}
+.pt-big{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.pt-big .ico{font-size:38px}
+.pt-big b{font-size:19px;letter-spacing:-.02em;display:block}
+.pt-big small{color:var(--muted);font-size:12.5px}
+.pt-bar{height:10px;background:#20242d;border-radius:99px;overflow:hidden}
+.pt-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--hot));border-radius:99px;transition:width .5s}
+.pt-sub{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:7px}
+.pt-sub b{color:var(--brand2)}
+.rk{display:flex;gap:14px;align-items:center;background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:15px 17px;margin-bottom:10px;position:relative;overflow:hidden}
+.rk .rico{width:46px;height:46px;border-radius:14px;background:var(--bg3);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.rk .rmain{flex:1;min-width:0}
+.rk .rt{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.rk .rt b{font-size:14.5px}
+.rk .rt span{font-size:11.5px;color:var(--muted);flex-shrink:0}
+.rk .rbar{height:7px;background:#20242d;border-radius:99px;overflow:hidden;margin-top:8px}
+.rk .rbar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--brand),var(--hot));transition:width .5s}
+.rk .rst2{font-size:11.5px;color:var(--muted);margin-top:6px}
+.rk.done{border-color:rgba(62,207,142,.3)}
+.rk.done .rico{background:rgba(62,207,142,.1);border-color:rgba(62,207,142,.4)}
+.rk.done .rbar i{background:var(--ok)}
+.rk.done .rst2{color:#7fe0b2}
+.rk.cur{border-color:var(--brand);box-shadow:0 0 0 1px var(--brand),0 10px 30px rgba(245,183,61,.08)}
+.rk.cur::after{content:'📍 VOCÊ ESTÁ AQUI';position:absolute;top:10px;right:-34px;transform:rotate(38deg);background:linear-gradient(135deg,var(--brand),var(--hot));color:#141005;font-size:9px;font-weight:800;letter-spacing:.08em;padding:3px 40px}
+.rk.final{border-color:rgba(245,183,61,.45);background:linear-gradient(150deg,rgba(245,183,61,.07),var(--bg2) 60%)}
+.rk.final .rico{background:rgba(245,183,61,.12);border-color:rgba(245,183,61,.4)}
+.rk.final .rq{font-size:12.5px;color:#e8c98a;font-style:italic;margin-top:8px}
+.rk.lock{opacity:.72}
+.avatar-chip{display:flex;align-items:center;gap:7px}
+.avatar-chip img,.avatar-chip span{width:22px;height:22px;border-radius:50%;object-fit:cover}
+.avatar-chip span{display:inline-flex;align-items:center;justify-content:center;background:var(--brand);color:#141005;font-size:10px;font-weight:800}
+.ola{font-size:13px;color:var(--muted);margin-bottom:12px}
+.ola b{color:var(--tx)}
+/* ═══ TEMA CLARO ═══ */
+html[data-tema="claro"]{--bg:#f5f6f8;--bg2:#ffffff;--bg3:#eef0f4;--tx:#181b21;--muted:#5d6570;--line:#e2e4ea;--line2:#d2d6de}
+html[data-tema="claro"] body{background:var(--bg)}
+html[data-tema="claro"] body::before{background:radial-gradient(900px 420px at 80% -8%,rgba(245,160,40,.08),transparent 60%)}
+html[data-tema="claro"] header{background:rgba(247,248,250,.88);border-bottom-color:var(--line)}
+html[data-tema="claro"] .sheet{box-shadow:0 14px 36px rgba(25,35,60,.08)}
+html[data-tema="claro"] .hj-hero,html[data-tema="claro"] .pt-head{background:linear-gradient(150deg,#ffffff,#f4f5f8 70%);border-color:var(--line2)}
+html[data-tema="claro"] #conta .cbox,html[data-tema="claro"] #tour .tbox,html[data-tema="claro"] .toast,html[data-tema="claro"] #glo{background:#ffffff}
+html[data-tema="claro"] #conta,html[data-tema="claro"] #tour{background:rgba(30,35,48,.45)}
+html[data-tema="claro"] .toast{border-color:var(--line2);color:var(--tx);box-shadow:0 14px 40px rgba(25,35,60,.15)}
+html[data-tema="claro"] .hj-bar .br,html[data-tema="claro"] .xpr,html[data-tema="claro"] .pac,html[data-tema="claro"] .pt-bar,html[data-tema="claro"] .rk .rbar{background:#e3e5ec}
+html[data-tema="claro"] .chip,html[data-tema="claro"] .top{background:var(--bg3)}
+html[data-tema="claro"] .etp-n,html[data-tema="claro"] .pw-n,html[data-tema="claro"] .wst .wn{background:#e6e8ee}
+html[data-tema="claro"] .pimg-x{background:linear-gradient(135deg,#e9ebf1,#dfe2e9);color:#b07818}
+html[data-tema="claro"] .pimg{filter:none}
+html[data-tema="claro"] .frase,html[data-tema="claro"] .frase-j,html[data-tema="claro"] .hj-pq b,html[data-tema="claro"] .dica,html[data-tema="claro"] .pw-quote{color:#8a6414}
+html[data-tema="claro"] .hj-tip{background:rgba(245,160,40,.08);color:#5c4a1e}
+html[data-tema="claro"] .dbox{background:rgba(62,160,100,.07);color:#2e5c44}
+html[data-tema="claro"] select option{background:#fff}
+html[data-tema="claro"] .chatbox{background:var(--bg3)}
+html[data-tema="claro"] .m.pers{background:#fff;border-color:var(--line)}
+html[data-tema="claro"] .m.eu{color:#141005}
+html[data-tema="claro"] .gterm{background:var(--bg3)}
+html[data-tema="claro"] .ckey,html[data-tema="claro"] .reckey{background:var(--bg3)}
+html[data-tema="claro"] .nota{-webkit-text-fill-color:transparent}
+@media(max-width:600px){.pt-big .ico{font-size:30px}}
 </style>
 </head>
 <body>
 <header>
   <div class="brand"><span class="logo">🧠</span> Mentalista <small>treino diário</small></div>
-  <div class="hbtns"><button class="hb" id="b-hoje">Hoje</button><button class="hb" id="b-prog">Programa</button><button class="hb" id="b-diario">Diário</button><button class="hb" id="b-mentor">🗣️ Mentor</button><button class="hb" id="b-desaf">Desafios</button><button class="hb" id="b-home">Prática</button><button class="hb" id="b-escola">Escola</button></div>
+  <div class="hbtns"><button class="hb" id="b-hoje">Hoje</button><button class="hb" id="b-prog">Programa</button><button class="hb" id="b-diario">Diário</button><button class="hb" id="b-mentor">🗣️ Mentor</button><button class="hb" id="b-desaf">Desafios</button><button class="hb" id="b-patentes">🏅 Patentes</button><button class="hb" id="b-home">Prática</button><button class="hb" id="b-escola">Escola</button></div>
+  <button class="gear" id="b-config" title="Configurações">⚙️</button>
 </header>
 
 <main>
@@ -384,6 +464,48 @@ li{margin-bottom:6px}
       <div id="prog-top"></div>
       <div id="prog-lista"></div>
       <div style="margin-top:18px"><button class="hb" id="b-aprender">📚 Fundamentos — trilha clássica (6 lições)</button></div>
+    </div>
+  </section>
+
+  <section id="v-patentes" hidden>
+    <div class="sheet">
+      <span class="badge">PATENTES</span>
+      <h2>🏅 Sua jornada até Mentalista</h2>
+      <p class="sub">Cada XP aproxima do próximo cargo — missões de campo valem 10, treinos 25, desafios 15, leituras do diário 5. O topo tem nome: <b>Mentalista</b>, como o Jane. Não é mágica — é o título de quem aprendeu a prestar atenção.</p>
+      <div id="pt-top"></div>
+      <div id="pt-lista"></div>
+    </div>
+  </section>
+
+  <section id="v-config" hidden>
+    <div class="sheet">
+      <span class="badge">CONFIGURAÇÕES</span>
+      <h2>⚙️ Seu site, seu jeito</h2>
+      <div class="cfgsec"><h3>🎨 Tema</h3>
+        <div class="tema-row">
+          <button class="tema-b" id="cfg-escuro"><span class="ico">🌙</span>Escuro</button>
+          <button class="tema-b" id="cfg-claro"><span class="ico">☀️</span>Claro</button>
+        </div>
+      </div>
+      <div class="cfgsec"><h3>👤 Você</h3>
+        <div class="perf-row">
+          <span id="cfg-av"></span>
+          <div style="flex:1;min-width:0">
+            <label>Seu nome (como o site vai te chamar)</label>
+            <input type="text" id="cfg-nome" maxlength="30" placeholder="ex.: Ana, Gui, Mestre Observador…">
+            <div class="perf-btns" style="margin-top:8px">
+              <button class="btn" id="cfg-foto-b">📷 Escolher foto</button>
+              <button class="btn sec" id="cfg-foto-x" style="width:auto">remover foto</button>
+            </div>
+            <input type="file" id="cfg-foto" accept="image/*" hidden>
+          </div>
+        </div>
+        <button class="btn" id="cfg-salvar">💾 Salvar perfil</button>
+      </div>
+      <div class="cfgsec danger-z"><h3 style="color:var(--bad)">🗑️ Zona de perigo</h3>
+        <p class="mini">Apaga <b>TUDO</b>: progresso, missões, diário, casos criados, conta local e perfil. Não tem volta nem lixeira.</p>
+        <button class="btn perigo" id="cfg-apagar">🗑️ Apagar todos os meus dados</button>
+      </div>
     </div>
   </section>
 
@@ -506,7 +628,7 @@ li{margin-bottom:6px}
    ciência da detecção de engano, hipóteses rivais. ═════ */
 const $=s=>document.querySelector(s);
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const PATENTES=[[0,'👁️','Aprendiz de Olhar'],[80,'🔈','Ouvidor'],[250,'🔍','Observador'],[450,'🕵️','Interrogador'],[700,'🧠','Analista'],[950,'🎭','Leitor de Pessoas'],[1250,'🔮','Mentalista'],[1600,'🏆','Gran Mentalista']];
+const PATENTES=[[0,'👁️','Aprendiz de Olhar'],[100,'🔈','Ouvidor'],[250,'🔍','Observador'],[450,'🕵️','Interrogador'],[700,'🧠','Analista'],[950,'🎭','Leitor de Pessoas'],[1250,'🔮','Mentalista']];
 const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},
              set(k,v){try{localStorage.setItem(k,v)}catch(e){}},
              getJ(k){try{return JSON.parse(localStorage.getItem(k)||'null')}catch(e){return null}},
@@ -626,7 +748,7 @@ const CASOS=[
 
 /* ═══ ESTADO ═══ */
 let C=null, EXAM=new Set(), NOTAS=[], HIPALT='', INTERLOC=null, INTERHIST=[];
-function ver(id){ ['v-land','v-hoje','v-prog','v-diario','v-desafios','v-mentor','v-home','v-caso','v-escola','v-aprender','v-editor','v-comunidade'].forEach(v=>{const el=$('#'+v); if(el) el.hidden=(v!==id)}); const mapa={v_hoje:'b-hoje',v_prog:'b-prog',v_diario:'b-diario',v_desafios:'b-desaf',v_home:'b-home',v_escola:'b-escola',v_aprender:'b-aprender'}; Object.values(mapa).forEach(b=>{const el=$('#'+b);if(el)el.classList.remove('on')}); const on=mapa['v_'+id.replace('v-','')]; if(on&&$('#'+on))$('#'+on).classList.add('on'); window.scrollTo({top:0}); }
+function ver(id){ ['v-land','v-hoje','v-prog','v-patentes','v-config','v-diario','v-desafios','v-mentor','v-home','v-caso','v-escola','v-aprender','v-editor','v-comunidade'].forEach(v=>{const el=$('#'+v); if(el) el.hidden=(v!==id)}); const mapa={v_hoje:'b-hoje',v_prog:'b-prog',v_diario:'b-diario',v_desafios:'b-desaf',v_home:'b-home',v_escola:'b-escola',v_aprender:'b-aprender'}; Object.values(mapa).forEach(b=>{const el=$('#'+b);if(el)el.classList.remove('on')}); const on=mapa['v_'+id.replace('v-','')]; if(on&&$('#'+on))$('#'+on).classList.add('on'); window.scrollTo({top:0}); }
 $('#b-home').onclick=()=>{ renderHome(); ver('v-home'); };
 $('#b-escola').onclick=()=>{ renderEscola(); ver('v-escola'); };
 function renderHome(){
@@ -1529,6 +1651,8 @@ const DESAFIOS=[
 /* ═══ estado do treino ═══ */
 const hojeISO=()=>new Date().toISOString().slice(0,10);
 function getLog(){return store.getJ('mt_log')||{}}
+function perfil(){return store.getJ('mt_perfil')||{nome:'',foto:''}}
+function avatarChip(){const p=perfil();return p.foto?`<img src="${p.foto}" alt="">`:`<span>${p.nome?esc(p.nome.slice(0,2).toUpperCase()):'👤'}</span>`}
 function doneNaSemana(w){const L=getLog();let n=0;for(let d=1;d<=7;d++)if(L['w'+w+'d'+d])n++;return n}
 function semanaDesbloq(w){return w===1||doneNaSemana(w-1)>=5}
 function semanaAtual(){for(let w=1;w<=12;w++){if(semanaDesbloq(w)&&doneNaSemana(w)<5)return w}for(let w=1;w<=12;w++){if(doneNaSemana(w)<7)return w}return 12}
@@ -1564,9 +1688,10 @@ function renderHoje(){
  }
  const progPct=Math.round(total/84*100);
  box.innerHTML=`
+  ${perfil().nome?`<div class="ola">👋 Olá, <b>${esc(perfil().nome)}</b>${jaFez?' — treino de hoje ✓, volte amanhã':', bora treinar?'}</div>`:''}
   <div class="hj-top">
-    <span class="hj-chip fogo">🔥 <b>${d.streak||0}</b> dias seguidos</span>
     <span class="hj-chip">${patente()} · <b>${xpTotal()} XP</b></span>
+    <span class="hj-chip fogo">🔥 <b>${d.streak||0}</b> dias seguidos</span>
     <span class="hj-chip">Semana ${w} · ${feitos}/7 missões</span>
   </div>
   <div class="hj-hero">
@@ -1718,7 +1843,7 @@ $('#b-desaf').onclick=()=>{renderDesafios();ver('v-desafios');};
 /* ═══════════ v6 — homepage · mentor IA · patentes ═══════════ */
 function renderLand(){
  const dd=store.getJ('mt_dia')||{};const ms=Object.keys(getLog()).length;
- $('#land-stats').innerHTML=`<span class="hj-chip fogo">🔥 <b>${dd.streak||0}</b> dias</span><span class="hj-chip">${patente()} · <b>${xpTotal()} XP</b></span><span class="hj-chip">🎯 <b>${ms}/84</b> missões</span>`;
+ $('#land-stats').innerHTML=`${perfil().nome?`<span class="hj-chip avatar-chip">${avatarChip()} <b>${esc(perfil().nome)}</b></span>`:''}<span class="hj-chip fogo">🔥 <b>${dd.streak||0}</b> dias</span><span class="hj-chip">${patente()} · <b>${xpTotal()} XP</b></span><span class="hj-chip">🎯 <b>${ms}/84</b> missões</span>`;
 }
 /* ═══ MENTOR ═══ */
 const MENTOR_SYS=`Você é o MENTOR do app Mentalista: um treinador brasileiro de leitura de pessoas — direto, calmo, generoso — com a ética de um entrevistador profissional e a curiosidade de quem ainda estuda todo dia.
@@ -1764,6 +1889,101 @@ $('#land-prog').onclick=()=>{renderProg();ver('v-prog');};
 $('.brand').onclick=()=>{renderLand();ver('v-land');};
 $('#m-send').onclick=enviarMentor;
 $('#m-in').addEventListener('keydown',e=>{if(e.key==='Enter')enviarMentor();});
+
+/* ═══════════ v7 — patentes · configurações · tema claro ═══════════ */
+function aplicaTema(){
+ const t=store.get('mt_tema')==='claro'?'claro':'escuro';
+ document.documentElement.setAttribute('data-tema',t);
+ const m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='claro'?'#f5f6f8':'#0b0c10';
+}
+/* ═══ PATENTES ═══ */
+function renderPatentes(){
+ const x=xpTotal(),q=proxPat();
+ const pctTotal=q?Math.min(100,Math.round(x/q[0]*100)):100;
+ $('#pt-top').innerHTML=`<div class="pt-head">
+   <div class="pt-big"><span class="ico">${patente().split(' ')[0]}</span><div><b>${patente().split(' ').slice(1).join(' ')}</b><small>${xpTotal()} XP acumulados</small></div></div>
+   <div class="pt-bar"><i style="width:${pctTotal}%"></i></div>
+   <div class="pt-sub"><span>progresso até o topo</span><b>${q?x+' / '+q[0]+' XP · '+pctTotal+'%':'🏆 topo alcançado'}</b></div>
+   ${q?`<div class="pt-sub"><span>próximo: ${q[1]} ${q[2]}</span><b>faltam ${q[0]-x} XP (~${Math.ceil((q[0]-x)/10)} missões)</b></div>`:''}
+ </div>`;
+ const curIdx=PATENTES.findIndex(p=>x<p[0]);
+ let prev=0;
+ $('#pt-lista').innerHTML=PATENTES.map((p,i)=>{
+  const final=i===PATENTES.length-1;
+  const done=x>=p[0], cur=(i===curIdx)||(curIdx<0&&final);
+  const pct=done?100:Math.min(100,Math.round(x/p[0]*100));
+  const dentro=done?100:Math.max(0,Math.min(100,Math.round((x-prev)/(p[0]-prev)*100)));
+  prev=p[0];
+  return `<div class="rk ${done?'done':''} ${cur?'cur':''} ${final?'final':''} ${!done&&!cur?'lock':''}">
+   <span class="rico">${p[1]}</span>
+   <div class="rmain">
+    <div class="rt"><b>${p[2]}${final?' · topo 🔮':''}</b><span>${done?'✓ conquistado':p[0]+' XP'}</span></div>
+    <div class="rbar"><i style="width:${cur?dentro:pct}%"></i></div>
+    <div class="rst2">${done?'desbloqueado':cur?`dentro do cargo: ${dentro}% · faltam ${p[0]-x} XP (≈${Math.ceil((p[0]-x)/10)} missões de campo)`:pct+'% do caminho total · faltam '+p[0]+' XP'}</div>
+    ${final?`<div class="rq">“Ele não lê mentes. Ele lê pessoas.” — por isso o topo se chama Mentalista.</div>`:''}
+   </div>
+  </div>`;
+ }).join('');
+}
+/* ═══ CONFIGURAÇÕES ═══ */
+function renderConfig(){
+ const p=perfil();
+ $('#cfg-av').innerHTML=p.foto?`<img class="perf-av" src="${p.foto}" alt="sua foto">`:`<span class="perf-av perf-av-x">${p.nome?esc(p.nome.slice(0,2).toUpperCase()):'👤'}</span>`;
+ $('#cfg-nome').value=p.nome||'';
+ $('#cfg-escuro').classList.toggle('on',store.get('mt_tema')!=='claro');
+ $('#cfg-claro').classList.toggle('on',store.get('mt_tema')==='claro');
+ $('#cfg-foto-x').style.display=p.foto?'':'none';
+ const ap=$('#cfg-apagar');ap.classList.remove('confirma');ap.textContent='🗑️ Apagar todos os meus dados';ap.dataset.arm='';
+}
+function salvarPerfil(novo){
+ store.setJ('mt_perfil',Object.assign(perfil(),novo));
+ toast('💾 salvo!');renderConfig();renderLand();renderHoje();
+}
+$('#cfg-salvar').onclick=()=>salvarPerfil({nome:$('#cfg-nome').value.trim()});
+$('#cfg-escuro').onclick=()=>{store.set('mt_tema','escuro');aplicaTema();renderConfig();};
+$('#cfg-claro').onclick=()=>{store.set('mt_tema','claro');aplicaTema();renderConfig();};
+$('#cfg-foto-b').onclick=()=>$('#cfg-foto').click();
+$('#cfg-foto-x').onclick=()=>{salvarPerfil({foto:''});toast('📷 foto removida');};
+$('#cfg-foto').onchange=e=>{
+ const f=e.target.files&&e.target.files[0];if(!f)return;
+ if(!/^image\//.test(f.type))return toast('só imagem 🙂');
+ const rd=new FileReader();
+ rd.onload=()=>{
+  const im=new Image();
+  im.onload=()=>{
+   let w=170,h=Math.round(im.height*w/im.width);
+   const cv=document.createElement('canvas');cv.width=w;cv.height=h;
+   cv.getContext('2d').drawImage(im,0,0,w,h);
+   let uri=cv.toDataURL('image/jpeg',.82);
+   if(uri.length>70000){w=110;h=Math.round(im.height*w/im.width);cv.width=w;cv.height=h;cv.getContext('2d').drawImage(im,0,0,w,h);uri=cv.toDataURL('image/jpeg',.8);}
+   salvarPerfil({foto:uri});toast('📷 foto atualizada!');
+   try{cv.width=0;cv.height=0;}catch(err){}
+  };
+  im.src=rd.result;
+ };
+ rd.readAsDataURL(f);
+ e.target.value='';
+};
+$('#cfg-apagar').onclick=function(){
+ if(!this.dataset.arm){
+  this.dataset.arm='1';this.classList.add('confirma');
+  this.textContent='⚠️ Tem certeza? Apaga progresso, casos e conta — clique de novo';
+  clearTimeout(this._t);this._t=setTimeout(()=>{this.dataset.arm='';this.classList.remove('confirma');this.textContent='🗑️ Apagar todos os meus dados';},6000);
+  return;
+ }
+ let n=0;
+ try{
+  Object.keys(localStorage).filter(k=>k.indexOf('mt_')===0).forEach(k=>{localStorage.removeItem(k);n++;});
+  sessionStorage.removeItem('mt_sess');
+ }catch(e){}
+ /* recomeço imediato (e o reload por cima, em browsers reais) */
+ renderHome();renderLand();ver('v-land');
+ try{window.location.reload()}catch(e){}
+};
+/* binds v7 */
+$('#b-patentes').onclick=()=>{renderPatentes();ver('v-patentes');};
+$('#b-config').onclick=()=>{renderConfig();ver('v-config');};
+aplicaTema();
 
 /* boot */
 renderHome();
