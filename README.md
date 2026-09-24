@@ -1,5 +1,7 @@
 # 🧠 Mentalista
 
+[![testes](https://github.com/lucasgabrieldevgg/mentalista/actions/workflows/ci.yml/badge.svg)](https://github.com/lucasgabrieldevgg/mentalista/actions/workflows/ci.yml)
+
 **Treinador de mentalista** — o app te dá missões diárias pra aprender a observar, ler comportamento e pensar como um investigador. *“As pessoas mostram quem são o tempo todo. Você só precisa observar.”*
 
 ## 🏠 Hoje
@@ -23,6 +25,17 @@ Casos fair-play com interrogatório por IA ficam como prática avançada de dedu
 ## ➕ Crie e compartilhe casos
 Editor assistido (a IA rascunha o caso inteiro a partir de 1 frase), casos privados, comunidade por códigos, conta **sem e-mail** (apelido + senha + chave de recuperação).
 
-Abra: **https://lucasgabrieldevgg.github.io/mentalista**
+## 🌐 Teste agora
+**https://lucasgabrieldevgg.github.io/mentalista** — grátis, sem conta; teu progresso fica no teu navegador.
 
-Feito por [lucasgabrieldevgg](https://github.com/lucasgabrieldevgg) 💜
+Feito por [lucasgabrieldevgg](https://github.com/lucasgabrieldevgg) 💚
+
+## Licença
+MIT — vê o arquivo [LICENSE](LICENSE).
+
+## Desenvolvimento
+```bash
+npm ci
+npm test   # suíte com 15 checks (jsdom)
+```
+Os testes rodam no push via GitHub Actions.

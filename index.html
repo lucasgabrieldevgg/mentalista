@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b0c10">
 <title>Mentalista — treine como um, todo dia</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0c10'/%3E%3Ctext x='32' y='46' font-size='34' text-anchor='middle'%3E%F0%9F%A7%A0%3C/text%3E%3C/svg%3E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Special+Elite&display=swap" rel="stylesheet">
 <style>
 /* ═══ v5 — MENTALISTA · escuro moderno + âmbar ═══ */
 :root{--bg:#0b0c10;--bg2:#121419;--bg3:#171a21;--tx:#f2f3f6;--muted:#98a0ad;--brand:#f5b73d;--brand2:#ffd268;--hot:#ff8a3d;--ok:#3ecf8e;--bad:#f0604d;--line:#23262e;--line2:#2e323c}
@@ -20,7 +20,7 @@ button{font:inherit;cursor:pointer;border:0;color:inherit;background:none}
 input,textarea,select{font:inherit}
 ::selection{background:rgba(245,183,61,.35)}
 header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;position:sticky;top:0;z-index:6;background:rgba(11,12,16,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand{display:flex;align-items:center;gap:10px;font-weight:400;font-size:18px;letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .brand .logo{font-size:22px}
 .brand small{color:var(--muted);font-weight:500;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase}
 .hbtns{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;flex-shrink:0;max-width:62vw}
@@ -32,7 +32,10 @@ header{display:flex;align-items:center;justify-content:space-between;gap:12px;pa
 main{max-width:760px;margin:0 auto;padding:22px 16px 120px;position:relative;z-index:1}
 .sheet{background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:0 16px 40px rgba(0,0,0,.35)}
 .badge{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:rgba(245,183,61,.1);border:1px solid rgba(245,183,61,.3);color:var(--brand2);border-radius:999px;padding:5px 12px;margin-bottom:14px}
-h1{font-size:29px;font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:8px}
+h1{font-family:'Special Elite','Courier New',Georgia,serif;font-weight:400;font-size:29px;letter-spacing:.01em;line-height:1.15;margin-bottom:8px}
+.brand,.frase-j{font-family:'Special Elite','Courier New',Georgia,serif}
+.frase-j{font-weight:400;letter-spacing:.01em}
+.land h1{font-size:35px}
 .frase{color:#e8c98a;font-size:16.5px;line-height:1.55;border-left:3px solid var(--brand);padding-left:14px;margin:12px 0 18px;font-weight:500}
 .sub{color:var(--muted);font-size:14.5px;line-height:1.65;margin-bottom:16px}
 .sub b,.mini b{color:var(--tx)}
@@ -326,7 +329,8 @@ li{margin-bottom:6px}
 .ds-cena{font-size:14.5px;line-height:1.7;color:#d4d9e0;background:var(--bg3);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0}
 .ds-pontos .top{margin-bottom:6px}
 .ds-ver{font-size:13.5px;color:#7fe0b2;font-weight:700;margin:10px 0 2px}
-@media(max-width:600px){h1{font-size:24px}.sheet{padding:18px}.ccap{width:92px;height:92px}.hero{height:150px}.pimg{height:128px}.pimg-x{height:128px}.brand small{display:none}.hj-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.hbtns{max-width:60vw;-webkit-mask-image:linear-gradient(90deg,#000 82%,transparent);mask-image:linear-gradient(90deg,#000 82%,transparent)}.brand{font-size:15px}.bname{display:none}
+h1{font-size:23px}.sheet{padding:18px}.ccap{width:92px;height:92px}.hero{height:150px}.pimg{height:128px}.pimg-x{height:128px}.brand small{display:none}.hj-grid{grid-template-columns:1fr}}
 
 
 /* ═══ v6: homepage, mentor ═══ */
@@ -429,6 +433,7 @@ html[data-tema="claro"] .nota{-webkit-text-fill-color:transparent}
 /* ═══ v8: rostos ═══ */
 .faces{display:grid;gap:12px;grid-template-columns:repeat(3,1fr)}
 @media(max-width:560px){.faces{grid-template-columns:repeat(2,1fr)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 .face{background:var(--bg3);border:1px solid var(--line);border-radius:14px;padding:8px 8px 10px;cursor:pointer;transition:border-color .18s,transform .18s;text-align:left}
 .face:hover{border-color:var(--brand);transform:translateY(-2px)}
 .face img{width:100%;height:150px;object-fit:cover;object-position:center 24%;border-radius:10px}
@@ -449,7 +454,7 @@ html[data-tema="claro"] .nota{-webkit-text-fill-color:transparent}
 </head>
 <body>
 <header>
-  <div class="brand"><span class="logo">🧠</span> Mentalista <small>treino diário</small></div>
+  <div class="brand"><span class="logo">🧠</span> <span class="bname">Mentalista</span> <small>treino diário</small></div>
   <div class="hbtns"><button class="hb" id="b-hoje">Hoje</button><button class="hb" id="b-prog">Programa</button><button class="hb" id="b-diario">Diário</button><button class="hb" id="b-mentor">🗣️ Mentor</button><button class="hb" id="b-desaf">Desafios</button><button class="hb" id="b-faces">🙂 Rostos</button><button class="hb" id="b-patentes">🏅 Patentes</button><button class="hb" id="b-home">Prática</button><button class="hb" id="b-escola">Escola</button></div>
   <button class="gear" id="b-config" title="Configurações">⚙️</button>
 </header>

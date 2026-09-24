@@ -1,0 +1,12 @@
+{
+  "name": "mentalista",
+  "private": true,
+  "version": "8.1.0",
+  "description": "🔍 Treinador de Mentalista/Investigador — casos fictícios, metodologia real (PEACE, antivieses, Locard)",
+  "scripts": {
+    "test": "node tests/mentalista_test.cjs"
+  },
+  "dependencies": {
+    "jsdom": "^29.1.1"
+  }
+}
