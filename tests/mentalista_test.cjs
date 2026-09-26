@@ -49,6 +49,16 @@ t('favicon 🧠 data-URI único', (html.match(/rel="icon"/g) || []).length === 1
 t('prefers-reduced-motion respeitado', /@media \(prefers-reduced-motion:reduce\)/.test(html));
 t('nav mobile com affordance de scroll (fade)', /mask-image:linear-gradient/.test(html));
 
+// ─── 🔎 dossiê (quero ir mais fundo) ───
+t('botão "Quero ir mais fundo" existe no hero', /Quero ir mais fundo neste tema/.test(html));
+t('fluxo usa busca científica via proxy (acao:busca)', /acao:'busca'/.test(html));
+t('cache do dossiê por missão (mt_mais_)', /mt_mais_w/.test(html));
+t('teto próprio de dossiês por dia (8)', /uso\.n>=8/.test(html));
+t('dossiê em Special Elite com aviso de fonte honesta', /dossie h4\{font-family:'Special Elite'/.test(html) && /IA pode errar/.test(html));
+
+t('planejador exige queries técnicas de até 3 palavras', /NO MÁXIMO 3 PALAVRAS/.test(html));
+t('fontes científicas: OpenAlex via proxy + Wikipedia', /api\.openalex\.org/.test(html) === false && /acao:'busca'/.test(html) && /en\.wikipedia\.org\/w\/api\.php/.test(html));
+
 // ─── segurança ───
 t('sem segredo no index.html', !/ghp_[A-Za-z0-9]{20,}|sk-or-v1-|sk-ant-|vcp_[A-Za-z0-9]{20,}/.test(html));
 

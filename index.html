@@ -433,6 +433,19 @@ html[data-tema="claro"] .nota{-webkit-text-fill-color:transparent}
 /* ═══ v8: rostos ═══ */
 .faces{display:grid;gap:12px;grid-template-columns:repeat(3,1fr)}
 @media(max-width:560px){.faces{grid-template-columns:repeat(2,1fr)}}
+/* ─── dossiê (quero ir mais fundo) ─── */
+.mais{background:transparent;border:1px dashed var(--line);border-radius:999px;padding:8px 14px;color:var(--muted);font-size:12.5px;font-weight:600;cursor:pointer;transition:.15s;margin-top:10px}
+.mais:hover{color:var(--brand2);border-color:var(--brand2)}
+.mais:disabled{opacity:.5;cursor:wait}
+.dossie{margin-top:14px;border:1px solid var(--line);border-left:3px solid var(--brand2);border-radius:12px;padding:14px 16px;background:rgba(255,255,255,.02);text-align:left}
+.dossie h4{font-family:'Special Elite','Courier New',Georgia,serif;font-weight:400;color:var(--brand2);margin:0 0 8px;font-size:14.5px}
+.dossie .dcorpo p{font-size:13.8px;margin:0 0 8px;line-height:1.65}
+.dfontes{margin:10px 0 6px;font-size:12.5px}
+.dfontes ol{margin:6px 0 0 18px;padding:0}
+.dfontes li{margin:3px 0}
+.dfontes a{color:var(--brand2);word-break:break-all}
+.dfontes small{color:var(--muted)}
+.dossie .mudo{color:var(--muted);font-size:11.5px;margin:8px 0 0}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 .face{background:var(--bg3);border:1px solid var(--line);border-radius:14px;padding:8px 8px 10px;cursor:pointer;transition:border-color .18s,transform .18s;text-align:left}
 .face:hover{border-color:var(--brand);transform:translateY(-2px)}
@@ -1713,6 +1726,57 @@ function patente(){const x=xpTotal();let p=PATENTES[0];PATENTES.forEach(q=>{if(x
 function proxPat(){const x=xpTotal();for(const q of PATENTES)if(x<q[0])return q;return null}
 function tipDoDia(){const dt=new Date();const n=Math.floor((dt-new Date(dt.getFullYear(),0,0))/864e5);return TIPS[n%TIPS.length]}
 /* ═══ HOJE ═══ */
+/* ═══ 🔎 Quero ir mais fundo — deep-research leve (sub-perguntas → ciência → dossiê) ═══ */
+function pintaDossie(o,painel){
+  painel.hidden=false;
+  painel.innerHTML='<div class="dossie"><h4>🧾 Dossiê — '+esc(o.tema)+'</h4><div class="dcorpo">'+o.txt.split(/\n+/).filter(Boolean).map(l=>'<p>'+l+'</p>').join('')+'</div>'+
+   (o.fontes&&o.fontes.length?'<div class="dfontes"><b>Fontes:</b><ol>'+o.fontes.map(f=>'<li><a href="'+esc(f.u)+'" target="_blank" rel="noopener">'+esc(f.t)+'</a> <small>'+esc(f.s)+'</small></li>').join('')+'</ol></div>':'')+
+   '<p class="mudo">Fontes: OpenAlex (ciência) + Wikipédia — grátis. IA pode errar: confere antes de acreditar. 🔎</p></div>';
+}
+async function maisFundo(w,m,P){
+  const chave='mt_mais_w'+w+'d'+m.d;
+  const painel=$('#hj-dossie');if(!painel)return;
+  const salvo=store.getJ(chave);
+  if(salvo){pintaDossie(salvo,painel);return}
+  const uso=store.getJ('mt_mais_uso')||{dia:'',n:0},hj=hojeISO();
+  if(uso.dia===hj&&uso.n>=8){toast('8 dossiês por dia deixam o cérebro tonto 😉 — amanhã tem mais');return}
+  if(contaUso()>=LIM_JOGO){toast('limite diário de IA — amanhã tem mais! 💙');return}
+  const b=$('#hj-mais');if(b){b.disabled=true;b.textContent='🔎 abrindo o dossiê…'}
+  painel.hidden=false;painel.innerHTML='<div class="dossie"><p class="mudo">🔎 montando teu dossiê… (planejando buscas → ciência → síntese)</p></div>';
+  painel.scrollIntoView({behavior:'smooth',block:'nearest'});
+  store.setJ('mt_mais_uso',{dia:hj,n:uso.dia===hj?uso.n+1:1});
+  try{
+    /* 1) planejador: 3 sub-perguntas curtas EM INGLÊS (bases acadêmicas) */
+    let queries=[];
+    try{
+      const plano=await callAI([{role:'system',content:'Você planeja buscas em bases acadêmicas. Responda SOMENTE com JSON {\"q\":[\"a\",\"b\",\"c\"]} — 3 buscas em INGLÊS com NO MÁXIMO 3 PALAVRAS cada, termos TÉCNICOS (ex.: \"microexpressions lie detection\", \"neutral face baseline\"). NUNCA frases completas, NUNCA metáforas, NUNCA mais de 3 palavras.'},
+        {role:'user',content:'TEMA: '+P.tema+'\nMISSÃO: '+m.m+'\nCONTEXTO: '+P.res+'. '+esc(P.chave)}]);
+      const p=tentaJSON(plano);
+      if(p&&Array.isArray(p.q))queries=p.q.filter(x=>typeof x==='string'&&x.length>3).slice(0,3);
+    }catch(e){}
+    if(!queries.length)queries=[String(P.tema).slice(0,80)];
+    /* 2) fontes: OpenAlex (via proxy, ciência) + Wikipédia pt (direto) */
+    const wiki=async q=>{try{const r=await fetch('https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch='+encodeURIComponent(q)+'&srlimit=2&format=json&origin=*');const d=await r.json();return ((d.query&&d.query.search)||[]).map(x=>({t:x.title,u:'https://pt.wikipedia.org/wiki/'+encodeURIComponent(x.title.replace(/ /g,'_')),s:'Wikipedia · '+String(x.snippet||'').replace(/<[^>]+>/g,'').slice(0,140)+'…'}))}catch(e){return[]}};
+    const web=async q=>{try{const r=await fetch(PROXY,{method:'POST',headers:{'Content-Type':'application/json','Origin':location.origin},body:JSON.stringify({acao:'busca',q})});const d=await r.json();return d.resultados||[]}catch(e){return[]}};
+    const wikiQ=queries[0]||String(P.tema).split(':')[0];
+    const listas=await Promise.all([...queries.slice(0,2).map(q=>web(q)),wiki(wikiQ)]);
+    const fontes=[],vistos=new Set();
+    listas.flat().forEach(f=>{const k=f.u;if(k&&!vistos.has(k)&&fontes.length<6){vistos.add(k);fontes.push(f)}});
+    /* 3) escritor: dossiê curto com citações [n] */
+    const bloco=fontes.map((f,i)=>('['+(i+1)+'] '+f.t+' — '+f.s+' ('+f.u+')')).join('\n');
+    const sintese=await callAI([
+      {role:'system',content:'Você escreve dossiês curtos de investigador para um app de treino de observação (tom: noir científico, honesto, zero papo). Responda em pt-BR, MÁXIMO 160 palavras, EXATAMENTE estas 3 seções:\nO QUE A CIÊNCIA DIZ: 2-3 frases, citando as fontes com [1] [2] (só números que existam na lista; se as fontes não cobrirem, ADMITA).\nLIGAÇÃO COM TUA MISSÃO: 1-2 frases práticas.\nEXPERIMENTO DE HOJE: 1 exercício concreto de observação de ~5 minutos.'},
+      {role:'user',content:'TEMA: '+P.tema+'\nMISSÃO: '+m.m+'\nFONTES ENCONTRADAS:\n'+(bloco||'(nenhuma — trabalhe só com o que é consenso científico bem estabelecido e diga que as fontes falharam)')}
+    ]);
+    const obj={txt:sintese.trim(),fontes,tema:P.tema,dia:hojeISO()};
+    store.setJ(chave,obj);
+    pintaDossie(obj,painel);
+  }catch(e){
+    painel.innerHTML='<div class="dossie"><p class="erro">🔎 '+esc(e.message)+'</p></div>';
+  }finally{
+    const bb=$('#hj-mais');if(bb){bb.disabled=false;bb.textContent='🔎 Quero ir mais fundo neste tema'}
+  }
+}
 function renderHoje(){
  const box=$('#hj-box');if(!box)return;
  const w=semanaAtual(),P=PROGRAMO[w-1],d=store.getJ('mt_dia')||{},feitos=doneNaSemana(w),total=Math.min(84,Object.keys(getLog()).length);
@@ -1736,6 +1800,8 @@ function renderHoje(){
     <div class="hj-k">Missão de hoje — Semana ${w} · Dia ${m.d} · ${P.tema}</div>
     <div class="hj-m">${esc(m.m)}</div>
     <div class="hj-pq"><b>Por que funciona:</b> ${P.res}. ${esc(P.chave)}.</div>
+    <button class="mais" id="hj-mais">🔎 Quero ir mais fundo neste tema</button>
+    <div id="hj-dossie" hidden></div>
     ${jaFez?'<button class="btn" disabled>✅ Treino de hoje concluído — volte amanhã 🔥</button>':'<button class="btn" id="hj-done">✅ Concluir treino de hoje (+10 XP)</button>'}
   </div>
   <div class="hj-bar"><span>Programa</span><span class="br"><i style="width:${progPct}%"></i></span><b>${progPct}%</b></div>
@@ -1744,6 +1810,8 @@ function renderHoje(){
     <button class="hj-act" id="hj-desaf"><span class="ico">🎭</span><b>Desafio de cena</b><small>uma situação real pra deduzir agora — a IA avalia seu raciocínio</small></button>
   </div>
   <div class="hj-tip">💡 <b>Dica do dia:</b> ${esc(tipDoDia())}</div>`;
+ const hm=$('#hj-mais');
+ if(hm)hm.onclick=()=>maisFundo(w,m,P);
  const hd=$('#hj-done');
  if(hd)hd.onclick=()=>{
   /* guard NO CLIQUE: outra aba (ou outro caminho) pode ter concluído depois deste render */

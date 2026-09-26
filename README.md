@@ -7,6 +7,9 @@
 ## 🏠 Hoje
 A missão do dia (5–10 min, pra fazer na vida real), sua sequência de dias 🔥, a dica do dia e o progresso do programa.
 
+## 🔎 Quero ir mais fundo
+Cada missão tem um tema científico. O botão **"Quero ir mais fundo neste tema"** monta um dossiê na hora: a IA planeja 3 buscas técnicas → consulta a **OpenAlex** (ciência real, com citações) e a Wikipédia → sintetiza "o que a ciência diz · ligação com tua missão · experimento de hoje", **com fontes clicáveis**. Grátis, com cache offline por missão e teto diário. Se as fontes não cobrirem o tema, o dossiê ADMITE — nunca inventa.
+
 ## 📅 Programa — 12 semanas
 - **Mês 1 · OLHAR** — linha de base, 3 canais, contexto, conforto/desconforto
 - **Mês 2 · LER** — rosto (Duchenne), voz, leitura segura + truques de vendedores/“videntes”, calibração com placar (~54% é a ciência!)
@@ -36,6 +39,6 @@ MIT — vê o arquivo [LICENSE](LICENSE).
 ## Desenvolvimento
 ```bash
 npm ci
-npm test   # suíte com 15 checks (jsdom)
+npm test   # suíte com 22 checks (jsdom)
 ```
 Os testes rodam no push via GitHub Actions.
