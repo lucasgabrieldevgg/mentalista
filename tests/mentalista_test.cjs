@@ -59,6 +59,13 @@ t('dossiê em Special Elite com aviso de fonte honesta', /dossie h4\{font-family
 t('planejador exige queries técnicas de até 3 palavras', /NO MÁXIMO 3 PALAVRAS/.test(html));
 t('fontes científicas: OpenAlex via proxy + Wikipedia', /api\.openalex\.org/.test(html) === false && /acao:'busca'/.test(html) && /en\.wikipedia\.org\/w\/api\.php/.test(html));
 
+// ─── anti-vibe v2 (modelo da casa — pesquisa 16 delatores) ───
+t('corpo em Spectral (nada de Inter/Roboto/system como personalidade)', /font-family:'Spectral',Georgia/.test(html) && !/font-family:'Inter'/.test(html) && !/font-family:'Roboto'/.test(html));
+t('zero gradiente decorativo (sobram só os 3 funcionais: fade do hero + 2 máscaras de scroll)', (html.match(/linear-gradient/g) || []).length === 3);
+t('chrome digitado: botões em Special Elite', /button\{font:inherit;font-family:'Special Elite'/.test(html));
+t('hero sem emoji-acima-do-título (ficha de arquivo digitada)', /ficha-linha/.test(html) && !/land-logo/.test(html));
+t('stats do hero em linha digitada, não pílulas', /land-stats \+\.hj-chip/.test(html.replace(/\n/g, ' ')) || /\.land-stats \.hj-chip/.test(html));
+
 // ─── segurança ───
 t('sem segredo no index.html', !/ghp_[A-Za-z0-9]{20,}|sk-or-v1-|sk-ant-|vcp_[A-Za-z0-9]{20,}/.test(html));
 
