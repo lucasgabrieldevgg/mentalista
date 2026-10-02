@@ -39,6 +39,6 @@ MIT — vê o arquivo [LICENSE](LICENSE).
 ## Desenvolvimento
 ```bash
 npm ci
-npm test   # suíte com 22 checks (jsdom)
+npm test   # suíte com 27 checks (jsdom)
 ```
 Os testes rodam no push via GitHub Actions.
