@@ -1,44 +1,46 @@
-# 🧠 Mentalista
+[🇧🇷 Português](README.pt-BR.md)
 
-[![testes](https://github.com/lucasgabrieldevgg/mentalista/actions/workflows/ci.yml/badge.svg)](https://github.com/lucasgabrieldevgg/mentalista/actions/workflows/ci.yml)
+# 🧠 Mentalist
 
-**Treinador de mentalista** — o app te dá missões diárias pra aprender a observar, ler comportamento e pensar como um investigador. *“As pessoas mostram quem são o tempo todo. Você só precisa observar.”*
+[![tests](https://github.com/lucasgabrieldevgg/mentalista/actions/workflows/ci.yml/badge.svg)](https://github.com/lucasgabrieldevgg/mentalista/actions/workflows/ci.yml)
 
-## 🏠 Hoje
-A missão do dia (5–10 min, pra fazer na vida real), sua sequência de dias 🔥, a dica do dia e o progresso do programa.
+**Mentalist trainer** — the app gives you daily missions to learn how to observe, read behavior and think like an investigator. *"People show who they are all the time. You just need to observe."*
 
-## 🔎 Quero ir mais fundo
-Cada missão tem um tema científico. O botão **"Quero ir mais fundo neste tema"** monta um dossiê na hora: a IA planeja 3 buscas técnicas → consulta a **OpenAlex** (ciência real, com citações) e a Wikipédia → sintetiza "o que a ciência diz · ligação com tua missão · experimento de hoje", **com fontes clicáveis**. Grátis, com cache offline por missão e teto diário. Se as fontes não cobrirem o tema, o dossiê ADMITE — nunca inventa.
+## 🏠 Today
+The mission of the day (5–10 min, to do in real life), your 🔥 day streak, the tip of the day and your program progress.
 
-## 📅 Programa — 12 semanas
-- **Mês 1 · OLHAR** — linha de base, 3 canais, contexto, conforto/desconforto
-- **Mês 2 · LER** — rosto (Duchenne), voz, leitura segura + truques de vendedores/“videntes”, calibração com placar (~54% é a ciência!)
-- **Mês 3 · AGIR** — perguntas que abrem pessoas, engano sem acusação, presença, o método completo
-Cada semana: lição de nível alto + **7 missões de campo**. 5 missões destravam a próxima semana.
+## 🔎 I want to go deeper
+Every mission has a scientific theme. The **"I want to go deeper on this"** button builds a dossier on the spot: the AI plans 3 technical searches → queries **OpenAlex** (real science, with citations) and Wikipedia → synthesizes "what science says · connection to your mission · today's experiment", **with clickable sources**. Free, with offline cache per mission and a daily cap. If the sources don't cover the theme, the dossier ADMITS it — it never makes things up.
 
-## 📓 Diário de leituras
-Analise um rosto/comportamento (pode ser **você no espelho**), escreva sua leitura e receba **coaching da IA**: o que é sólido, onde você projetou, e como TESTAR.
+## 📅 Program — 12 weeks
+- **Month 1 · OBSERVE** — baseline, 3 channels, context, comfort/discomfort
+- **Month 2 · READ** — faces (Duchenne), voice, safe reading + salesman/"psychic" tricks, calibration with a scorecard (~54% is the science!)
+- **Month 3 · ACT** — questions that open people up, calling out deception without accusing, presence, the complete method
+Each week: a high-level lesson + **7 field missions**. 5 missions unlock the next week.
 
-## 🎭 Desafios de cena
-12 situações reais pra deduzir (ônibus, reunião, mensagem no WhatsApp…). A IA avalia seu raciocínio e mostra a leitura modelo.
+## 📓 Reading journal
+Analyze a face/behavior (it can be **you in the mirror**), write your reading and get **AI coaching**: what's solid, where you projected, and how to TEST it.
 
-## 🗂️ Prática (casos) · 🎓 Escola · 📚 Glossário
-Casos fair-play com interrogatório por IA ficam como prática avançada de dedução. A Escola mantém a metodologia real (PEACE, Locard, vieses). Toda palavra difícil vem destacada — toque e a tabela lateral explica.
+## 🎭 Scene challenges
+12 real situations to deduce (bus, meeting, WhatsApp message…). The AI grades your reasoning and shows the model reading.
 
-## ➕ Crie e compartilhe casos
-Editor assistido (a IA rascunha o caso inteiro a partir de 1 frase), casos privados, comunidade por códigos, conta **sem e-mail** (apelido + senha + chave de recuperação).
+## 🗂️ Practice (cases) · 🎓 School · 📚 Glossary
+Fair-play cases with AI interrogation serve as advanced deduction practice. The School keeps the real methodology (PEACE, Locard, biases). Every hard word is highlighted — tap it and the side panel explains.
 
-## 🌐 Teste agora
-**https://lucasgabrieldevgg.github.io/mentalista** — grátis, sem conta; teu progresso fica no teu navegador.
+## ➕ Create and share cases
+Assisted editor (the AI drafts the whole case from 1 sentence), private cases, community via codes, **no-email account** (nickname + password + recovery key).
 
-Feito por [lucasgabrieldevgg](https://github.com/lucasgabrieldevgg) 💚
+## 🌐 Try it now
+**https://lucasgabrieldevgg.github.io/mentalista** — free, no account; your progress stays in your browser.
 
-## Licença
-MIT — vê o arquivo [LICENSE](LICENSE).
+Made by [lucasgabrieldevgg](https://github.com/lucasgabrieldevgg) 💚
 
-## Desenvolvimento
+## License
+MIT — see [LICENSE](LICENSE).
+
+## Development
 ```bash
 npm ci
-npm test   # suíte com 27 checks (jsdom)
+npm test   # 27-check suite (jsdom)
 ```
-Os testes rodam no push via GitHub Actions.
+Tests run on push via GitHub Actions.
